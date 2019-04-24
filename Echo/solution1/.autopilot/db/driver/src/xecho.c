@@ -38,3 +38,20 @@ u32 XEcho_Get_delay(XEcho *InstancePtr) {
     return Data;
 }
 
+void XEcho_Set_scale(XEcho *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XEcho_WriteReg(InstancePtr->Ctrl_bus_BaseAddress, XECHO_CTRL_BUS_ADDR_SCALE_DATA, Data);
+}
+
+u32 XEcho_Get_scale(XEcho *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XEcho_ReadReg(InstancePtr->Ctrl_bus_BaseAddress, XECHO_CTRL_BUS_ADDR_SCALE_DATA);
+    return Data;
+}
+

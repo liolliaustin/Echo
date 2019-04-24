@@ -10,13 +10,13 @@ int main() {
 	hls::stream<float> value_out("value_out");
 
 
-//	float value = 0.03f;
-//
-//	for(int j=0; j<350; j++){
-//
-	value_in << 1.0f;
-//		value += 0.005f;
-//	}
+	float value = 0.03f;
+
+	for(int j=0; j<350; j++){
+
+		value_in << value;
+		value += 0.005f;
+	}
 
 
 

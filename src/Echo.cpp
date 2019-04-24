@@ -20,10 +20,11 @@ void Echo(
 	float scale
 
 ){
+#pragma HLS LATENCY min=12
 
-#pragma HLS PIPELINE II=1
 #pragma HLS INTERFACE ap_ctrl_none port=return
 #pragma HLS INTERFACE s_axilite port=delay bundle=CTRL_BUS
+#pragma HLS INTERFACE s_axilite port=scale bundle=CTRL_BUS
 
 #pragma HLS INTERFACE axis register both port=value_in
 #pragma HLS INTERFACE axis register both port=value_out
@@ -33,12 +34,11 @@ void Echo(
 
 	static float buffer[MAX_BUFFER_SIZE];
 
-	float current_value = scale*buffer[readBuffer];
-	float val_in;
+	float current_value;
 
-	value_in >> val_in;
+	value_in >> current_value;
 
-	current_value += val_in;
+	current_value += scale*buffer[readBuffer];
 
 	buffer[writeBuffer] = current_value;
 

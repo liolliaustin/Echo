@@ -36,7 +36,8 @@ port (
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
     -- user signals
-    delay                 :out  STD_LOGIC_VECTOR(31 downto 0)
+    delay                 :out  STD_LOGIC_VECTOR(31 downto 0);
+    scale                 :out  STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity Echo_CTRL_BUS_s_axi;
 
@@ -48,6 +49,9 @@ end entity Echo_CTRL_BUS_s_axi;
 -- 0x10 : Data signal of delay
 --        bit 31~0 - delay[31:0] (Read/Write)
 -- 0x14 : reserved
+-- 0x18 : Data signal of scale
+--        bit 31~0 - scale[31:0] (Read/Write)
+-- 0x1c : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of Echo_CTRL_BUS_s_axi is
@@ -57,6 +61,8 @@ architecture behave of Echo_CTRL_BUS_s_axi is
     signal wnext, rnext: states;
     constant ADDR_DELAY_DATA_0 : INTEGER := 16#10#;
     constant ADDR_DELAY_CTRL   : INTEGER := 16#14#;
+    constant ADDR_SCALE_DATA_0 : INTEGER := 16#18#;
+    constant ADDR_SCALE_CTRL   : INTEGER := 16#1c#;
     constant ADDR_BITS         : INTEGER := 5;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -72,6 +78,7 @@ architecture behave of Echo_CTRL_BUS_s_axi is
     signal RVALID_t            : STD_LOGIC;
     -- internal registers
     signal int_delay           : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_scale           : UNSIGNED(31 downto 0) := (others => '0');
 
 
 begin
@@ -187,6 +194,8 @@ begin
                     case (TO_INTEGER(raddr)) is
                     when ADDR_DELAY_DATA_0 =>
                         rdata_data <= RESIZE(int_delay(31 downto 0), 32);
+                    when ADDR_SCALE_DATA_0 =>
+                        rdata_data <= RESIZE(int_scale(31 downto 0), 32);
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
@@ -197,6 +206,7 @@ begin
 
 -- ----------------------- Register logic ----------------
     delay                <= STD_LOGIC_VECTOR(int_delay);
+    scale                <= STD_LOGIC_VECTOR(int_scale);
 
     process (ACLK)
     begin
@@ -204,6 +214,17 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_DELAY_DATA_0) then
                     int_delay(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_delay(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_SCALE_DATA_0) then
+                    int_scale(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_scale(31 downto 0));
                 end if;
             end if;
         end if;

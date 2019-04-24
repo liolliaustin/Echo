@@ -6161,12 +6161,11 @@ class stream
 #pragma empty_line
 void Echo(
 #pragma empty_line
- hls::stream<int> & change,
  hls::stream<float> & value_in,
  hls::stream<float> & value_out,
 #pragma empty_line
  int delay,
- int scale
+ float scale
 #pragma empty_line
 );
 #pragma line 6 "src/Echo.cpp" 2
@@ -6174,113 +6173,54 @@ void Echo(
 //scale determines the level of reverb, normal is 1
 //delay determines the time between each echo stage
 #pragma empty_line
-//change is 0 when a note is being played or to be recorded for delay
-//change is 1 as long as a note is not being played or there is a note change
-#pragma empty_line
 //value_in is the feed-forward from the fm synth or the crossbar switch
 #pragma empty_line
 //value_out is the result to feed to the next crossbar/module
 #pragma empty_line
 void Echo(
 #pragma empty_line
- hls::stream<int> & change,
  hls::stream<float> & value_in,
  hls::stream<float> & value_out,
 #pragma empty_line
  int delay,
- int scale
+ float scale
 #pragma empty_line
 ){
+#pragma HLS LATENCY min=12
 #pragma empty_line
-#pragma HLS PIPELINE II=1
 #pragma HLS INTERFACE ap_ctrl_none port=return
 #pragma HLS INTERFACE s_axilite port=delay bundle=CTRL_BUS
+#pragma HLS INTERFACE s_axilite port=scale bundle=CTRL_BUS
 #pragma empty_line
-#pragma empty_line
-#pragma HLS INTERFACE axis register both port=change
 #pragma HLS INTERFACE axis register both port=value_in
 #pragma HLS INTERFACE axis register both port=value_out
 #pragma empty_line
- static int initial = 0;
- static int delayCount = 0;
+ static int readBuffer = 400 - delay;
  static int writeBuffer = 0;
 #pragma empty_line
- float outAccumulate=0;
+ static float buffer[400];
 #pragma empty_line
- static float buffer[48000];
+ float current_value;
 #pragma empty_line
- static int readBuffer1 = 0;
- static int readBuffer2 = 0;
- static int readBuffer3 = 0;
- static int readBuffer4 = 0;
+ value_in >> current_value;
 #pragma empty_line
- int changevalue;
+ current_value += scale*buffer[readBuffer];
 #pragma empty_line
- change >> changevalue;
+ buffer[writeBuffer] = current_value;
 #pragma empty_line
+ value_out << current_value;
 #pragma empty_line
-//stop writing if changing
- if(changevalue){
-  delayCount = 0;
-  readBuffer1 = 0;
-  readBuffer2 = 0;
-  readBuffer3 = 0;
-  readBuffer4 = 0;
-  writeBuffer = 0;
- }
+ if(readBuffer < 400)
+  readBuffer++;
+ else
+  readBuffer = 0;
 #pragma empty_line
-//only write data that can fit within the buffer
- if(writeBuffer < 48000){
-#pragma empty_line
-  value_in >> buffer[writeBuffer];
+ if(writeBuffer < 400)
   writeBuffer++;
-#pragma empty_line
- }
-#pragma empty_line
-//ensure that the note is being played without reverb for delay time then add layers of reverb
- if(delayCount > delay){
-#pragma empty_line
-  if(readBuffer1 <= writeBuffer){
-   outAccumulate += scale*0.5*buffer[readBuffer1];
-   readBuffer1++;
-  }
-#pragma empty_line
-  if(readBuffer1 > delay){
-#pragma empty_line
-   if(readBuffer2 <= writeBuffer){
-    outAccumulate += scale*0.25*buffer[readBuffer2];
-    readBuffer2++;
-   }
-#pragma empty_line
-   if(readBuffer2 > delay){
-#pragma empty_line
-    if(readBuffer3 <= writeBuffer){
-     outAccumulate += scale*0.125*buffer[readBuffer3];
-     readBuffer3++;
-    }
-#pragma empty_line
-    if(readBuffer3 > delay){
-#pragma empty_line
-     if(readBuffer4 <= writeBuffer){
-      outAccumulate += scale*0.0625*buffer[readBuffer4];
-      readBuffer4++;
-     }
+ else
+  writeBuffer = 0;
 #pragma empty_line
 #pragma empty_line
-     if(readBuffer3 == writeBuffer){
-      delayCount = 0;
-      initial = 0;
-      readBuffer1 = 0;
-      readBuffer2 = 0;
-      readBuffer3 = 0;
-      readBuffer4 = 0;
-     }
-    }
-   }
-  }
- }
 #pragma empty_line
- delayCount++;
 #pragma empty_line
- value_out << buffer[writeBuffer-1] + outAccumulate;
 }

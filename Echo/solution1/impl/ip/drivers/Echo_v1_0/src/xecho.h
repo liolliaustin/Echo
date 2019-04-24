@@ -83,6 +83,8 @@ int XEcho_Release(XEcho *InstancePtr);
 
 void XEcho_Set_delay(XEcho *InstancePtr, u32 Data);
 u32 XEcho_Get_delay(XEcho *InstancePtr);
+void XEcho_Set_scale(XEcho *InstancePtr, u32 Data);
+u32 XEcho_Get_scale(XEcho *InstancePtr);
 
 #ifdef __cplusplus
 }

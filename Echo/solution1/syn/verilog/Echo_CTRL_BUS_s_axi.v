@@ -33,7 +33,8 @@ module Echo_CTRL_BUS_s_axi
     output wire                          RVALID,
     input  wire                          RREADY,
     // user signals
-    output wire [31:0]                   delay
+    output wire [31:0]                   delay,
+    output wire [31:0]                   scale
 );
 //------------------------Address Info-------------------
 // 0x00 : reserved
@@ -43,12 +44,17 @@ module Echo_CTRL_BUS_s_axi
 // 0x10 : Data signal of delay
 //        bit 31~0 - delay[31:0] (Read/Write)
 // 0x14 : reserved
+// 0x18 : Data signal of scale
+//        bit 31~0 - scale[31:0] (Read/Write)
+// 0x1c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
     ADDR_DELAY_DATA_0 = 5'h10,
     ADDR_DELAY_CTRL   = 5'h14,
+    ADDR_SCALE_DATA_0 = 5'h18,
+    ADDR_SCALE_CTRL   = 5'h1c,
     WRIDLE            = 2'd0,
     WRDATA            = 2'd1,
     WRRESP            = 2'd2,
@@ -72,6 +78,7 @@ localparam
     wire [ADDR_BITS-1:0]          raddr;
     // internal registers
     reg  [31:0]                   int_delay = 'b0;
+    reg  [31:0]                   int_scale = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -166,6 +173,9 @@ always @(posedge ACLK) begin
                 ADDR_DELAY_DATA_0: begin
                     rdata <= int_delay[31:0];
                 end
+                ADDR_SCALE_DATA_0: begin
+                    rdata <= int_scale[31:0];
+                end
             endcase
         end
     end
@@ -174,6 +184,7 @@ end
 
 //------------------------Register logic-----------------
 assign delay = int_delay;
+assign scale = int_scale;
 // int_delay[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -181,6 +192,16 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_DELAY_DATA_0)
             int_delay[31:0] <= (WDATA[31:0] & wmask) | (int_delay[31:0] & ~wmask);
+    end
+end
+
+// int_scale[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_scale[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_SCALE_DATA_0)
+            int_scale[31:0] <= (WDATA[31:0] & wmask) | (int_scale[31:0] & ~wmask);
     end
 end
 

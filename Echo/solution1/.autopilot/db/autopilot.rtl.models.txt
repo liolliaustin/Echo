@@ -1,9 +1,5 @@
 Echo_fadd_32ns_32bkb
-Echo_fptrunc_64nscud
-Echo_fpext_32ns_6dEe
-Echo_dadd_64ns_64eOg
-Echo_dmul_64ns_64fYi
-Echo_sitodp_32ns_g8j
+Echo_fmul_32ns_32cud
 Echo_buffer_r
 Echo_CTRL_BUS_s_axi
 Echo

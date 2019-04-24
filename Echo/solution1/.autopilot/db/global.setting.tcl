@@ -5,7 +5,7 @@ set ClockList {ap_clk}
 set multiClockList {}
 set PortClockMap {}
 set CombLogicFlag 0
-set PipelineFlag 1
+set PipelineFlag 0
 set DataflowTaskPipelineFlag  1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
@@ -43,7 +43,7 @@ set SCTraceOption "all"
 set TargetInfo "xc7z100:ffg900:-1"
 set SourceFiles {sc {} c ../../src/Echo.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {/home/austin/ECE1373_GhostSynth/modules/echo/Echo/solution1/solution1.directive}
+set DirectiveFile {/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/solution1.directive}
 set TBFiles {verilog ../../src/Echo_test.cpp bc ../../src/Echo_test.cpp vhdl ../../src/Echo_test.cpp sc ../../src/Echo_test.cpp cas ../../src/Echo_test.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -13,8 +13,13 @@
 // 0x10 : Data signal of delay
 //        bit 31~0 - delay[31:0] (Read/Write)
 // 0x14 : reserved
+// 0x18 : Data signal of scale
+//        bit 31~0 - scale[31:0] (Read/Write)
+// 0x1c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XECHO_CTRL_BUS_ADDR_DELAY_DATA 0x10
 #define XECHO_CTRL_BUS_BITS_DELAY_DATA 32
+#define XECHO_CTRL_BUS_ADDR_SCALE_DATA 0x18
+#define XECHO_CTRL_BUS_BITS_SCALE_DATA 32
 

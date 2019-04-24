@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Echo'" level="0">
-<item name = "Date">Wed Apr 24 10:43:49 2019
+<item name = "Date">Wed Apr 24 13:52:52 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">Echo</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.60, 1.25</column>
+<column name="ap_clk">10.00, 7.26, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">54, 54, 4, 4, function</column>
+<column name="">12, 12, 13, 13, none</column>
 </table>
 </item>
 <item name = "Detail">
