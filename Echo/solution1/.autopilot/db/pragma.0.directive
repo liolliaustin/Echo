@@ -1,0 +1,46 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="PIPELINE">
+<option name="II" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="INTERFACE">
+<option name="ap_ctrl_none" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="return"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="delay"/>
+<option name="bundle" value="CTRL_BUS"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="INTERFACE">
+<option name="axis" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="both" positionalBoolean="register_mode" value=""/>
+<option name="port" positionalBoolean="4" value="change"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="INTERFACE">
+<option name="axis" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="both" positionalBoolean="register_mode" value=""/>
+<option name="port" positionalBoolean="4" value="value_in"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="Echo" label="">
+<pragma name="INTERFACE">
+<option name="axis" positionalBoolean="mode" value=""/>
+<option name="register" positionalBoolean="register" value=""/>
+<option name="both" positionalBoolean="register_mode" value=""/>
+<option name="port" positionalBoolean="4" value="value_out"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

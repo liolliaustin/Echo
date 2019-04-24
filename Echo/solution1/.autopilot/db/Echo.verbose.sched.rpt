@@ -1,0 +1,1347 @@
+
+
+================================================================
+== Vivado HLS Report for 'Echo'
+================================================================
+* Date:           Wed Apr 24 10:43:48 2019
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        Echo
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z100ffg900-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.60|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   54|   54|    4|    4| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 55
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 55
+* Pipeline: 1
+  Pipeline-0: II = 4, D = 55, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+* FSM state operations: 
+
+ <State 1>: 6.28ns
+ST_1: scale_read (19)  [1/1] 0.00ns
+._crit_edge:6  %scale_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %scale)
+
+ST_1: delay_read (20)  [1/1] 1.00ns
+._crit_edge:7  %delay_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %delay)
+
+ST_1: tmp_52 (27)  [2/2] 0.00ns  loc: src/Echo.cpp:52
+._crit_edge:14  %tmp_52 = call i32 @_ssdm_op_Read.axis.volatile.i32P(i32* %change_V)
+
+ST_1: tmp_9 (62)  [6/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+
+ <State 2>: 8.60ns
+ST_2: tmp_52 (27)  [1/2] 0.00ns  loc: src/Echo.cpp:52
+._crit_edge:14  %tmp_52 = call i32 @_ssdm_op_Read.axis.volatile.i32P(i32* %change_V)
+
+ST_2: tmp_1 (28)  [1/1] 3.26ns  loc: src/Echo.cpp:56
+._crit_edge:15  %tmp_1 = icmp eq i32 %tmp_52, 0
+
+ST_2: writeBuffer_load (34)  [1/1] 0.00ns  loc: src/Echo.cpp:66
+._crit_edge:21  %writeBuffer_load = load i32* @writeBuffer, align 4
+
+ST_2: writeBuffer_load_s (41)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:28  %writeBuffer_load_s = select i1 %tmp_1, i32 %writeBuffer_load, i32 0
+
+ST_2: tmp_2 (42)  [1/1] 3.26ns  loc: src/Echo.cpp:66
+._crit_edge:29  %tmp_2 = icmp slt i32 %writeBuffer_load_s, 48000
+
+ST_2: tmp_9 (62)  [5/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+
+ <State 3>: 6.28ns
+ST_3: tmp (47)  [2/2] 0.00ns  loc: src/Echo.cpp:68
+:2  %tmp = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+
+ST_3: tmp_9 (62)  [4/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+
+ <State 4>: 6.28ns
+ST_4: readBuffer3_load (32)  [1/1] 0.00ns  loc: src/Echo.cpp:90
+._crit_edge:19  %readBuffer3_load = load i32* @readBuffer3, align 4
+
+ST_4: not_tmp_1 (36)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:23  %not_tmp_1 = xor i1 %tmp_1, true
+
+ST_4: readBuffer3_load_s (39)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:26  %readBuffer3_load_s = select i1 %tmp_1, i32 %readBuffer3_load, i32 0
+
+ST_4: StgValue_71 (43)  [1/1] 1.59ns  loc: src/Echo.cpp:66
+._crit_edge:30  br i1 %tmp_2, label %0, label %._crit_edge9
+
+ST_4: tmp_3 (45)  [1/1] 0.00ns  loc: src/Echo.cpp:68
+:0  %tmp_3 = sext i32 %writeBuffer_load_s to i64
+
+ST_4: buffer_addr_5 (46)  [1/1] 0.00ns  loc: src/Echo.cpp:68
+:1  %buffer_addr_5 = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_3
+
+ST_4: tmp (47)  [1/2] 0.00ns  loc: src/Echo.cpp:68
+:2  %tmp = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+
+ST_4: StgValue_75 (48)  [1/1] 3.25ns  loc: src/Echo.cpp:68
+:3  store float %tmp, float* %buffer_addr_5, align 4
+
+ST_4: tmp_5 (49)  [1/1] 2.90ns  loc: src/Echo.cpp:69
+:4  %tmp_5 = add nsw i32 %writeBuffer_load_s, 1
+
+ST_4: StgValue_77 (50)  [1/1] 1.59ns  loc: src/Echo.cpp:71
+:5  br label %._crit_edge9
+
+ST_4: tmp_9 (62)  [3/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+
+ <State 5>: 8.60ns
+ST_5: delayCount_load (29)  [1/1] 0.00ns  loc: src/Echo.cpp:74
+._crit_edge:16  %delayCount_load = load i32* @delayCount, align 4
+
+ST_5: readBuffer1_load (30)  [1/1] 0.00ns  loc: src/Echo.cpp:76
+._crit_edge:17  %readBuffer1_load = load i32* @readBuffer1, align 4
+
+ST_5: readBuffer2_load (31)  [1/1] 0.00ns  loc: src/Echo.cpp:83
+._crit_edge:18  %readBuffer2_load = load i32* @readBuffer2, align 4
+
+ST_5: delayCount_load_s (35)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:22  %delayCount_load_s = select i1 %tmp_1, i32 %delayCount_load, i32 0
+
+ST_5: readBuffer1_load_s (37)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:24  %readBuffer1_load_s = select i1 %tmp_1, i32 %readBuffer1_load, i32 0
+
+ST_5: readBuffer2_load_s (38)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:25  %readBuffer2_load_s = select i1 %tmp_1, i32 %readBuffer2_load, i32 0
+
+ST_5: writeBuffer_flag_1 (52)  [1/1] 0.00ns  loc: src/Echo.cpp:56
+._crit_edge9:0  %writeBuffer_flag_1 = phi i1 [ true, %0 ], [ %not_tmp_1, %._crit_edge ]
+
+ST_5: writeBuffer_new_1 (53)  [1/1] 0.00ns  loc: src/Echo.cpp:69
+._crit_edge9:1  %writeBuffer_new_1 = phi i32 [ %tmp_5, %0 ], [ 0, %._crit_edge ]
+
+ST_5: tmp_6 (54)  [1/1] 0.00ns  loc: src/Echo.cpp:69
+._crit_edge9:2  %tmp_6 = phi i32 [ %tmp_5, %0 ], [ %writeBuffer_load_s, %._crit_edge ]
+
+ST_5: tmp_7 (55)  [1/1] 3.26ns  loc: src/Echo.cpp:74
+._crit_edge9:3  %tmp_7 = icmp sgt i32 %delayCount_load_s, %delay_read
+
+ST_5: StgValue_89 (56)  [1/1] 0.00ns  loc: src/Echo.cpp:56
+._crit_edge9:4  br i1 %writeBuffer_flag_1, label %mergeST9, label %._crit_edge9.new_ifconv
+
+ST_5: StgValue_90 (58)  [1/1] 0.00ns  loc: src/Echo.cpp:62
+mergeST9:0  store i32 %writeBuffer_new_1, i32* @writeBuffer, align 4
+
+ST_5: tmp_8 (61)  [1/1] 3.26ns  loc: src/Echo.cpp:76
+._crit_edge9.new_ifconv:0  %tmp_8 = icmp sgt i32 %readBuffer1_load_s, %tmp_6
+
+ST_5: tmp_9 (62)  [2/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+ST_5: tmp_4 (64)  [1/1] 0.00ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:3  %tmp_4 = sext i32 %readBuffer1_load_s to i64
+
+ST_5: buffer_addr (65)  [1/1] 0.00ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:4  %buffer_addr = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_4
+
+ST_5: buffer_load (66)  [2/2] 3.25ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:5  %buffer_load = load float* %buffer_addr, align 4
+
+ST_5: tmp_13 (71)  [1/1] 2.90ns  loc: src/Echo.cpp:78
+._crit_edge9.new_ifconv:10  %tmp_13 = add nsw i32 %readBuffer1_load_s, 1
+
+ST_5: tmp_14 (75)  [1/1] 0.00ns  loc: src/Echo.cpp:76 (grouped into LUT with out node tmp_15)
+._crit_edge9.new_ifconv:14  %tmp_14 = select i1 %tmp_8, i32 %readBuffer1_load_s, i32 %tmp_13
+
+ST_5: tmp_15 (77)  [1/1] 3.26ns  loc: src/Echo.cpp:81 (out node of the LUT)
+._crit_edge9.new_ifconv:16  %tmp_15 = icmp sgt i32 %tmp_14, %delay_read
+
+ST_5: tmp_16 (78)  [1/1] 3.26ns  loc: src/Echo.cpp:83
+._crit_edge9.new_ifconv:17  %tmp_16 = icmp sgt i32 %readBuffer2_load_s, %tmp_6
+
+ST_5: tmp_18 (80)  [1/1] 0.00ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:19  %tmp_18 = sext i32 %readBuffer2_load_s to i64
+
+ST_5: buffer_addr_1 (81)  [1/1] 0.00ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:20  %buffer_addr_1 = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_18
+
+ST_5: buffer_load_1 (82)  [2/2] 3.25ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:21  %buffer_load_1 = load float* %buffer_addr_1, align 4
+
+ST_5: tmp_23 (88)  [1/1] 2.90ns  loc: src/Echo.cpp:85
+._crit_edge9.new_ifconv:27  %tmp_23 = add nsw i32 %readBuffer2_load_s, 1
+
+ST_5: tmp_24 (92)  [1/1] 0.00ns  loc: src/Echo.cpp:83 (grouped into LUT with out node tmp_25)
+._crit_edge9.new_ifconv:31  %tmp_24 = select i1 %tmp_16, i32 %readBuffer2_load_s, i32 %tmp_23
+
+ST_5: tmp_25 (94)  [1/1] 3.26ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:33  %tmp_25 = icmp sgt i32 %tmp_24, %delay_read
+
+ST_5: tmp_26 (95)  [1/1] 3.26ns  loc: src/Echo.cpp:90
+._crit_edge9.new_ifconv:34  %tmp_26 = icmp sgt i32 %readBuffer3_load_s, %tmp_6
+
+ST_5: tmp_33 (105)  [1/1] 2.90ns  loc: src/Echo.cpp:92
+._crit_edge9.new_ifconv:44  %tmp_33 = add nsw i32 %readBuffer3_load_s, 1
+
+ST_5: tmp_34 (109)  [1/1] 2.07ns  loc: src/Echo.cpp:90
+._crit_edge9.new_ifconv:48  %tmp_34 = select i1 %tmp_26, i32 %readBuffer3_load_s, i32 %tmp_33
+
+ST_5: tmp_35 (111)  [1/1] 3.26ns  loc: src/Echo.cpp:95
+._crit_edge9.new_ifconv:50  %tmp_35 = icmp sgt i32 %tmp_34, %delay_read
+
+ST_5: tmp_44 (125)  [1/1] 3.26ns  loc: src/Echo.cpp:103
+._crit_edge9.new_ifconv:64  %tmp_44 = icmp eq i32 %tmp_34, %tmp_6
+
+
+ <State 6>: 8.28ns
+ST_6: readBuffer4_load (33)  [1/1] 0.00ns  loc: src/Echo.cpp:97
+._crit_edge:20  %readBuffer4_load = load i32* @readBuffer4, align 4
+
+ST_6: readBuffer4_load_s (40)  [1/1] 2.07ns  loc: src/Echo.cpp:56
+._crit_edge:27  %readBuffer4_load_s = select i1 %tmp_1, i32 %readBuffer4_load, i32 0
+
+ST_6: tmp_9 (62)  [1/6] 6.28ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:1  %tmp_9 = sitofp i32 %scale_read to double
+
+ST_6: buffer_load (66)  [1/2] 3.25ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:5  %buffer_load = load float* %buffer_addr, align 4
+
+ST_6: not_tmp_8 (72)  [1/1] 0.00ns  loc: src/Echo.cpp:76 (grouped into LUT with out node readBuffer1_flag_1)
+._crit_edge9.new_ifconv:11  %not_tmp_8 = xor i1 %tmp_8, true
+
+ST_6: readBuffer1_flag_1 (73)  [1/1] 2.07ns  loc: src/Echo.cpp:76 (out node of the LUT)
+._crit_edge9.new_ifconv:12  %readBuffer1_flag_1 = or i1 %not_tmp_8, %not_tmp_1
+
+ST_6: readBuffer1_new_1 (74)  [1/1] 2.07ns  loc: src/Echo.cpp:76
+._crit_edge9.new_ifconv:13  %readBuffer1_new_1 = select i1 %tmp_8, i32 0, i32 %tmp_13
+
+ST_6: buffer_load_1 (82)  [1/2] 3.25ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:21  %buffer_load_1 = load float* %buffer_addr_1, align 4
+
+ST_6: not_tmp_s (89)  [1/1] 0.00ns  loc: src/Echo.cpp:83 (grouped into LUT with out node readBuffer2_flag_1)
+._crit_edge9.new_ifconv:28  %not_tmp_s = xor i1 %tmp_16, true
+
+ST_6: readBuffer2_flag_1 (90)  [1/1] 2.07ns  loc: src/Echo.cpp:83 (out node of the LUT)
+._crit_edge9.new_ifconv:29  %readBuffer2_flag_1 = or i1 %not_tmp_s, %not_tmp_1
+
+ST_6: readBuffer2_new_1 (91)  [1/1] 2.07ns  loc: src/Echo.cpp:83
+._crit_edge9.new_ifconv:30  %readBuffer2_new_1 = select i1 %tmp_16, i32 0, i32 %tmp_23
+
+ST_6: tmp_28 (97)  [1/1] 0.00ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:36  %tmp_28 = sext i32 %readBuffer3_load_s to i64
+
+ST_6: buffer_addr_2 (98)  [1/1] 0.00ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:37  %buffer_addr_2 = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_28
+
+ST_6: buffer_load_2 (99)  [2/2] 3.25ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:38  %buffer_load_2 = load float* %buffer_addr_2, align 4
+
+ST_6: not_tmp_2 (106)  [1/1] 0.00ns  loc: src/Echo.cpp:90 (grouped into LUT with out node readBuffer3_flag_1)
+._crit_edge9.new_ifconv:45  %not_tmp_2 = xor i1 %tmp_26, true
+
+ST_6: readBuffer3_flag_1 (107)  [1/1] 2.07ns  loc: src/Echo.cpp:90 (out node of the LUT)
+._crit_edge9.new_ifconv:46  %readBuffer3_flag_1 = or i1 %not_tmp_2, %not_tmp_1
+
+ST_6: readBuffer3_new_1 (108)  [1/1] 2.07ns  loc: src/Echo.cpp:90
+._crit_edge9.new_ifconv:47  %readBuffer3_new_1 = select i1 %tmp_26, i32 0, i32 %tmp_33
+
+ST_6: tmp_36 (112)  [1/1] 3.26ns  loc: src/Echo.cpp:97
+._crit_edge9.new_ifconv:51  %tmp_36 = icmp sgt i32 %readBuffer4_load_s, %tmp_6
+
+ST_6: tmp_38 (114)  [1/1] 0.00ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:53  %tmp_38 = sext i32 %readBuffer4_load_s to i64
+
+ST_6: buffer_addr_3 (115)  [1/1] 0.00ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:54  %buffer_addr_3 = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_38
+
+ST_6: buffer_load_3 (116)  [2/2] 3.25ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:55  %buffer_load_3 = load float* %buffer_addr_3, align 4
+
+ST_6: tmp_43 (122)  [1/1] 2.90ns  loc: src/Echo.cpp:99
+._crit_edge9.new_ifconv:61  %tmp_43 = add nsw i32 %readBuffer4_load_s, 1
+
+ST_6: not_tmp_3 (123)  [1/1] 0.00ns  loc: src/Echo.cpp:97 (grouped into LUT with out node readBuffer4_flag_2)
+._crit_edge9.new_ifconv:62  %not_tmp_3 = xor i1 %tmp_36, true
+
+ST_6: p_readBuffer1_flag_1 (126)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer1_flag_2)
+._crit_edge9.new_ifconv:65  %p_readBuffer1_flag_1 = or i1 %tmp_44, %readBuffer1_flag_1
+
+ST_6: p_readBuffer1_new_1 (127)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer1_new_2)
+._crit_edge9.new_ifconv:66  %p_readBuffer1_new_1 = select i1 %tmp_44, i32 0, i32 %readBuffer1_new_1
+
+ST_6: p_readBuffer2_flag_1 (128)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer2_flag_2)
+._crit_edge9.new_ifconv:67  %p_readBuffer2_flag_1 = or i1 %tmp_44, %readBuffer2_flag_1
+
+ST_6: p_readBuffer2_new_1 (129)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer2_new_2)
+._crit_edge9.new_ifconv:68  %p_readBuffer2_new_1 = select i1 %tmp_44, i32 0, i32 %readBuffer2_new_1
+
+ST_6: p_readBuffer3_flag_1 (130)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer3_flag_2)
+._crit_edge9.new_ifconv:69  %p_readBuffer3_flag_1 = or i1 %tmp_44, %readBuffer3_flag_1
+
+ST_6: p_readBuffer3_new_1 (131)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer3_new_2)
+._crit_edge9.new_ifconv:70  %p_readBuffer3_new_1 = select i1 %tmp_44, i32 0, i32 %readBuffer3_new_1
+
+ST_6: tmp5 (132)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer4_flag_2)
+._crit_edge9.new_ifconv:71  %tmp5 = or i1 %tmp_44, %not_tmp_1
+
+ST_6: p_readBuffer4_flag_1 (133)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer4_flag_2)
+._crit_edge9.new_ifconv:72  %p_readBuffer4_flag_1 = or i1 %tmp5, %not_tmp_3
+
+ST_6: tmp_45 (134)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer4_new_2)
+._crit_edge9.new_ifconv:73  %tmp_45 = or i1 %tmp_44, %tmp_36
+
+ST_6: p_readBuffer4_new_1 (135)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node readBuffer4_new_2)
+._crit_edge9.new_ifconv:74  %p_readBuffer4_new_1 = select i1 %tmp_45, i32 0, i32 %tmp_43
+
+ST_6: p_delayCount_load_s (136)  [1/1] 0.00ns  loc: src/Echo.cpp:103 (grouped into LUT with out node tmp_48)
+._crit_edge9.new_ifconv:75  %p_delayCount_load_s = select i1 %tmp_44, i32 0, i32 %delayCount_load_s
+
+ST_6: sel_tmp8 (137)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node readBuffer1_flag_2)
+._crit_edge9.new_ifconv:76  %sel_tmp8 = select i1 %tmp_7, i1 %readBuffer1_flag_1, i1 %not_tmp_1
+
+ST_6: sel_tmp9 (138)  [1/1] 2.07ns  loc: src/Echo.cpp:74
+._crit_edge9.new_ifconv:77  %sel_tmp9 = and i1 %tmp_7, %tmp_15
+
+ST_6: tmp6 (139)  [1/1] 0.00ns  loc: src/Echo.cpp:88 (grouped into LUT with out node sel_tmp)
+._crit_edge9.new_ifconv:78  %tmp6 = and i1 %tmp_25, %tmp_35
+
+ST_6: sel_tmp (140)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:79  %sel_tmp = and i1 %tmp6, %sel_tmp9
+
+ST_6: readBuffer1_flag_2 (141)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:80  %readBuffer1_flag_2 = select i1 %sel_tmp, i1 %p_readBuffer1_flag_1, i1 %sel_tmp8
+
+ST_6: sel_tmp1 (142)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node readBuffer1_new_2)
+._crit_edge9.new_ifconv:81  %sel_tmp1 = select i1 %tmp_7, i32 %readBuffer1_new_1, i32 0
+
+ST_6: readBuffer1_new_2 (143)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:82  %readBuffer1_new_2 = select i1 %sel_tmp, i32 %p_readBuffer1_new_1, i32 %sel_tmp1
+
+ST_6: sel_tmp2 (144)  [1/1] 0.00ns  loc: src/Echo.cpp:81 (grouped into LUT with out node sel_tmp3)
+._crit_edge9.new_ifconv:83  %sel_tmp2 = xor i1 %tmp_15, true
+
+ST_6: sel_tmp3 (145)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:84  %sel_tmp3 = and i1 %tmp_7, %sel_tmp2
+
+ST_6: sel_tmp4 (146)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp5)
+._crit_edge9.new_ifconv:85  %sel_tmp4 = select i1 %sel_tmp3, i1 %not_tmp_1, i1 %readBuffer2_flag_1
+
+ST_6: sel_tmp5 (147)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:86  %sel_tmp5 = select i1 %tmp_7, i1 %sel_tmp4, i1 %not_tmp_1
+
+ST_6: readBuffer2_flag_2 (148)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:87  %readBuffer2_flag_2 = select i1 %sel_tmp, i1 %p_readBuffer2_flag_1, i1 %sel_tmp5
+
+ST_6: sel_tmp6 (149)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node readBuffer2_new_2)
+._crit_edge9.new_ifconv:88  %sel_tmp6 = select i1 %sel_tmp3, i32 0, i32 %readBuffer2_new_1
+
+ST_6: sel_tmp7 (150)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node readBuffer2_new_2)
+._crit_edge9.new_ifconv:89  %sel_tmp7 = select i1 %tmp_7, i32 %sel_tmp6, i32 0
+
+ST_6: readBuffer2_new_2 (151)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:90  %readBuffer2_new_2 = select i1 %sel_tmp, i32 %p_readBuffer2_new_1, i32 %sel_tmp7
+
+ST_6: sel_tmp10 (152)  [1/1] 0.00ns  loc: src/Echo.cpp:88 (grouped into LUT with out node sel_tmp11)
+._crit_edge9.new_ifconv:91  %sel_tmp10 = xor i1 %tmp_25, true
+
+ST_6: sel_tmp11 (153)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:92  %sel_tmp11 = and i1 %sel_tmp9, %sel_tmp10
+
+ST_6: sel_tmp12 (154)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp13)
+._crit_edge9.new_ifconv:93  %sel_tmp12 = select i1 %sel_tmp11, i1 %not_tmp_1, i1 %readBuffer3_flag_1
+
+ST_6: sel_tmp13 (155)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:94  %sel_tmp13 = select i1 %sel_tmp3, i1 %not_tmp_1, i1 %sel_tmp12
+
+ST_6: sel_tmp14 (156)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node readBuffer3_flag_2)
+._crit_edge9.new_ifconv:95  %sel_tmp14 = select i1 %tmp_7, i1 %sel_tmp13, i1 %not_tmp_1
+
+ST_6: readBuffer3_flag_2 (157)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:96  %readBuffer3_flag_2 = select i1 %sel_tmp, i1 %p_readBuffer3_flag_1, i1 %sel_tmp14
+
+ST_6: tmp_46 (158)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp16)
+._crit_edge9.new_ifconv:97  %tmp_46 = or i1 %sel_tmp3, %sel_tmp11
+
+ST_6: sel_tmp15 (159)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp16)
+._crit_edge9.new_ifconv:98  %sel_tmp15 = select i1 %tmp_46, i32 0, i32 %readBuffer3_new_1
+
+ST_6: sel_tmp16 (160)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:99  %sel_tmp16 = select i1 %tmp_7, i32 %sel_tmp15, i32 0
+
+ST_6: readBuffer3_new_2 (161)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:100  %readBuffer3_new_2 = select i1 %sel_tmp, i32 %p_readBuffer3_new_1, i32 %sel_tmp16
+
+ST_6: readBuffer4_flag_2 (162)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:101  %readBuffer4_flag_2 = select i1 %sel_tmp, i1 %p_readBuffer4_flag_1, i1 %not_tmp_1
+
+ST_6: readBuffer4_new_2 (163)  [1/1] 2.07ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:102  %readBuffer4_new_2 = select i1 %sel_tmp, i32 %p_readBuffer4_new_1, i32 0
+
+ST_6: tmp_47 (164)  [1/1] 0.00ns  loc: src/Echo.cpp:88 (grouped into LUT with out node tmp_48)
+._crit_edge9.new_ifconv:103  %tmp_47 = select i1 %sel_tmp, i32 %p_delayCount_load_s, i32 %delayCount_load_s
+
+ST_6: tmp_48 (169)  [1/1] 2.90ns  loc: src/Echo.cpp:116 (out node of the LUT)
+._crit_edge9.new_ifconv:108  %tmp_48 = add nsw i32 %tmp_47, 1
+
+ST_6: StgValue_174 (176)  [1/1] 0.00ns  loc: src/Echo.cpp:88
+._crit_edge9.new_ifconv:115  br i1 %readBuffer4_flag_2, label %mergeST7, label %._crit_edge10.new8
+
+ST_6: StgValue_175 (178)  [1/1] 0.00ns  loc: src/Echo.cpp:61
+mergeST7:0  store i32 %readBuffer4_new_2, i32* @readBuffer4, align 4
+
+ST_6: StgValue_176 (181)  [1/1] 0.00ns  loc: src/Echo.cpp:88
+._crit_edge10.new8:0  br i1 %readBuffer3_flag_2, label %mergeST5, label %._crit_edge10.new6
+
+ST_6: StgValue_177 (183)  [1/1] 0.00ns  loc: src/Echo.cpp:60
+mergeST5:0  store i32 %readBuffer3_new_2, i32* @readBuffer3, align 4
+
+ST_6: StgValue_178 (186)  [1/1] 0.00ns  loc: src/Echo.cpp:88
+._crit_edge10.new6:0  br i1 %readBuffer2_flag_2, label %mergeST3, label %._crit_edge10.new4
+
+ST_6: StgValue_179 (188)  [1/1] 0.00ns  loc: src/Echo.cpp:59
+mergeST3:0  store i32 %readBuffer2_new_2, i32* @readBuffer2, align 4
+
+ST_6: StgValue_180 (191)  [1/1] 0.00ns  loc: src/Echo.cpp:88
+._crit_edge10.new4:0  br i1 %readBuffer1_flag_2, label %mergeST1, label %._crit_edge10.new2
+
+ST_6: StgValue_181 (193)  [1/1] 0.00ns  loc: src/Echo.cpp:58
+mergeST1:0  store i32 %readBuffer1_new_2, i32* @readBuffer1, align 4
+
+ST_6: StgValue_182 (196)  [1/1] 0.00ns  loc: src/Echo.cpp:57
+._crit_edge10.new2:0  store i32 %tmp_48, i32* @delayCount, align 4
+
+
+ <State 7>: 7.79ns
+ST_7: tmp_s (63)  [6/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_7: tmp_10 (67)  [1/1] 5.55ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:6  %tmp_10 = fpext float %buffer_load to double
+
+ST_7: tmp_17 (79)  [6/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_7: tmp_19 (83)  [1/1] 5.55ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:22  %tmp_19 = fpext float %buffer_load_1 to double
+
+ST_7: buffer_load_2 (99)  [1/2] 3.25ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:38  %buffer_load_2 = load float* %buffer_addr_2, align 4
+
+ST_7: buffer_load_3 (116)  [1/2] 3.25ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:55  %buffer_load_3 = load float* %buffer_addr_3, align 4
+
+ST_7: tmp_49 (170)  [1/1] 2.90ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:109  %tmp_49 = add nsw i32 %tmp_6, -1
+
+ST_7: tmp_50 (171)  [1/1] 0.00ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:110  %tmp_50 = sext i32 %tmp_49 to i64
+
+ST_7: buffer_addr_4 (172)  [1/1] 0.00ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:111  %buffer_addr_4 = getelementptr inbounds [48000 x float]* @buffer_r, i64 0, i64 %tmp_50
+
+ST_7: buffer_load_4 (173)  [2/2] 3.25ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:112  %buffer_load_4 = load float* %buffer_addr_4, align 4
+
+
+ <State 8>: 7.79ns
+ST_8: tmp_s (63)  [5/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_8: tmp_17 (79)  [5/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_8: tmp_27 (96)  [6/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_8: tmp_29 (100)  [1/1] 5.55ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:39  %tmp_29 = fpext float %buffer_load_2 to double
+
+ST_8: tmp_37 (113)  [6/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+ST_8: buffer_load_4 (173)  [1/2] 3.25ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:112  %buffer_load_4 = load float* %buffer_addr_4, align 4
+
+
+ <State 9>: 7.79ns
+ST_9: tmp_s (63)  [4/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_9: tmp_17 (79)  [4/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_9: tmp_27 (96)  [5/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_9: tmp_37 (113)  [5/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+ST_9: tmp_39 (117)  [1/1] 5.55ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:56  %tmp_39 = fpext float %buffer_load_3 to double
+
+
+ <State 10>: 7.79ns
+ST_10: tmp_s (63)  [3/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_10: tmp_17 (79)  [3/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_10: tmp_27 (96)  [4/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_10: tmp_37 (113)  [4/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+
+ <State 11>: 7.79ns
+ST_11: tmp_s (63)  [2/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_11: tmp_17 (79)  [2/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_11: tmp_27 (96)  [3/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_11: tmp_37 (113)  [3/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+
+ <State 12>: 7.79ns
+ST_12: tmp_s (63)  [1/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:2  %tmp_s = fmul double %tmp_9, 5.000000e-01
+
+ST_12: tmp_17 (79)  [1/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:18  %tmp_17 = fmul double %tmp_9, 2.500000e-01
+
+ST_12: tmp_27 (96)  [2/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_12: tmp_37 (113)  [2/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+
+ <State 13>: 7.79ns
+ST_13: tmp_11 (68)  [6/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_13: tmp_20 (84)  [6/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_13: tmp_27 (96)  [1/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:35  %tmp_27 = fmul double %tmp_9, 1.250000e-01
+
+ST_13: tmp_37 (113)  [1/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:52  %tmp_37 = fmul double %tmp_9, 6.250000e-02
+
+
+ <State 14>: 7.79ns
+ST_14: tmp_11 (68)  [5/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_14: tmp_20 (84)  [5/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_14: tmp_30 (101)  [6/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_14: tmp_40 (118)  [6/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 15>: 7.79ns
+ST_15: tmp_11 (68)  [4/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_15: tmp_20 (84)  [4/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_15: tmp_30 (101)  [5/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_15: tmp_40 (118)  [5/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 16>: 7.79ns
+ST_16: tmp_11 (68)  [3/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_16: tmp_20 (84)  [3/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_16: tmp_30 (101)  [4/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_16: tmp_40 (118)  [4/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 17>: 7.79ns
+ST_17: tmp_11 (68)  [2/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_17: tmp_20 (84)  [2/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_17: tmp_30 (101)  [3/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_17: tmp_40 (118)  [3/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 18>: 7.79ns
+ST_18: tmp_11 (68)  [1/6] 7.79ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:7  %tmp_11 = fmul double %tmp_s, %tmp_10
+
+ST_18: tmp_20 (84)  [1/6] 7.79ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:23  %tmp_20 = fmul double %tmp_17, %tmp_19
+
+ST_18: tmp_30 (101)  [2/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_18: tmp_40 (118)  [2/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 19>: 8.23ns
+ST_19: tmp_12 (69)  [5/5] 8.23ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:8  %tmp_12 = fadd double %tmp_11, 0.000000e+00
+
+ST_19: tmp_30 (101)  [1/6] 7.79ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:40  %tmp_30 = fmul double %tmp_27, %tmp_29
+
+ST_19: tmp_40 (118)  [1/6] 7.79ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:57  %tmp_40 = fmul double %tmp_37, %tmp_39
+
+
+ <State 20>: 8.23ns
+ST_20: tmp_12 (69)  [4/5] 8.23ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:8  %tmp_12 = fadd double %tmp_11, 0.000000e+00
+
+
+ <State 21>: 8.23ns
+ST_21: tmp_12 (69)  [3/5] 8.23ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:8  %tmp_12 = fadd double %tmp_11, 0.000000e+00
+
+
+ <State 22>: 8.23ns
+ST_22: tmp_12 (69)  [2/5] 8.23ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:8  %tmp_12 = fadd double %tmp_11, 0.000000e+00
+
+
+ <State 23>: 8.23ns
+ST_23: tmp_12 (69)  [1/5] 8.23ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:8  %tmp_12 = fadd double %tmp_11, 0.000000e+00
+
+
+ <State 24>: 8.57ns
+ST_24: outAccumulate (70)  [1/1] 6.50ns  loc: src/Echo.cpp:77
+._crit_edge9.new_ifconv:9  %outAccumulate = fptrunc double %tmp_12 to float
+
+ST_24: outAccumulate1 (76)  [1/1] 2.07ns  loc: src/Echo.cpp:76
+._crit_edge9.new_ifconv:15  %outAccumulate1 = select i1 %tmp_8, float 0.000000e+00, float %outAccumulate
+
+
+ <State 25>: 5.55ns
+ST_25: tmp_21 (85)  [1/1] 5.55ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:24  %tmp_21 = fpext float %outAccumulate1 to double
+
+
+ <State 26>: 8.23ns
+ST_26: tmp_22 (86)  [5/5] 8.23ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:25  %tmp_22 = fadd double %tmp_21, %tmp_20
+
+
+ <State 27>: 8.23ns
+ST_27: tmp_22 (86)  [4/5] 8.23ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:25  %tmp_22 = fadd double %tmp_21, %tmp_20
+
+
+ <State 28>: 8.23ns
+ST_28: tmp_22 (86)  [3/5] 8.23ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:25  %tmp_22 = fadd double %tmp_21, %tmp_20
+
+
+ <State 29>: 8.23ns
+ST_29: tmp_22 (86)  [2/5] 8.23ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:25  %tmp_22 = fadd double %tmp_21, %tmp_20
+
+
+ <State 30>: 8.23ns
+ST_30: tmp_22 (86)  [1/5] 8.23ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:25  %tmp_22 = fadd double %tmp_21, %tmp_20
+
+
+ <State 31>: 8.57ns
+ST_31: outAccumulate_4 (87)  [1/1] 6.50ns  loc: src/Echo.cpp:84
+._crit_edge9.new_ifconv:26  %outAccumulate_4 = fptrunc double %tmp_22 to float
+
+ST_31: outAccumulate_1 (93)  [1/1] 2.07ns  loc: src/Echo.cpp:83
+._crit_edge9.new_ifconv:32  %outAccumulate_1 = select i1 %tmp_16, float %outAccumulate1, float %outAccumulate_4
+
+
+ <State 32>: 5.55ns
+ST_32: tmp_31 (102)  [1/1] 5.55ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:41  %tmp_31 = fpext float %outAccumulate_1 to double
+
+
+ <State 33>: 8.23ns
+ST_33: tmp_32 (103)  [5/5] 8.23ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:42  %tmp_32 = fadd double %tmp_31, %tmp_30
+
+
+ <State 34>: 8.23ns
+ST_34: tmp_32 (103)  [4/5] 8.23ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:42  %tmp_32 = fadd double %tmp_31, %tmp_30
+
+
+ <State 35>: 8.23ns
+ST_35: tmp_32 (103)  [3/5] 8.23ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:42  %tmp_32 = fadd double %tmp_31, %tmp_30
+
+
+ <State 36>: 8.23ns
+ST_36: tmp_32 (103)  [2/5] 8.23ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:42  %tmp_32 = fadd double %tmp_31, %tmp_30
+
+
+ <State 37>: 8.23ns
+ST_37: tmp_32 (103)  [1/5] 8.23ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:42  %tmp_32 = fadd double %tmp_31, %tmp_30
+
+
+ <State 38>: 8.57ns
+ST_38: outAccumulate_5 (104)  [1/1] 6.50ns  loc: src/Echo.cpp:91
+._crit_edge9.new_ifconv:43  %outAccumulate_5 = fptrunc double %tmp_32 to float
+
+ST_38: outAccumulate_2 (110)  [1/1] 2.07ns  loc: src/Echo.cpp:90
+._crit_edge9.new_ifconv:49  %outAccumulate_2 = select i1 %tmp_26, float %outAccumulate_1, float %outAccumulate_5
+
+
+ <State 39>: 2.07ns
+ST_39: sel_tmp17 (165)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp19)
+._crit_edge9.new_ifconv:104  %sel_tmp17 = select i1 %sel_tmp11, float %outAccumulate_1, float %outAccumulate_2
+
+ST_39: sel_tmp18 (166)  [1/1] 0.00ns  loc: src/Echo.cpp:74 (grouped into LUT with out node sel_tmp19)
+._crit_edge9.new_ifconv:105  %sel_tmp18 = select i1 %sel_tmp3, float %outAccumulate1, float %sel_tmp17
+
+ST_39: sel_tmp19 (167)  [1/1] 2.07ns  loc: src/Echo.cpp:74 (out node of the LUT)
+._crit_edge9.new_ifconv:106  %sel_tmp19 = select i1 %tmp_7, float %sel_tmp18, float 0.000000e+00
+
+
+ <State 40>: 0.00ns
+
+ <State 41>: 0.00ns
+
+ <State 42>: 5.55ns
+ST_42: tmp_41 (119)  [1/1] 5.55ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:58  %tmp_41 = fpext float %outAccumulate_2 to double
+
+
+ <State 43>: 0.00ns
+
+ <State 44>: 8.23ns
+ST_44: tmp_42 (120)  [5/5] 8.23ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:59  %tmp_42 = fadd double %tmp_41, %tmp_40
+
+
+ <State 45>: 8.23ns
+ST_45: tmp_42 (120)  [4/5] 8.23ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:59  %tmp_42 = fadd double %tmp_41, %tmp_40
+
+
+ <State 46>: 8.23ns
+ST_46: tmp_42 (120)  [3/5] 8.23ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:59  %tmp_42 = fadd double %tmp_41, %tmp_40
+
+
+ <State 47>: 8.23ns
+ST_47: tmp_42 (120)  [2/5] 8.23ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:59  %tmp_42 = fadd double %tmp_41, %tmp_40
+
+
+ <State 48>: 8.23ns
+ST_48: tmp_42 (120)  [1/5] 8.23ns  loc: src/Echo.cpp:98
+._crit_edge9.new_ifconv:59  %tmp_42 = fadd double %tmp_41, %tmp_40
+
+
+ <State 49>: 6.50ns
+ST_49: outAccumulate_6 (121)  [1/1] 0.00ns  loc: src/Echo.cpp:98 (grouped into LUT with out node outAccumulate_7)
+._crit_edge9.new_ifconv:60  %outAccumulate_6 = fptrunc double %tmp_42 to float
+
+ST_49: outAccumulate_3 (124)  [1/1] 0.00ns  loc: src/Echo.cpp:97 (grouped into LUT with out node outAccumulate_7)
+._crit_edge9.new_ifconv:63  %outAccumulate_3 = select i1 %tmp_36, float %outAccumulate_2, float %outAccumulate_6
+
+ST_49: outAccumulate_7 (168)  [1/1] 6.50ns  loc: src/Echo.cpp:88 (out node of the LUT)
+._crit_edge9.new_ifconv:107  %outAccumulate_7 = select i1 %sel_tmp, float %outAccumulate_3, float %sel_tmp19
+
+
+ <State 50>: 7.26ns
+ST_50: tmp_51 (174)  [5/5] 7.26ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:113  %tmp_51 = fadd float %buffer_load_4, %outAccumulate_7
+
+
+ <State 51>: 7.26ns
+ST_51: tmp_51 (174)  [4/5] 7.26ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:113  %tmp_51 = fadd float %buffer_load_4, %outAccumulate_7
+
+
+ <State 52>: 7.26ns
+ST_52: tmp_51 (174)  [3/5] 7.26ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:113  %tmp_51 = fadd float %buffer_load_4, %outAccumulate_7
+
+
+ <State 53>: 7.26ns
+ST_53: tmp_51 (174)  [2/5] 7.26ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:113  %tmp_51 = fadd float %buffer_load_4, %outAccumulate_7
+
+
+ <State 54>: 7.26ns
+ST_54: tmp_51 (174)  [1/5] 7.26ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:113  %tmp_51 = fadd float %buffer_load_4, %outAccumulate_7
+
+ST_54: StgValue_282 (175)  [2/2] 0.00ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:114  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %tmp_51)
+
+
+ <State 55>: 0.00ns
+ST_55: StgValue_283 (13)  [1/1] 0.00ns
+._crit_edge:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %change_V), !map !23
+
+ST_55: StgValue_284 (14)  [1/1] 0.00ns
+._crit_edge:1  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_in_V), !map !29
+
+ST_55: StgValue_285 (15)  [1/1] 0.00ns
+._crit_edge:2  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_out_V), !map !33
+
+ST_55: StgValue_286 (16)  [1/1] 0.00ns
+._crit_edge:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %delay), !map !37
+
+ST_55: StgValue_287 (17)  [1/1] 0.00ns
+._crit_edge:4  call void (...)* @_ssdm_op_SpecBitsMap(i32 %scale), !map !43
+
+ST_55: StgValue_288 (18)  [1/1] 0.00ns
+._crit_edge:5  call void (...)* @_ssdm_op_SpecTopModule([5 x i8]* @Echo_str) nounwind
+
+ST_55: StgValue_289 (21)  [1/1] 0.00ns  loc: src/Echo.cpp:28
+._crit_edge:8  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_290 (22)  [1/1] 0.00ns  loc: src/Echo.cpp:29
+._crit_edge:9  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_291 (23)  [1/1] 0.00ns  loc: src/Echo.cpp:30
+._crit_edge:10  call void (...)* @_ssdm_op_SpecInterface(i32 %delay, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_292 (24)  [1/1] 0.00ns  loc: src/Echo.cpp:33
+._crit_edge:11  call void (...)* @_ssdm_op_SpecInterface(i32* %change_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_293 (25)  [1/1] 0.00ns  loc: src/Echo.cpp:34
+._crit_edge:12  call void (...)* @_ssdm_op_SpecInterface(float* %value_in_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_294 (26)  [1/1] 0.00ns  loc: src/Echo.cpp:35
+._crit_edge:13  call void (...)* @_ssdm_op_SpecInterface(float* %value_out_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_55: StgValue_295 (59)  [1/1] 0.00ns
+mergeST9:1  br label %._crit_edge9.new_ifconv
+
+ST_55: StgValue_296 (175)  [1/2] 0.00ns  loc: src/Echo.cpp:118
+._crit_edge9.new_ifconv:114  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %tmp_51)
+
+ST_55: StgValue_297 (179)  [1/1] 0.00ns
+mergeST7:1  br label %._crit_edge10.new8
+
+ST_55: StgValue_298 (184)  [1/1] 0.00ns
+mergeST5:1  br label %._crit_edge10.new6
+
+ST_55: StgValue_299 (189)  [1/1] 0.00ns
+mergeST3:1  br label %._crit_edge10.new4
+
+ST_55: StgValue_300 (194)  [1/1] 0.00ns
+mergeST1:1  br label %._crit_edge10.new2
+
+ST_55: StgValue_301 (197)  [1/1] 0.00ns  loc: src/Echo.cpp:119
+._crit_edge10.new2:1  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 6.28ns
+The critical path consists of the following:
+	wire read on port 'scale' [19]  (0 ns)
+	'sitodp' operation ('tmp_9', src/Echo.cpp:77) [62]  (6.28 ns)
+
+ <State 2>: 8.6ns
+The critical path consists of the following:
+	axis read on port 'change_V' (src/Echo.cpp:52) [27]  (0 ns)
+	'icmp' operation ('tmp_1', src/Echo.cpp:56) [28]  (3.26 ns)
+	'select' operation ('writeBuffer_load_s', src/Echo.cpp:56) [41]  (2.07 ns)
+	'icmp' operation ('tmp_2', src/Echo.cpp:66) [42]  (3.26 ns)
+
+ <State 3>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_9', src/Echo.cpp:77) [62]  (6.28 ns)
+
+ <State 4>: 6.28ns
+The critical path consists of the following:
+	'sitodp' operation ('tmp_9', src/Echo.cpp:77) [62]  (6.28 ns)
+
+ <State 5>: 8.6ns
+The critical path consists of the following:
+	'load' operation ('readBuffer1_load', src/Echo.cpp:76) on static variable 'readBuffer1' [30]  (0 ns)
+	'select' operation ('readBuffer1_load_s', src/Echo.cpp:56) [37]  (2.07 ns)
+	'icmp' operation ('tmp_8', src/Echo.cpp:76) [61]  (3.26 ns)
+	'select' operation ('tmp_14', src/Echo.cpp:76) [75]  (0 ns)
+	'icmp' operation ('tmp_15', src/Echo.cpp:81) [77]  (3.26 ns)
+
+ <State 6>: 8.28ns
+The critical path consists of the following:
+	'and' operation ('sel_tmp9', src/Echo.cpp:74) [138]  (2.07 ns)
+	'and' operation ('sel_tmp11', src/Echo.cpp:74) [153]  (2.07 ns)
+	'select' operation ('sel_tmp12', src/Echo.cpp:74) [154]  (0 ns)
+	'select' operation ('sel_tmp13', src/Echo.cpp:74) [155]  (2.07 ns)
+	'select' operation ('sel_tmp14', src/Echo.cpp:74) [156]  (0 ns)
+	'select' operation ('readBuffer3_flag_2', src/Echo.cpp:88) [157]  (2.07 ns)
+
+ <State 7>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 8>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 9>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 10>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 11>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 12>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_s', src/Echo.cpp:77) [63]  (7.79 ns)
+
+ <State 13>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 14>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 15>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 16>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 17>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 18>: 7.79ns
+The critical path consists of the following:
+	'dmul' operation ('tmp_11', src/Echo.cpp:77) [68]  (7.79 ns)
+
+ <State 19>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12', src/Echo.cpp:77) [69]  (8.23 ns)
+
+ <State 20>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12', src/Echo.cpp:77) [69]  (8.23 ns)
+
+ <State 21>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12', src/Echo.cpp:77) [69]  (8.23 ns)
+
+ <State 22>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12', src/Echo.cpp:77) [69]  (8.23 ns)
+
+ <State 23>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_12', src/Echo.cpp:77) [69]  (8.23 ns)
+
+ <State 24>: 8.57ns
+The critical path consists of the following:
+	'fptrunc' operation ('outAccumulate', src/Echo.cpp:77) [70]  (6.5 ns)
+	'select' operation ('outAccumulate1', src/Echo.cpp:76) [76]  (2.07 ns)
+
+ <State 25>: 5.55ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_21', src/Echo.cpp:84) [85]  (5.55 ns)
+
+ <State 26>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_22', src/Echo.cpp:84) [86]  (8.23 ns)
+
+ <State 27>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_22', src/Echo.cpp:84) [86]  (8.23 ns)
+
+ <State 28>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_22', src/Echo.cpp:84) [86]  (8.23 ns)
+
+ <State 29>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_22', src/Echo.cpp:84) [86]  (8.23 ns)
+
+ <State 30>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_22', src/Echo.cpp:84) [86]  (8.23 ns)
+
+ <State 31>: 8.57ns
+The critical path consists of the following:
+	'fptrunc' operation ('outAccumulate', src/Echo.cpp:84) [87]  (6.5 ns)
+	'select' operation ('outAccumulate_1', src/Echo.cpp:83) [93]  (2.07 ns)
+
+ <State 32>: 5.55ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_31', src/Echo.cpp:91) [102]  (5.55 ns)
+
+ <State 33>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_32', src/Echo.cpp:91) [103]  (8.23 ns)
+
+ <State 34>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_32', src/Echo.cpp:91) [103]  (8.23 ns)
+
+ <State 35>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_32', src/Echo.cpp:91) [103]  (8.23 ns)
+
+ <State 36>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_32', src/Echo.cpp:91) [103]  (8.23 ns)
+
+ <State 37>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_32', src/Echo.cpp:91) [103]  (8.23 ns)
+
+ <State 38>: 8.57ns
+The critical path consists of the following:
+	'fptrunc' operation ('outAccumulate', src/Echo.cpp:91) [104]  (6.5 ns)
+	'select' operation ('outAccumulate_2', src/Echo.cpp:90) [110]  (2.07 ns)
+
+ <State 39>: 2.07ns
+The critical path consists of the following:
+	'select' operation ('sel_tmp17', src/Echo.cpp:74) [165]  (0 ns)
+	'select' operation ('sel_tmp18', src/Echo.cpp:74) [166]  (0 ns)
+	'select' operation ('sel_tmp19', src/Echo.cpp:74) [167]  (2.07 ns)
+
+ <State 40>: 0ns
+The critical path consists of the following:
+
+ <State 41>: 0ns
+The critical path consists of the following:
+
+ <State 42>: 5.55ns
+The critical path consists of the following:
+	'fpext' operation ('tmp_41', src/Echo.cpp:98) [119]  (5.55 ns)
+
+ <State 43>: 0ns
+The critical path consists of the following:
+
+ <State 44>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_42', src/Echo.cpp:98) [120]  (8.23 ns)
+
+ <State 45>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_42', src/Echo.cpp:98) [120]  (8.23 ns)
+
+ <State 46>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_42', src/Echo.cpp:98) [120]  (8.23 ns)
+
+ <State 47>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_42', src/Echo.cpp:98) [120]  (8.23 ns)
+
+ <State 48>: 8.23ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_42', src/Echo.cpp:98) [120]  (8.23 ns)
+
+ <State 49>: 6.5ns
+The critical path consists of the following:
+	'fptrunc' operation ('outAccumulate', src/Echo.cpp:98) [121]  (0 ns)
+	'select' operation ('outAccumulate_3', src/Echo.cpp:97) [124]  (0 ns)
+	'select' operation ('outAccumulate_7', src/Echo.cpp:88) [168]  (6.5 ns)
+
+ <State 50>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', src/Echo.cpp:118) [174]  (7.26 ns)
+
+ <State 51>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', src/Echo.cpp:118) [174]  (7.26 ns)
+
+ <State 52>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', src/Echo.cpp:118) [174]  (7.26 ns)
+
+ <State 53>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', src/Echo.cpp:118) [174]  (7.26 ns)
+
+ <State 54>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', src/Echo.cpp:118) [174]  (7.26 ns)
+
+ <State 55>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
