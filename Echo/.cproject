@@ -26,11 +26,12 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1195245886" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.613821129" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/Echo"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.214933663" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -44,11 +45,12 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1923082911" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.195551673" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/Echo"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1150681177" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -112,11 +114,12 @@
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.420753637" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.2117708941" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/Echo"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.583681477" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -125,11 +128,12 @@
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.1625720360" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.2035854194" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/Echo"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/include"/>
 									<listOptionValue builtIn="false" value="/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="/home/austin/ECE1373_GhostSynth/modules/echo"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.419766989" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>

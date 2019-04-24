@@ -2,16 +2,15 @@
 #define __ECHO_INCLUDED__
 #include <hls_stream.h>
 
-#define MAX_BUFFER_SIZE 48000
+#define MAX_BUFFER_SIZE 400
 
 void Echo(
 
-	hls::stream<int> & change,
 	hls::stream<float> & value_in,
 	hls::stream<float> & value_out,
 
 	int delay,
-	int scale
+	float scale
 	
 );
 

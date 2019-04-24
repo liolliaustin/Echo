@@ -6,19 +6,17 @@ using namespace std;
 
 int main() {
 	
-	hls::stream<int> change("change");
 	hls::stream<float> value_in("value_in");
 	hls::stream<float> value_out("value_out");
 
-	change << 0;
 
-	float value = 0.03f;
-
-	for(int j=0; j<350; j++){
-
-		value_in << value;
-		value += 0.005f;
-	}
+//	float value = 0.03f;
+//
+//	for(int j=0; j<350; j++){
+//
+	value_in << 1.0f;
+//		value += 0.005f;
+//	}
 
 
 
@@ -27,22 +25,19 @@ int main() {
 	while (i --> 0) {
 
 		Echo(
-			change,
 			value_in,
 			value_out,
 
 			300,
-			1
+			0.5
 		);
 
-		if(i==1500){
+		if(i==2000){
 			value_in << 1.0f;
-			change << 1;
 		}
 
 		else{
 			value_in << 0.0f;
-			change << 0;
 		}
 
 
