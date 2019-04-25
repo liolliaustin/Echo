@@ -45,7 +45,7 @@ end;
 architecture behav of Echo is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.256000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=1,HLS_SYN_DSP=5,HLS_SYN_FF=1131,HLS_SYN_LUT=1251}";
+    "Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.256000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1131,HLS_SYN_LUT=1251}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (12 downto 0) := "0000000000001";
@@ -76,7 +76,7 @@ architecture behav of Echo is
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
     constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
-    constant ap_const_lv32_190 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000110010000";
+    constant ap_const_lv32_12C0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000001001011000000";
     constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
     constant ap_const_lv32_9 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001001";
     constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
@@ -115,7 +115,7 @@ architecture behav of Echo is
     signal scale : STD_LOGIC_VECTOR (31 downto 0);
     signal guard_variable_for_E : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal readBuffer : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
-    signal buffer_r_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal buffer_r_address0 : STD_LOGIC_VECTOR (12 downto 0);
     signal buffer_r_ce0 : STD_LOGIC;
     signal buffer_r_we0 : STD_LOGIC;
     signal buffer_r_q0 : STD_LOGIC_VECTOR (31 downto 0);
@@ -209,7 +209,7 @@ architecture behav of Echo is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (8 downto 0);
+        address0 : IN STD_LOGIC_VECTOR (12 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -252,8 +252,8 @@ begin
     buffer_r_U : component Echo_buffer_r
     generic map (
         DataWidth => 32,
-        AddressRange => 400,
-        AddressWidth => 9)
+        AddressRange => 4800,
+        AddressWidth => 13)
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -600,11 +600,11 @@ begin
     buffer_r_address0_assign_proc : process(ap_CS_fsm_state13, ap_CS_fsm_state2, tmp_4_fu_144_p1, tmp_6_fu_179_p1)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-            buffer_r_address0 <= tmp_6_fu_179_p1(9 - 1 downto 0);
+            buffer_r_address0 <= tmp_6_fu_179_p1(13 - 1 downto 0);
         elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            buffer_r_address0 <= tmp_4_fu_144_p1(9 - 1 downto 0);
+            buffer_r_address0 <= tmp_4_fu_144_p1(13 - 1 downto 0);
         else 
-            buffer_r_address0 <= "XXXXXXXXX";
+            buffer_r_address0 <= "XXXXXXXXXXXXX";
         end if; 
     end process;
 
@@ -645,14 +645,14 @@ begin
     storemerge_fu_161_p3 <= 
         tmp_s_fu_155_p2 when (tmp_9_fu_149_p2(0) = '1') else 
         ap_const_lv32_0;
-    tmp_2_i_fu_132_p2 <= std_logic_vector(unsigned(ap_const_lv32_190) - unsigned(delay));
+    tmp_2_i_fu_132_p2 <= std_logic_vector(unsigned(ap_const_lv32_12C0) - unsigned(delay));
         tmp_4_fu_144_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(readBuffer_loc_reg_105),64));
 
         tmp_6_fu_179_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(writeBuffer),64));
 
     tmp_7_fu_190_p2 <= std_logic_vector(unsigned(writeBuffer) + unsigned(ap_const_lv32_1));
-    tmp_8_fu_184_p2 <= "1" when (signed(writeBuffer) < signed(ap_const_lv32_190)) else "0";
-    tmp_9_fu_149_p2 <= "1" when (signed(readBuffer_loc_reg_105) < signed(ap_const_lv32_190)) else "0";
+    tmp_8_fu_184_p2 <= "1" when (signed(writeBuffer) < signed(ap_const_lv32_12C0)) else "0";
+    tmp_9_fu_149_p2 <= "1" when (signed(readBuffer_loc_reg_105) < signed(ap_const_lv32_12C0)) else "0";
     tmp_s_fu_155_p2 <= std_logic_vector(unsigned(readBuffer_loc_reg_105) + unsigned(ap_const_lv32_1));
     value_in_V_0_ack_in <= value_in_V_0_state(1);
 

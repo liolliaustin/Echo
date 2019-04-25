@@ -5,5 +5,5 @@
   <xd:arg xd:name="delay" xd:originalName="delay" xd:direction="in" xd:interfaceRef="s_axi_CTRL_BUS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="scale" xd:originalName="scale" xd:direction="in" xd:interfaceRef="s_axi_CTRL_BUS" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:latencyEstimates xd:best-case="12" xd:worst-case="12" xd:average-case="12"/>
-  <xd:resourceEstimates xd:LUT="1251" xd:FF="1131" xd:BRAM="1" xd:DSP="5"/>
+  <xd:resourceEstimates xd:LUT="1251" xd:FF="1131" xd:BRAM="16" xd:DSP="5"/>
 </xd:acceleratorMap>

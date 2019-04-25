@@ -146,8 +146,8 @@ set MemName Echo_buffer_r
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
 set DataWd 32
-set AddrRange 400
-set AddrWd 9
+set AddrRange 4800
+set AddrWd 13
 set impl_style block
 set TrueReset 0
 set IsROM 0

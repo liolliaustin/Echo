@@ -42,7 +42,7 @@ const sc_lv<32> Echo::ap_const_lv32_1 = "1";
 const sc_lv<32> Echo::ap_const_lv32_2 = "10";
 const sc_lv<32> Echo::ap_const_lv32_6 = "110";
 const sc_lv<32> Echo::ap_const_lv32_3 = "11";
-const sc_lv<32> Echo::ap_const_lv32_190 = "110010000";
+const sc_lv<32> Echo::ap_const_lv32_12C0 = "1001011000000";
 const sc_lv<32> Echo::ap_const_lv32_8 = "1000";
 const sc_lv<32> Echo::ap_const_lv32_9 = "1001";
 const sc_lv<32> Echo::ap_const_lv32_A = "1010";
@@ -615,11 +615,11 @@ void Echo::thread_ap_rst_n_inv() {
 
 void Echo::thread_buffer_r_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
-        buffer_r_address0 =  (sc_lv<9>) (tmp_6_fu_179_p1.read());
+        buffer_r_address0 =  (sc_lv<13>) (tmp_6_fu_179_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        buffer_r_address0 =  (sc_lv<9>) (tmp_4_fu_144_p1.read());
+        buffer_r_address0 =  (sc_lv<13>) (tmp_4_fu_144_p1.read());
     } else {
-        buffer_r_address0 = "XXXXXXXXX";
+        buffer_r_address0 = "XXXXXXXXXXXXX";
     }
 }
 
@@ -669,7 +669,7 @@ void Echo::thread_storemerge_fu_161_p3() {
 }
 
 void Echo::thread_tmp_2_i_fu_132_p2() {
-    tmp_2_i_fu_132_p2 = (!ap_const_lv32_190.is_01() || !delay.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_190) - sc_biguint<32>(delay.read()));
+    tmp_2_i_fu_132_p2 = (!ap_const_lv32_12C0.is_01() || !delay.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_12C0) - sc_biguint<32>(delay.read()));
 }
 
 void Echo::thread_tmp_4_fu_144_p1() {
@@ -685,11 +685,11 @@ void Echo::thread_tmp_7_fu_190_p2() {
 }
 
 void Echo::thread_tmp_8_fu_184_p2() {
-    tmp_8_fu_184_p2 = (!writeBuffer.read().is_01() || !ap_const_lv32_190.is_01())? sc_lv<1>(): (sc_bigint<32>(writeBuffer.read()) < sc_bigint<32>(ap_const_lv32_190));
+    tmp_8_fu_184_p2 = (!writeBuffer.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(writeBuffer.read()) < sc_bigint<32>(ap_const_lv32_12C0));
 }
 
 void Echo::thread_tmp_9_fu_149_p2() {
-    tmp_9_fu_149_p2 = (!readBuffer_loc_reg_105.read().is_01() || !ap_const_lv32_190.is_01())? sc_lv<1>(): (sc_bigint<32>(readBuffer_loc_reg_105.read()) < sc_bigint<32>(ap_const_lv32_190));
+    tmp_9_fu_149_p2 = (!readBuffer_loc_reg_105.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(readBuffer_loc_reg_105.read()) < sc_bigint<32>(ap_const_lv32_12C0));
 }
 
 void Echo::thread_tmp_s_fu_155_p2() {
@@ -869,7 +869,7 @@ void Echo::thread_ap_NS_fsm() {
             }
             break;
         default : 
-            ap_NS_fsm =  (sc_lv<13>) ("XXXXXXXXXXXXX");
+            ap_NS_fsm = "XXXXXXXXXXXXX";
             break;
     }
 }

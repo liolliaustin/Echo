@@ -97,7 +97,7 @@ struct Echo : public sc_module {
     sc_signal< sc_lv<32> > scale;
     sc_signal< sc_lv<1> > guard_variable_for_E;
     sc_signal< sc_lv<32> > readBuffer;
-    sc_signal< sc_lv<9> > buffer_r_address0;
+    sc_signal< sc_lv<13> > buffer_r_address0;
     sc_signal< sc_logic > buffer_r_ce0;
     sc_signal< sc_logic > buffer_r_we0;
     sc_signal< sc_lv<32> > buffer_r_q0;
@@ -165,7 +165,7 @@ struct Echo : public sc_module {
     static const sc_lv<32> ap_const_lv32_2;
     static const sc_lv<32> ap_const_lv32_6;
     static const sc_lv<32> ap_const_lv32_3;
-    static const sc_lv<32> ap_const_lv32_190;
+    static const sc_lv<32> ap_const_lv32_12C0;
     static const sc_lv<32> ap_const_lv32_8;
     static const sc_lv<32> ap_const_lv32_9;
     static const sc_lv<32> ap_const_lv32_A;

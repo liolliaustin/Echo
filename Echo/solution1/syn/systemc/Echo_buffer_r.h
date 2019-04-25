@@ -22,8 +22,8 @@ using namespace sc_dt;
 struct Echo_buffer_r_ram : public sc_core::sc_module {
 
   static const unsigned DataWidth = 32;
-  static const unsigned AddressRange = 400;
-  static const unsigned AddressWidth = 9;
+  static const unsigned AddressRange = 4800;
+  static const unsigned AddressWidth = 13;
 
 //latency = 1
 //input_reg = 1
@@ -41,7 +41,7 @@ sc_lv<DataWidth> ram[AddressRange];
 
 
    SC_CTOR(Echo_buffer_r_ram) {
-        for (unsigned i = 0; i < 400; i = i + 1) {
+        for (unsigned i = 0; i < 4800; i = i + 1) {
             ram[i] = 0;
         }
 
@@ -82,8 +82,8 @@ SC_MODULE(Echo_buffer_r) {
 
 
 static const unsigned DataWidth = 32;
-static const unsigned AddressRange = 400;
-static const unsigned AddressWidth = 9;
+static const unsigned AddressRange = 4800;
+static const unsigned AddressWidth = 13;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;

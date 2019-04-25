@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @writeBuffer = internal unnamed_addr global i32 0, align 4 ; [#uses=3 type=i32*]
 @readBuffer = internal unnamed_addr global i32 0, align 4 ; [#uses=4 type=i32*]
 @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer" = internal unnamed_addr global i8 0 ; [#uses=2 type=i8*]
-@buffer = internal unnamed_addr global [400 x float] zeroinitializer, align 16 ; [#uses=2 type=[400 x float]*]
+@buffer = internal unnamed_addr global [4800 x float] zeroinitializer, align 16 ; [#uses=2 type=[4800 x float]*]
 @Echo.str = internal unnamed_addr constant [5 x i8] c"Echo\00" ; [#uses=1 type=[5 x i8]*]
 @.str5 = private unnamed_addr constant [5 x i8] c"both\00", align 1 ; [#uses=1 type=[5 x i8]*]
 @.str4 = private unnamed_addr constant [5 x i8] c"axis\00", align 1 ; [#uses=1 type=[5 x i8]*]
@@ -56,14 +56,14 @@ define void @Echo(%"class.hls::stream.0"* %value_in, %"class.hls::stream.0"* %va
   call void (...)* @_ssdm_op_SpecInterface(double %tmp, i8* getelementptr inbounds ([10 x i8]* @.str2, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([9 x i8]* @.str3, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0)) nounwind, !dbg !123 ; [debug line = 27:1]
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream.0"* %value_in, i8* getelementptr inbounds ([5 x i8]* @.str4, i64 0, i64 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str5, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0)) nounwind, !dbg !124 ; [debug line = 29:1]
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream.0"* %value_out, i8* getelementptr inbounds ([5 x i8]* @.str4, i64 0, i64 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str5, i64 0, i64 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0), i8* getelementptr inbounds ([1 x i8]* @.str, i64 0, i64 0)) nounwind, !dbg !125 ; [debug line = 30:1]
-  %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load" = load i8* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !126 ; [#uses=1 type=i8] [debug line = 32:37]
-  %tmp.1 = icmp eq i8 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load", 0, !dbg !126 ; [#uses=1 type=i1] [debug line = 32:37]
-  br i1 %tmp.1, label %codeRepl, label %._crit_edge, !dbg !126 ; [debug line = 32:37]
+  %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load" = load i8* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !126 ; [#uses=1 type=i8] [debug line = 32:38]
+  %tmp.1 = icmp eq i8 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load", 0, !dbg !126 ; [#uses=1 type=i1] [debug line = 32:38]
+  br i1 %tmp.1, label %codeRepl, label %._crit_edge, !dbg !126 ; [debug line = 32:38]
 
 codeRepl:                                         ; preds = %0
-  %tmp.2 = sub nsw i32 400, %delay, !dbg !126     ; [#uses=1 type=i32] [debug line = 32:37]
-  store i32 %tmp.2, i32* @readBuffer, align 4, !dbg !126 ; [debug line = 32:37]
-  store i8 1, i8* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !126 ; [debug line = 32:37]
+  %tmp.2 = sub nsw i32 4800, %delay, !dbg !126    ; [#uses=1 type=i32] [debug line = 32:38]
+  store i32 %tmp.2, i32* @readBuffer, align 4, !dbg !126 ; [debug line = 32:38]
+  store i8 1, i8* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !126 ; [debug line = 32:38]
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %codeRepl, %0
@@ -87,7 +87,7 @@ codeRepl:                                         ; preds = %0
   call void @llvm.dbg.value(metadata !{float %current_value}, i64 0, metadata !140), !dbg !139 ; [debug line = 126:9@102:9@39:2] [debug variable = current_value]
   %readBuffer.load = load i32* @readBuffer, align 4, !dbg !141 ; [#uses=1 type=i32] [debug line = 41:2]
   %tmp.4 = sext i32 %readBuffer.load to i64, !dbg !141 ; [#uses=1 type=i64] [debug line = 41:2]
-  %buffer.addr = getelementptr inbounds [400 x float]* @buffer, i64 0, i64 %tmp.4, !dbg !141 ; [#uses=1 type=float*] [debug line = 41:2]
+  %buffer.addr = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.4, !dbg !141 ; [#uses=1 type=float*] [debug line = 41:2]
   %buffer.load = load float* %buffer.addr, align 4, !dbg !141 ; [#uses=2 type=float] [debug line = 41:2]
   call void (...)* @_ssdm_SpecKeepArrayLoad(float %buffer.load) nounwind
   %tmp.5 = fmul float %buffer.load, %scale, !dbg !141 ; [#uses=1 type=float] [debug line = 41:2]
@@ -95,7 +95,7 @@ codeRepl:                                         ; preds = %0
   call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !140), !dbg !141 ; [debug line = 41:2] [debug variable = current_value]
   %writeBuffer.load = load i32* @writeBuffer, align 4, !dbg !142 ; [#uses=1 type=i32] [debug line = 43:2]
   %tmp.6 = sext i32 %writeBuffer.load to i64, !dbg !142 ; [#uses=1 type=i64] [debug line = 43:2]
-  %buffer.addr.1 = getelementptr inbounds [400 x float]* @buffer, i64 0, i64 %tmp.6, !dbg !142 ; [#uses=1 type=float*] [debug line = 43:2]
+  %buffer.addr.1 = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.6, !dbg !142 ; [#uses=1 type=float*] [debug line = 43:2]
   store float %current_value.2, float* %buffer.addr.1, align 4, !dbg !142 ; [debug line = 43:2]
   call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !143), !dbg !144 ; [debug line = 105:48@45:2] [debug variable = this]
   call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !146), !dbg !147 ; [debug line = 144:48@106:9@45:2] [debug variable = this]
@@ -115,12 +115,12 @@ codeRepl:                                         ; preds = %0
   %value_out.addr = getelementptr inbounds %"class.hls::stream.0"* %value_out, i64 0, i32 0, !dbg !154 ; [#uses=1 type=float*] [debug line = 146:9@106:9@45:2]
   call void @_ssdm_op_IfWrite.Stream.floatP.floatP(float* %value_out.addr, float* %tmp.7) nounwind, !dbg !154 ; [debug line = 146:9@106:9@45:2]
   %readBuffer.load.1 = load i32* @readBuffer, align 4, !dbg !155 ; [#uses=2 type=i32] [debug line = 47:2]
-  %tmp.9 = icmp slt i32 %readBuffer.load.1, 400, !dbg !155 ; [#uses=1 type=i1] [debug line = 47:2]
+  %tmp.9 = icmp slt i32 %readBuffer.load.1, 4800, !dbg !155 ; [#uses=1 type=i1] [debug line = 47:2]
   %tmp.10 = add nsw i32 %readBuffer.load.1, 1, !dbg !156 ; [#uses=1 type=i32] [debug line = 48:3]
   %storemerge = select i1 %tmp.9, i32 %tmp.10, i32 0, !dbg !155 ; [#uses=1 type=i32] [debug line = 47:2]
   store i32 %storemerge, i32* @readBuffer, align 4, !dbg !156 ; [debug line = 48:3]
   %writeBuffer.load.1 = load i32* @writeBuffer, align 4, !dbg !157 ; [#uses=2 type=i32] [debug line = 52:2]
-  %tmp.11 = icmp slt i32 %writeBuffer.load.1, 400, !dbg !157 ; [#uses=1 type=i1] [debug line = 52:2]
+  %tmp.11 = icmp slt i32 %writeBuffer.load.1, 4800, !dbg !157 ; [#uses=1 type=i1] [debug line = 52:2]
   %tmp.12 = add nsw i32 %writeBuffer.load.1, 1, !dbg !158 ; [#uses=1 type=i32] [debug line = 53:3]
   %storemerge5 = select i1 %tmp.11, i32 %tmp.12, i32 0, !dbg !157 ; [#uses=1 type=i32] [debug line = 52:2]
   store i32 %storemerge5, i32* @writeBuffer, align 4, !dbg !158 ; [debug line = 53:3]
@@ -208,10 +208,10 @@ codeRepl:                                         ; preds = %0
 !74 = metadata !{metadata !75, metadata !76, metadata !77, metadata !81, metadata !84, metadata !85, metadata !86, metadata !88, metadata !89}
 !75 = metadata !{i32 786484, i32 0, metadata !5, metadata !"readBuffer", metadata !"readBuffer", metadata !"", metadata !6, i32 32, metadata !68, i32 1, i32 1, i32* @readBuffer} ; [ DW_TAG_variable ]
 !76 = metadata !{i32 786484, i32 0, metadata !5, metadata !"writeBuffer", metadata !"writeBuffer", metadata !"", metadata !6, i32 33, metadata !68, i32 1, i32 1, i32* @writeBuffer} ; [ DW_TAG_variable ]
-!77 = metadata !{i32 786484, i32 0, metadata !5, metadata !"buffer", metadata !"buffer", metadata !"", metadata !6, i32 35, metadata !78, i32 1, i32 1, [400 x float]* @buffer} ; [ DW_TAG_variable ]
-!78 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 12800, i64 32, i32 0, i32 0, metadata !15, metadata !79, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!77 = metadata !{i32 786484, i32 0, metadata !5, metadata !"buffer", metadata !"buffer", metadata !"", metadata !6, i32 35, metadata !78, i32 1, i32 1, [4800 x float]* @buffer} ; [ DW_TAG_variable ]
+!78 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 153600, i64 32, i32 0, i32 0, metadata !15, metadata !79, i32 0, i32 0} ; [ DW_TAG_array_type ]
 !79 = metadata !{metadata !80}
-!80 = metadata !{i32 786465, i64 0, i64 399}      ; [ DW_TAG_subrange_type ]
+!80 = metadata !{i32 786465, i64 0, i64 4799}     ; [ DW_TAG_subrange_type ]
 !81 = metadata !{i32 786484, i32 0, null, metadata !"_IO_2_1_stdin_", metadata !"_IO_2_1_stdin_", metadata !"", metadata !82, i32 315, metadata !83, i32 0, i32 1, null} ; [ DW_TAG_variable ]
 !82 = metadata !{i32 786473, metadata !"/usr/include/libio.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !83 = metadata !{i32 786434, null, metadata !"_IO_FILE_plus", metadata !82, i32 313, i32 0, i32 0, i32 0, i32 4, null, null, i32 0} ; [ DW_TAG_class_type ]
@@ -257,7 +257,7 @@ codeRepl:                                         ; preds = %0
 !123 = metadata !{i32 27, i32 1, metadata !120, null}
 !124 = metadata !{i32 29, i32 1, metadata !120, null}
 !125 = metadata !{i32 30, i32 1, metadata !120, null}
-!126 = metadata !{i32 32, i32 37, metadata !120, null}
+!126 = metadata !{i32 32, i32 38, metadata !120, null}
 !127 = metadata !{i32 786689, metadata !71, metadata !"this", metadata !12, i32 16777317, metadata !128, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
 !128 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
 !129 = metadata !{i32 101, i32 48, metadata !71, metadata !130}

@@ -2,7 +2,7 @@
 #define __ECHO_INCLUDED__
 #include <hls_stream.h>
 
-#define MAX_BUFFER_SIZE 400
+#define MAX_BUFFER_SIZE 4800
 
 void Echo(
 

@@ -6,7 +6,7 @@
 <Project Version="7" Minor="20" Path="/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/impl/vhdl/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="94053fb43a464f68b2e56d5be544afae"/>
+    <Option Name="Id" Val="14ecba8819524d03857d0836fde87bcf"/>
     <Option Name="Part" Val="xc7z100ffg900-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

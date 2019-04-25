@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="Echo.h" path="/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo.h"/>
     <originFiles name="Echo.cpp" path="/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo.cpp"/>
+    <originFiles name="Echo.h" path="/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo.h"/>
   </source>
   <testbench>
     <originFiles name="Echo_test.cpp" path="/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo_test.cpp"/>

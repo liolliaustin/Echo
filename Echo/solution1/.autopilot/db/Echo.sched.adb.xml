@@ -332,7 +332,7 @@
 
 <Node id="26" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-codeRepl1:0  %tmp_2_i = sub nsw i32 400, %delay_read
+codeRepl1:0  %tmp_2_i = sub nsw i32 4800, %delay_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_2_i"/></StgValue>
@@ -410,9 +410,9 @@ codeRepl1:2  br label %._crit_edge
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="9" op_0_bw="32" op_1_bw="64" op_2_bw="64">
+<Node id="33" bw="13" op_0_bw="32" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-._crit_edge:3  %buffer_addr = getelementptr inbounds [400 x float]* @buffer_r, i64 0, i64 %tmp_4
+._crit_edge:3  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_4
 
 ]]></Node>
 <StgValue><ssdm name="buffer_addr"/></StgValue>
@@ -425,7 +425,7 @@ codeRepl1:2  br label %._crit_edge
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="32" op_0_bw="9">
+<Node id="34" bw="32" op_0_bw="13">
 <![CDATA[
 ._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
 
@@ -442,7 +442,7 @@ codeRepl1:2  br label %._crit_edge
 
 <Node id="42" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:12  %tmp_9 = icmp slt i32 %readBuffer_loc, 400
+._crit_edge:12  %tmp_9 = icmp slt i32 %readBuffer_loc, 4800
 
 ]]></Node>
 <StgValue><ssdm name="tmp_9"/></StgValue>
@@ -503,7 +503,7 @@ codeRepl1:2  br label %._crit_edge
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="32" op_0_bw="9">
+<Node id="34" bw="32" op_0_bw="13">
 <![CDATA[
 ._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
 
@@ -758,9 +758,9 @@ codeRepl1:2  br label %._crit_edge
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="9" op_0_bw="32" op_1_bw="64" op_2_bw="64">
+<Node id="39" bw="13" op_0_bw="32" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-._crit_edge:9  %buffer_addr_1 = getelementptr inbounds [400 x float]* @buffer_r, i64 0, i64 %tmp_6
+._crit_edge:9  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_6
 
 ]]></Node>
 <StgValue><ssdm name="buffer_addr_1"/></StgValue>
@@ -773,7 +773,7 @@ codeRepl1:2  br label %._crit_edge
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="0" op_0_bw="32" op_1_bw="9">
+<Node id="40" bw="0" op_0_bw="32" op_1_bw="13">
 <![CDATA[
 ._crit_edge:10  store float %current_value, float* %buffer_addr_1, align 4
 
@@ -805,7 +805,7 @@ codeRepl1:2  br label %._crit_edge
 
 <Node id="45" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:15  %tmp_8 = icmp slt i32 %writeBuffer_load, 400
+._crit_edge:15  %tmp_8 = icmp slt i32 %writeBuffer_load, 4800
 
 ]]></Node>
 <StgValue><ssdm name="tmp_8"/></StgValue>

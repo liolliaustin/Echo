@@ -1025,7 +1025,7 @@ y {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_ty
       <spirit:file>
         <spirit:name>hdl/vhdl/Echo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_575c9a82</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_d70d5214</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1197,8 +1197,8 @@ y {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_ty
       </xilinx:taxonomies>
       <xilinx:displayName>Echo</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1904241353</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-04-24T17:53:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1904251229</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-04-25T16:30:04Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>

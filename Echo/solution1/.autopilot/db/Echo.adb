@@ -575,7 +575,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>9</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -831,7 +831,7 @@
               <rtlName/>
               <coreName/>
             </Obj>
-            <bitwidth>9</bitwidth>
+            <bitwidth>13</bitwidth>
           </Value>
           <oprand_edges>
             <count>3</count>
@@ -1345,7 +1345,7 @@
             <bitwidth>32</bitwidth>
           </Value>
           <const_type>0</const_type>
-          <content>400</content>
+          <content>4800</content>
         </item>
         <item class_id_reference="16" object_id="_35">
           <Value>
@@ -2589,7 +2589,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0P0)</first>
-              <second>9</second>
+              <second>13</second>
             </item>
             <item>
               <first>(1P1)</first>
@@ -2639,7 +2639,7 @@
             </item>
             <item>
               <first>(1P1)</first>
-              <second>9</second>
+              <second>13</second>
             </item>
             <item>
               <first>FF</first>
@@ -2662,7 +2662,7 @@
             </item>
             <item>
               <first>(1P1)</first>
-              <second>9</second>
+              <second>13</second>
             </item>
             <item>
               <first>FF</first>
@@ -2850,7 +2850,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Words)</first>
-              <second>400</second>
+              <second>4800</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2862,11 +2862,11 @@
             </item>
             <item>
               <first>(3W*Bits*Banks)</first>
-              <second>12800</second>
+              <second>153600</second>
             </item>
             <item>
               <first>BRAM</first>
-              <second>1</second>
+              <second>16</second>
             </item>
             <item>
               <first>FF</first>
@@ -2916,11 +2916,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>9</second>
+              <second>13</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>27</second>
+              <second>39</second>
             </item>
             <item>
               <first>LUT</first>

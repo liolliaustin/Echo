@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.256000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=1,HLS_SYN_DSP=5,HLS_SYN_FF=1131,HLS_SYN_LUT=1251}" *)
+(* CORE_GENERATION_INFO="Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.256000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1131,HLS_SYN_LUT=1251}" *)
 
 module Echo (
         ap_clk,
@@ -116,7 +116,7 @@ wire   [31:0] delay;
 wire   [31:0] scale;
 reg   [0:0] guard_variable_for_E;
 reg   [31:0] readBuffer;
-reg   [8:0] buffer_r_address0;
+reg   [12:0] buffer_r_address0;
 reg    buffer_r_ce0;
 reg    buffer_r_we0;
 wire   [31:0] buffer_r_q0;
@@ -171,8 +171,8 @@ end
 
 Echo_buffer_r #(
     .DataWidth( 32 ),
-    .AddressRange( 400 ),
-    .AddressWidth( 9 ))
+    .AddressRange( 4800 ),
+    .AddressWidth( 13 ))
 buffer_r_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -570,7 +570,7 @@ assign storemerge5_fu_196_p3 = ((tmp_8_fu_184_p2[0:0] === 1'b1) ? tmp_7_fu_190_p
 
 assign storemerge_fu_161_p3 = ((tmp_9_fu_149_p2[0:0] === 1'b1) ? tmp_s_fu_155_p2 : 32'd0);
 
-assign tmp_2_i_fu_132_p2 = (32'd400 - delay);
+assign tmp_2_i_fu_132_p2 = (32'd4800 - delay);
 
 assign tmp_4_fu_144_p1 = $signed(readBuffer_loc_reg_105);
 
@@ -578,9 +578,9 @@ assign tmp_6_fu_179_p1 = $signed(writeBuffer);
 
 assign tmp_7_fu_190_p2 = (writeBuffer + 32'd1);
 
-assign tmp_8_fu_184_p2 = (($signed(writeBuffer) < $signed(32'd400)) ? 1'b1 : 1'b0);
+assign tmp_8_fu_184_p2 = (($signed(writeBuffer) < $signed(32'd4800)) ? 1'b1 : 1'b0);
 
-assign tmp_9_fu_149_p2 = (($signed(readBuffer_loc_reg_105) < $signed(32'd400)) ? 1'b1 : 1'b0);
+assign tmp_9_fu_149_p2 = (($signed(readBuffer_loc_reg_105) < $signed(32'd4800)) ? 1'b1 : 1'b0);
 
 assign tmp_s_fu_155_p2 = (readBuffer_loc_reg_105 + 32'd1);
 

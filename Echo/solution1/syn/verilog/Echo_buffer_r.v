@@ -9,8 +9,8 @@
 module Echo_buffer_r_ram (addr0, ce0, d0, we0, q0,  clk);
 
 parameter DWIDTH = 32;
-parameter AWIDTH = 9;
-parameter MEM_SIZE = 400;
+parameter AWIDTH = 13;
+parameter MEM_SIZE = 4800;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -56,8 +56,8 @@ module Echo_buffer_r(
     q0);
 
 parameter DataWidth = 32'd32;
-parameter AddressRange = 32'd400;
-parameter AddressWidth = 32'd9;
+parameter AddressRange = 32'd4800;
+parameter AddressWidth = 32'd13;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

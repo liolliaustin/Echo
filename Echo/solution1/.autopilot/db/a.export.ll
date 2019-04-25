@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @writeBuffer = internal unnamed_addr global i32 0, align 4
 @readBuffer = internal unnamed_addr global i32 0, align 4
 @guard_variable_for_E = internal unnamed_addr global i1 false
-@buffer_r = internal unnamed_addr global [400 x float] zeroinitializer, align 16
+@buffer_r = internal unnamed_addr global [4800 x float] zeroinitializer, align 16
 @Echo_str = internal unnamed_addr constant [5 x i8] c"Echo\00"
 @p_str5 = private unnamed_addr constant [5 x i8] c"both\00", align 1
 @p_str4 = private unnamed_addr constant [5 x i8] c"axis\00", align 1
@@ -77,7 +77,7 @@ define void @Echo(float* %value_in_V, float* %value_out_V, i32 %delay, float %sc
   br i1 %guard_variable_for_E, label %._crit_edge, label %codeRepl1
 
 codeRepl1:                                        ; preds = %0
-  %tmp_2_i = sub nsw i32 400, %delay_read
+  %tmp_2_i = sub nsw i32 4800, %delay_read
   store i1 true, i1* @guard_variable_for_E, align 1
   br label %._crit_edge
 
@@ -85,19 +85,19 @@ codeRepl1:                                        ; preds = %0
   %readBuffer_loc = phi i32 [ %tmp_2_i, %codeRepl1 ], [ %readBuffer_load, %0 ]
   %tmp_1 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
   %tmp_4 = sext i32 %readBuffer_loc to i64
-  %buffer_addr = getelementptr inbounds [400 x float]* @buffer_r, i64 0, i64 %tmp_4
+  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_4
   %buffer_load = load float* %buffer_addr, align 4
   %tmp_5 = fmul float %buffer_load, %scale_read
   %current_value = fadd float %tmp_1, %tmp_5
   %writeBuffer_load = load i32* @writeBuffer, align 4
   %tmp_6 = sext i32 %writeBuffer_load to i64
-  %buffer_addr_1 = getelementptr inbounds [400 x float]* @buffer_r, i64 0, i64 %tmp_6
+  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_6
   store float %current_value, float* %buffer_addr_1, align 4
   call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
-  %tmp_9 = icmp slt i32 %readBuffer_loc, 400
+  %tmp_9 = icmp slt i32 %readBuffer_loc, 4800
   %tmp_s = add nsw i32 %readBuffer_loc, 1
   %storemerge = select i1 %tmp_9, i32 %tmp_s, i32 0
-  %tmp_8 = icmp slt i32 %writeBuffer_load, 400
+  %tmp_8 = icmp slt i32 %writeBuffer_load, 4800
   %tmp_7 = add nsw i32 %writeBuffer_load, 1
   %storemerge5 = select i1 %tmp_8, i32 %tmp_7, i32 0
   store i32 %storemerge5, i32* @writeBuffer, align 4
