@@ -82,7 +82,7 @@ set NewPortList {[
  	{ "name": "value_out_V_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "value_out_V", "role": "TREADY" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5"],
 		"CDFG" : "Echo",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -108,13 +108,14 @@ set RtlHierarchyInfo {[
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.buffer_r_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_CTRL_BUS_s_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_fadd_32ns_32bkb_U1", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_fmul_32ns_32cud_U2", "Parent" : "0"}]}
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_fmul_32ns_32cud_U2", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_srem_32ns_14dEe_U3", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	Echo {
-		value_in_V {Type I LastRead 6 FirstWrite -1}
-		value_out_V {Type O LastRead -1 FirstWrite 11}
+		value_in_V {Type I LastRead 41 FirstWrite -1}
+		value_out_V {Type O LastRead -1 FirstWrite 46}
 		delay {Type I LastRead 0 FirstWrite -1}
 		scale {Type I LastRead 0 FirstWrite -1}
 		guard_variable_for_E {Type IO LastRead -1 FirstWrite -1}
@@ -127,8 +128,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "12", "Max" : "12"}
-	, {"Name" : "Interval", "Min" : "13", "Max" : "13"}
+	{"Name" : "Latency", "Min" : "13", "Max" : "47"}
+	, {"Name" : "Interval", "Min" : "14", "Max" : "48"}
 ]}
 
 set PipelineEnableSignalInfo {[

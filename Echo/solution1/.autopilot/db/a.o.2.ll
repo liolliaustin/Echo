@@ -60,74 +60,80 @@ define void @Echo(float* %value_in.V, float* %value_out.V, i32 %delay, float %sc
   call void (...)* @_ssdm_op_SpecInterface(float* %value_in.V, [5 x i8]* @.str4, i32 1, i32 1, [5 x i8]* @.str5, i32 0, i32 0, [1 x i8]* @.str, [1 x i8]* @.str, [1 x i8]* @.str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @.str, [1 x i8]* @.str) nounwind, !dbg !142 ; [debug line = 29:1]
   call void (...)* @_ssdm_op_SpecInterface(float* %value_out.V, [5 x i8]* @.str4, i32 1, i32 1, [5 x i8]* @.str5, i32 0, i32 0, [1 x i8]* @.str, [1 x i8]* @.str, [1 x i8]* @.str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @.str, [1 x i8]* @.str) nounwind, !dbg !143 ; [debug line = 30:1]
   %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load" = load i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1 ; [#uses=1 type=i1]
-  %readBuffer.load = load i32* @readBuffer, align 4, !dbg !144 ; [#uses=1 type=i32] [debug line = 48:2]
-  br i1 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load", label %._crit_edge, label %codeRepl1, !dbg !145 ; [debug line = 33:38]
+  %readBuffer.load = load i32* @readBuffer, align 4, !dbg !144 ; [#uses=1 type=i32] [debug line = 39:3]
+  br i1 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer.load", label %._crit_edge, label %codeRepl1, !dbg !146 ; [debug line = 33:38]
 
 codeRepl1:                                        ; preds = %0
-  %tmp.2.i = sub nsw i32 4800, %delay, !dbg !145  ; [#uses=1 type=i32] [debug line = 33:38]
-  store i1 true, i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !145 ; [debug line = 33:38]
+  %tmp.2.i = sub nsw i32 4800, %delay, !dbg !146  ; [#uses=1 type=i32] [debug line = 33:38]
+  store i1 true, i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)readBuffer", align 1, !dbg !146 ; [debug line = 33:38]
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %codeRepl1, %0
-  %readBuffer.loc = phi i32 [ %tmp.2.i, %codeRepl1 ], [ %readBuffer.load, %0 ] ; [#uses=1 type=i32]
+  %readBuffer.loc = phi i32 [ %tmp.2.i, %codeRepl1 ], [ %readBuffer.load, %0 ] ; [#uses=4 type=i32]
   %"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck.load" = load i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck", align 1 ; [#uses=1 type=i1]
-  %delaycheck.load = load i32* @delaycheck, align 4, !dbg !146 ; [#uses=1 type=i32] [debug line = 38:2]
-  br i1 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck.load", label %._crit_edge6, label %codeRepl, !dbg !147 ; [debug line = 36:31]
+  %delaycheck.load = load i32* @delaycheck, align 4, !dbg !147 ; [#uses=1 type=i32] [debug line = 38:2]
+  br i1 %"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck.load", label %._crit_edge6, label %codeRepl, !dbg !148 ; [debug line = 36:31]
 
 codeRepl:                                         ; preds = %._crit_edge
-  store i1 true, i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck", align 1, !dbg !147 ; [debug line = 36:31]
+  store i1 true, i1* @"guard variable for Echo(stream<float>&, stream<float>&, int, float)delaycheck", align 1, !dbg !148 ; [debug line = 36:31]
   br label %._crit_edge6
 
 ._crit_edge6:                                     ; preds = %codeRepl, %._crit_edge
   %delaycheck.flag = phi i1 [ true, %codeRepl ], [ false, %._crit_edge ] ; [#uses=1 type=i1]
   %delaycheck.loc = phi i32 [ %delay, %codeRepl ], [ %delaycheck.load, %._crit_edge ] ; [#uses=1 type=i32]
-  %tmp.4 = icmp eq i32 %delaycheck.loc, %delay, !dbg !146 ; [#uses=3 type=i1] [debug line = 38:2]
-  %writeBuffer.load = load i32* @writeBuffer, align 4, !dbg !148 ; [#uses=1 type=i32] [debug line = 50:2]
-  %tmp.5 = sub nsw i32 4800, %delay, !dbg !149    ; [#uses=1 type=i32] [debug line = 40:3]
-  %readBuffer.loc.tmp.5 = select i1 %tmp.4, i32 %readBuffer.loc, i32 %tmp.5, !dbg !146 ; [#uses=3 type=i32] [debug line = 38:2]
-  %not.tmp.4 = xor i1 %tmp.4, true, !dbg !146     ; [#uses=1 type=i1] [debug line = 38:2]
-  %delaycheck.flag. = or i1 %delaycheck.flag, %not.tmp.4, !dbg !146 ; [#uses=1 type=i1] [debug line = 38:2]
-  %writeBuffer.load. = select i1 %tmp.4, i32 %writeBuffer.load, i32 0, !dbg !146 ; [#uses=3 type=i32] [debug line = 38:2]
-  call void @llvm.dbg.value(metadata !{float* %value_in.V}, i64 0, metadata !151), !dbg !156 ; [debug line = 101:48@46:2] [debug variable = stream<float>.V]
-  call void @llvm.dbg.value(metadata !{float* %value_in.V}, i64 0, metadata !158), !dbg !161 ; [debug line = 123:48@102:9@46:2] [debug variable = stream<float>.V]
-  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !164) nounwind, !dbg !166 ; [debug line = 124:22@102:9@46:2] [debug variable = tmp]
-  call void @_ssdm_op_IfRead.Stream.floatP.floatP(float* %value_in.V, float* %tmp) nounwind, !dbg !167 ; [debug line = 125:9@102:9@46:2]
-  call void @llvm.dbg.value(metadata !{float* %tmp}, i64 0, metadata !164), !dbg !168 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp}, i64 0, metadata !164), !dbg !168 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  %current_value = load float* %tmp, align 4, !dbg !168 ; [#uses=1 type=float] [debug line = 126:9@102:9@46:2]
-  call void @llvm.dbg.value(metadata !{float %current_value}, i64 0, metadata !169), !dbg !168 ; [debug line = 126:9@102:9@46:2] [debug variable = current_value]
-  %tmp.7 = sext i32 %readBuffer.loc.tmp.5 to i64, !dbg !144 ; [#uses=1 type=i64] [debug line = 48:2]
-  %buffer.addr = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.7, !dbg !144 ; [#uses=1 type=float*] [debug line = 48:2]
-  %buffer.load = load float* %buffer.addr, align 4, !dbg !144 ; [#uses=1 type=float] [debug line = 48:2]
-  %tmp.8 = fmul float %buffer.load, %scale, !dbg !144 ; [#uses=1 type=float] [debug line = 48:2]
-  %current_value.2 = fadd float %current_value, %tmp.8, !dbg !144 ; [#uses=2 type=float] [debug line = 48:2]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !169), !dbg !144 ; [debug line = 48:2] [debug variable = current_value]
-  %tmp.9 = sext i32 %writeBuffer.load. to i64, !dbg !148 ; [#uses=1 type=i64] [debug line = 50:2]
-  %buffer.addr.1 = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.9, !dbg !148 ; [#uses=1 type=float*] [debug line = 50:2]
-  store float %current_value.2, float* %buffer.addr.1, align 4, !dbg !148 ; [debug line = 50:2]
-  call void @llvm.dbg.value(metadata !{float* %value_out.V}, i64 0, metadata !170), !dbg !173 ; [debug line = 105:48@52:2] [debug variable = stream<float>.V]
-  call void @llvm.dbg.value(metadata !{float* %value_out.V}, i64 0, metadata !175), !dbg !178 ; [debug line = 144:48@106:9@52:2] [debug variable = stream<float>.V]
-  call void @llvm.dbg.declare(metadata !{float* %tmp.1}, metadata !181) nounwind, !dbg !183 ; [debug line = 145:22@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !181), !dbg !184 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !181), !dbg !184 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  store float %current_value.2, float* %tmp.1, align 4, !dbg !184 ; [debug line = 145:31@106:9@52:2]
-  call void @_ssdm_op_IfWrite.Stream.floatP.floatP(float* %value_out.V, float* %tmp.1) nounwind, !dbg !185 ; [debug line = 146:9@106:9@52:2]
-  %tmp. = icmp slt i32 %readBuffer.loc.tmp.5, 4800, !dbg !186 ; [#uses=1 type=i1] [debug line = 54:2]
-  %tmp.3 = add nsw i32 %readBuffer.loc.tmp.5, 1, !dbg !187 ; [#uses=1 type=i32] [debug line = 55:3]
-  %storemerge = select i1 %tmp., i32 %tmp.3, i32 0, !dbg !186 ; [#uses=1 type=i32] [debug line = 54:2]
-  %tmp.6 = icmp slt i32 %writeBuffer.load., 4800, !dbg !188 ; [#uses=1 type=i1] [debug line = 59:2]
-  %tmp.10 = add nsw i32 %writeBuffer.load., 1, !dbg !189 ; [#uses=1 type=i32] [debug line = 60:3]
-  %storemerge5 = select i1 %tmp.6, i32 %tmp.10, i32 0, !dbg !188 ; [#uses=1 type=i32] [debug line = 59:2]
-  store i32 %storemerge5, i32* @writeBuffer, align 4, !dbg !190 ; [debug line = 41:3]
-  br i1 %delaycheck.flag., label %mergeST2, label %._crit_edge7.new3
+  %tmp.4 = icmp eq i32 %delaycheck.loc, %delay, !dbg !147 ; [#uses=1 type=i1] [debug line = 38:2]
+  %writeBuffer.load = load i32* @writeBuffer, align 4, !dbg !149 ; [#uses=1 type=i32] [debug line = 49:2]
+  br i1 %tmp.4, label %._crit_edge7, label %1, !dbg !147 ; [debug line = 38:2]
 
-mergeST2:                                         ; preds = %._crit_edge6
-  store i32 %delay, i32* @delaycheck, align 4, !dbg !147 ; [debug line = 36:31]
+; <label>:1                                       ; preds = %._crit_edge6
+  %tmp1 = add i32 %readBuffer.loc, 4800, !dbg !144 ; [#uses=1 type=i32] [debug line = 39:3]
+  %tmp.6 = add i32 %tmp1, %delay, !dbg !144       ; [#uses=1 type=i32] [debug line = 39:3]
+  %tmp.7 = srem i32 %tmp.6, 4800, !dbg !144       ; [#uses=1 type=i32] [debug line = 39:3]
+  br label %._crit_edge7, !dbg !150               ; [debug line = 41:2]
+
+._crit_edge7:                                     ; preds = %1, %._crit_edge6
+  %delaycheck.flag.1 = phi i1 [ %delaycheck.flag, %._crit_edge6 ], [ true, %1 ] ; [#uses=1 type=i1]
+  %writeBuffer.loc = phi i32 [ %writeBuffer.load, %._crit_edge6 ], [ %tmp.7, %1 ] ; [#uses=3 type=i32]
+  call void @llvm.dbg.value(metadata !{float* %value_in.V}, i64 0, metadata !151), !dbg !156 ; [debug line = 101:48@45:2] [debug variable = stream<float>.V]
+  call void @llvm.dbg.value(metadata !{float* %value_in.V}, i64 0, metadata !158), !dbg !161 ; [debug line = 123:48@102:9@45:2] [debug variable = stream<float>.V]
+  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !164) nounwind, !dbg !166 ; [debug line = 124:22@102:9@45:2] [debug variable = tmp]
+  call void @_ssdm_op_IfRead.Stream.floatP.floatP(float* %value_in.V, float* %tmp) nounwind, !dbg !167 ; [debug line = 125:9@102:9@45:2]
+  call void @llvm.dbg.value(metadata !{float* %tmp}, i64 0, metadata !164), !dbg !168 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp}, i64 0, metadata !164), !dbg !168 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  %current_value = load float* %tmp, align 4, !dbg !168 ; [#uses=1 type=float] [debug line = 126:9@102:9@45:2]
+  call void @llvm.dbg.value(metadata !{float %current_value}, i64 0, metadata !169), !dbg !168 ; [debug line = 126:9@102:9@45:2] [debug variable = current_value]
+  %tmp.9 = sext i32 %readBuffer.loc to i64, !dbg !170 ; [#uses=1 type=i64] [debug line = 47:2]
+  %buffer.addr = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.9, !dbg !170 ; [#uses=1 type=float*] [debug line = 47:2]
+  %buffer.load = load float* %buffer.addr, align 4, !dbg !170 ; [#uses=1 type=float] [debug line = 47:2]
+  %tmp. = fmul float %buffer.load, %scale, !dbg !170 ; [#uses=1 type=float] [debug line = 47:2]
+  %current_value.2 = fadd float %current_value, %tmp., !dbg !170 ; [#uses=2 type=float] [debug line = 47:2]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !169), !dbg !170 ; [debug line = 47:2] [debug variable = current_value]
+  %tmp.8 = sext i32 %writeBuffer.loc to i64, !dbg !149 ; [#uses=1 type=i64] [debug line = 49:2]
+  %buffer.addr.1 = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.8, !dbg !149 ; [#uses=1 type=float*] [debug line = 49:2]
+  store float %current_value.2, float* %buffer.addr.1, align 4, !dbg !149 ; [debug line = 49:2]
+  call void @llvm.dbg.value(metadata !{float* %value_out.V}, i64 0, metadata !171), !dbg !174 ; [debug line = 105:48@51:2] [debug variable = stream<float>.V]
+  call void @llvm.dbg.value(metadata !{float* %value_out.V}, i64 0, metadata !176), !dbg !179 ; [debug line = 144:48@106:9@51:2] [debug variable = stream<float>.V]
+  call void @llvm.dbg.declare(metadata !{float* %tmp.1}, metadata !182) nounwind, !dbg !184 ; [debug line = 145:22@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !182), !dbg !185 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !182), !dbg !185 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  store float %current_value.2, float* %tmp.1, align 4, !dbg !185 ; [debug line = 145:31@106:9@51:2]
+  call void @_ssdm_op_IfWrite.Stream.floatP.floatP(float* %value_out.V, float* %tmp.1) nounwind, !dbg !186 ; [debug line = 146:9@106:9@51:2]
+  %tmp.3 = icmp slt i32 %readBuffer.loc, 4800, !dbg !187 ; [#uses=1 type=i1] [debug line = 53:2]
+  %tmp.5 = add nsw i32 %readBuffer.loc, 1, !dbg !188 ; [#uses=1 type=i32] [debug line = 54:3]
+  %storemerge = select i1 %tmp.3, i32 %tmp.5, i32 0, !dbg !187 ; [#uses=1 type=i32] [debug line = 53:2]
+  %tmp.10 = icmp slt i32 %writeBuffer.loc, 4800, !dbg !189 ; [#uses=1 type=i1] [debug line = 58:2]
+  %tmp.11 = add nsw i32 %writeBuffer.loc, 1, !dbg !190 ; [#uses=1 type=i32] [debug line = 59:3]
+  %storemerge5 = select i1 %tmp.10, i32 %tmp.11, i32 0, !dbg !189 ; [#uses=1 type=i32] [debug line = 58:2]
+  store i32 %storemerge5, i32* @writeBuffer, align 4, !dbg !144 ; [debug line = 39:3]
+  br i1 %delaycheck.flag.1, label %mergeST2, label %._crit_edge7.new3
+
+mergeST2:                                         ; preds = %._crit_edge7
+  store i32 %delay, i32* @delaycheck, align 4, !dbg !148 ; [debug line = 36:31]
   br label %._crit_edge7.new3
 
-._crit_edge7.new3:                                ; preds = %mergeST2, %._crit_edge6
-  store i32 %storemerge, i32* @readBuffer, align 4, !dbg !145 ; [debug line = 33:38]
-  ret void, !dbg !191                             ; [debug line = 65:1]
+._crit_edge7.new3:                                ; preds = %mergeST2, %._crit_edge7
+  store i32 %storemerge, i32* @readBuffer, align 4, !dbg !146 ; [debug line = 33:38]
+  ret void, !dbg !191                             ; [debug line = 64:1]
 }
 
 !opencl.kernels = !{!0, !7, !13, !15, !18}
@@ -157,8 +163,8 @@ mergeST2:                                         ; preds = %._crit_edge6
 !19 = metadata !{metadata !"kernel_arg_name", metadata !"dout"}
 !20 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/Echo.pragma.2.cpp", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, null, null, null, metadata !21} ; [ DW_TAG_compile_unit ]
 !21 = metadata !{metadata !22}
-!22 = metadata !{metadata !23, metadata !88, metadata !92, metadata !93, metadata !94, metadata !97, metadata !98, metadata !99, metadata !101, metadata !102}
-!23 = metadata !{i32 786484, i32 0, metadata !24, metadata !"delaycheck", metadata !"delaycheck", metadata !"", metadata !25, i32 36, metadata !87, i32 1, i32 1, i32* @delaycheck} ; [ DW_TAG_variable ]
+!22 = metadata !{metadata !23, metadata !91, metadata !92, metadata !93, metadata !94, metadata !97, metadata !98, metadata !99, metadata !101, metadata !102}
+!23 = metadata !{i32 786484, i32 0, metadata !24, metadata !"buffer", metadata !"buffer", metadata !"", metadata !25, i32 32, metadata !88, i32 1, i32 1, [4800 x float]* @buffer} ; [ DW_TAG_variable ]
 !24 = metadata !{i32 786478, i32 0, metadata !25, metadata !"Echo", metadata !"Echo", metadata !"_Z4EchoRN3hls6streamIfEES2_if", metadata !25, i32 14, metadata !26, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, null, metadata !39, i32 22} ; [ DW_TAG_subprogram ]
 !25 = metadata !{i32 786473, metadata !"src/Echo.cpp", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !26 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !27, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
@@ -223,12 +229,12 @@ mergeST2:                                         ; preds = %._crit_edge6
 !85 = metadata !{metadata !86}
 !86 = metadata !{i32 786479, null, metadata !"__STREAM_T__", metadata !34, null, i32 0, i32 0} ; [ DW_TAG_template_type_parameter ]
 !87 = metadata !{i32 786468, null, metadata !"int", null, i32 0, i64 32, i64 32, i64 0, i32 0, i32 5} ; [ DW_TAG_base_type ]
-!88 = metadata !{i32 786484, i32 0, metadata !24, metadata !"buffer", metadata !"buffer", metadata !"", metadata !25, i32 32, metadata !89, i32 1, i32 1, [4800 x float]* @buffer} ; [ DW_TAG_variable ]
-!89 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 153600, i64 32, i32 0, i32 0, metadata !34, metadata !90, i32 0, i32 0} ; [ DW_TAG_array_type ]
-!90 = metadata !{metadata !91}
-!91 = metadata !{i32 786465, i64 0, i64 4799}     ; [ DW_TAG_subrange_type ]
-!92 = metadata !{i32 786484, i32 0, metadata !24, metadata !"readBuffer", metadata !"readBuffer", metadata !"", metadata !25, i32 33, metadata !87, i32 1, i32 1, i32* @readBuffer} ; [ DW_TAG_variable ]
-!93 = metadata !{i32 786484, i32 0, metadata !24, metadata !"writeBuffer", metadata !"writeBuffer", metadata !"", metadata !25, i32 34, metadata !87, i32 1, i32 1, i32* @writeBuffer} ; [ DW_TAG_variable ]
+!88 = metadata !{i32 786433, null, metadata !"", null, i32 0, i64 153600, i64 32, i32 0, i32 0, metadata !34, metadata !89, i32 0, i32 0} ; [ DW_TAG_array_type ]
+!89 = metadata !{metadata !90}
+!90 = metadata !{i32 786465, i64 0, i64 4799}     ; [ DW_TAG_subrange_type ]
+!91 = metadata !{i32 786484, i32 0, metadata !24, metadata !"delaycheck", metadata !"delaycheck", metadata !"", metadata !25, i32 36, metadata !87, i32 1, i32 1, i32* @delaycheck} ; [ DW_TAG_variable ]
+!92 = metadata !{i32 786484, i32 0, metadata !24, metadata !"writeBuffer", metadata !"writeBuffer", metadata !"", metadata !25, i32 34, metadata !87, i32 1, i32 1, i32* @writeBuffer} ; [ DW_TAG_variable ]
+!93 = metadata !{i32 786484, i32 0, metadata !24, metadata !"readBuffer", metadata !"readBuffer", metadata !"", metadata !25, i32 33, metadata !87, i32 1, i32 1, i32* @readBuffer} ; [ DW_TAG_variable ]
 !94 = metadata !{i32 786484, i32 0, null, metadata !"_IO_2_1_stdin_", metadata !"_IO_2_1_stdin_", metadata !"", metadata !95, i32 315, metadata !96, i32 0, i32 1, null} ; [ DW_TAG_variable ]
 !95 = metadata !{i32 786473, metadata !"/usr/include/libio.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !96 = metadata !{i32 786434, null, metadata !"_IO_FILE_plus", metadata !95, i32 313, i32 0, i32 0, i32 0, i32 4, null, null, i32 0} ; [ DW_TAG_class_type ]
@@ -279,20 +285,20 @@ mergeST2:                                         ; preds = %._crit_edge6
 !141 = metadata !{i32 27, i32 1, metadata !138, null}
 !142 = metadata !{i32 29, i32 1, metadata !138, null}
 !143 = metadata !{i32 30, i32 1, metadata !138, null}
-!144 = metadata !{i32 48, i32 2, metadata !138, null}
-!145 = metadata !{i32 33, i32 38, metadata !138, null}
-!146 = metadata !{i32 38, i32 2, metadata !138, null}
-!147 = metadata !{i32 36, i32 31, metadata !138, null}
-!148 = metadata !{i32 50, i32 2, metadata !138, null}
-!149 = metadata !{i32 40, i32 3, metadata !150, null}
-!150 = metadata !{i32 786443, metadata !138, i32 38, i32 25, metadata !25, i32 1} ; [ DW_TAG_lexical_block ]
+!144 = metadata !{i32 39, i32 3, metadata !145, null}
+!145 = metadata !{i32 786443, metadata !138, i32 38, i32 25, metadata !25, i32 1} ; [ DW_TAG_lexical_block ]
+!146 = metadata !{i32 33, i32 38, metadata !138, null}
+!147 = metadata !{i32 38, i32 2, metadata !138, null}
+!148 = metadata !{i32 36, i32 31, metadata !138, null}
+!149 = metadata !{i32 49, i32 2, metadata !138, null}
+!150 = metadata !{i32 41, i32 2, metadata !145, null}
 !151 = metadata !{i32 790531, metadata !152, metadata !"stream<float>.V", null, i32 101, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
 !152 = metadata !{i32 786689, metadata !153, metadata !"this", metadata !31, i32 16777317, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
 !153 = metadata !{i32 786478, i32 0, metadata !30, metadata !"operator>>", metadata !"operator>>", metadata !"_ZN3hls6streamIfErsERf", metadata !31, i32 101, metadata !56, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !55, metadata !39, i32 101} ; [ DW_TAG_subprogram ]
 !154 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !29} ; [ DW_TAG_pointer_type ]
 !155 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !127} ; [ DW_TAG_pointer_type ]
 !156 = metadata !{i32 101, i32 48, metadata !153, metadata !157}
-!157 = metadata !{i32 46, i32 2, metadata !138, null}
+!157 = metadata !{i32 45, i32 2, metadata !138, null}
 !158 = metadata !{i32 790531, metadata !159, metadata !"stream<float>.V", null, i32 123, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
 !159 = metadata !{i32 786689, metadata !160, metadata !"this", metadata !31, i32 16777339, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
 !160 = metadata !{i32 786478, i32 0, metadata !30, metadata !"read", metadata !"read", metadata !"_ZN3hls6streamIfE4readERf", metadata !31, i32 123, metadata !56, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !70, metadata !39, i32 123} ; [ DW_TAG_subprogram ]
@@ -304,26 +310,26 @@ mergeST2:                                         ; preds = %._crit_edge6
 !166 = metadata !{i32 124, i32 22, metadata !165, metadata !162}
 !167 = metadata !{i32 125, i32 9, metadata !165, metadata !162}
 !168 = metadata !{i32 126, i32 9, metadata !165, metadata !162}
-!169 = metadata !{i32 786688, metadata !138, metadata !"current_value", metadata !25, i32 44, metadata !34, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!170 = metadata !{i32 790531, metadata !171, metadata !"stream<float>.V", null, i32 105, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
-!171 = metadata !{i32 786689, metadata !172, metadata !"this", metadata !31, i32 16777321, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!172 = metadata !{i32 786478, i32 0, metadata !30, metadata !"operator<<", metadata !"operator<<", metadata !"_ZN3hls6streamIfElsERKf", metadata !31, i32 105, metadata !60, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !59, metadata !39, i32 105} ; [ DW_TAG_subprogram ]
-!173 = metadata !{i32 105, i32 48, metadata !172, metadata !174}
-!174 = metadata !{i32 52, i32 2, metadata !138, null}
-!175 = metadata !{i32 790531, metadata !176, metadata !"stream<float>.V", null, i32 144, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
-!176 = metadata !{i32 786689, metadata !177, metadata !"this", metadata !31, i32 16777360, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!177 = metadata !{i32 786478, i32 0, metadata !30, metadata !"write", metadata !"write", metadata !"_ZN3hls6streamIfE5writeERKf", metadata !31, i32 144, metadata !60, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !77, metadata !39, i32 144} ; [ DW_TAG_subprogram ]
-!178 = metadata !{i32 144, i32 48, metadata !177, metadata !179}
-!179 = metadata !{i32 106, i32 9, metadata !180, metadata !174}
-!180 = metadata !{i32 786443, metadata !172, i32 105, i32 88, metadata !31, i32 2} ; [ DW_TAG_lexical_block ]
-!181 = metadata !{i32 786688, metadata !182, metadata !"tmp", metadata !31, i32 145, metadata !34, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!182 = metadata !{i32 786443, metadata !177, i32 144, i32 79, metadata !31, i32 3} ; [ DW_TAG_lexical_block ]
-!183 = metadata !{i32 145, i32 22, metadata !182, metadata !179}
-!184 = metadata !{i32 145, i32 31, metadata !182, metadata !179}
-!185 = metadata !{i32 146, i32 9, metadata !182, metadata !179}
-!186 = metadata !{i32 54, i32 2, metadata !138, null}
-!187 = metadata !{i32 55, i32 3, metadata !138, null}
-!188 = metadata !{i32 59, i32 2, metadata !138, null}
-!189 = metadata !{i32 60, i32 3, metadata !138, null}
-!190 = metadata !{i32 41, i32 3, metadata !150, null}
-!191 = metadata !{i32 65, i32 1, metadata !138, null}
+!169 = metadata !{i32 786688, metadata !138, metadata !"current_value", metadata !25, i32 43, metadata !34, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!170 = metadata !{i32 47, i32 2, metadata !138, null}
+!171 = metadata !{i32 790531, metadata !172, metadata !"stream<float>.V", null, i32 105, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
+!172 = metadata !{i32 786689, metadata !173, metadata !"this", metadata !31, i32 16777321, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!173 = metadata !{i32 786478, i32 0, metadata !30, metadata !"operator<<", metadata !"operator<<", metadata !"_ZN3hls6streamIfElsERKf", metadata !31, i32 105, metadata !60, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !59, metadata !39, i32 105} ; [ DW_TAG_subprogram ]
+!174 = metadata !{i32 105, i32 48, metadata !173, metadata !175}
+!175 = metadata !{i32 51, i32 2, metadata !138, null}
+!176 = metadata !{i32 790531, metadata !177, metadata !"stream<float>.V", null, i32 144, metadata !155, i32 0, i32 0} ; [ DW_TAG_arg_variable_field ]
+!177 = metadata !{i32 786689, metadata !178, metadata !"this", metadata !31, i32 16777360, metadata !154, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!178 = metadata !{i32 786478, i32 0, metadata !30, metadata !"write", metadata !"write", metadata !"_ZN3hls6streamIfE5writeERKf", metadata !31, i32 144, metadata !60, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !77, metadata !39, i32 144} ; [ DW_TAG_subprogram ]
+!179 = metadata !{i32 144, i32 48, metadata !178, metadata !180}
+!180 = metadata !{i32 106, i32 9, metadata !181, metadata !175}
+!181 = metadata !{i32 786443, metadata !173, i32 105, i32 88, metadata !31, i32 2} ; [ DW_TAG_lexical_block ]
+!182 = metadata !{i32 786688, metadata !183, metadata !"tmp", metadata !31, i32 145, metadata !34, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!183 = metadata !{i32 786443, metadata !178, i32 144, i32 79, metadata !31, i32 3} ; [ DW_TAG_lexical_block ]
+!184 = metadata !{i32 145, i32 22, metadata !183, metadata !180}
+!185 = metadata !{i32 145, i32 31, metadata !183, metadata !180}
+!186 = metadata !{i32 146, i32 9, metadata !183, metadata !180}
+!187 = metadata !{i32 53, i32 2, metadata !138, null}
+!188 = metadata !{i32 54, i32 3, metadata !138, null}
+!189 = metadata !{i32 58, i32 2, metadata !138, null}
+!190 = metadata !{i32 59, i32 3, metadata !138, null}
+!191 = metadata !{i32 64, i32 1, metadata !138, null}

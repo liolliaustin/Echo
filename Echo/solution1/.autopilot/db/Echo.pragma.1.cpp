@@ -6210,9 +6210,8 @@ _ssdm_op_SpecInterface(&value_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0,
  static int delaycheck = delay;
 
  if(delaycheck != delay){
+  writeBuffer = (4800 + readBuffer + delay)%4800;
   delaycheck = delay;
-  readBuffer = 4800 - delay;
-  writeBuffer = 0;
  }
 
  float current_value;

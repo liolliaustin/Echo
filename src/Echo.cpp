@@ -36,9 +36,8 @@ void Echo(
 	static int delaycheck = delay;
 
 	if(delaycheck != delay){
+		writeBuffer = (MAX_BUFFER_SIZE + readBuffer + delay)%MAX_BUFFER_SIZE;
 		delaycheck = delay;
-		readBuffer = MAX_BUFFER_SIZE - delay;
-		writeBuffer = 0;
 	}
 
 	float current_value;

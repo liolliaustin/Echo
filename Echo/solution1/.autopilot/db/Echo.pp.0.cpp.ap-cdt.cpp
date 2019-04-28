@@ -6210,9 +6210,8 @@ void Echo(
  static int delaycheck = delay;
 #pragma empty_line
  if(delaycheck != delay){
+  writeBuffer = (4800 + readBuffer + delay)%4800;
   delaycheck = delay;
-  readBuffer = 4800 - delay;
-  writeBuffer = 0;
  }
 #pragma empty_line
  float current_value;

@@ -6202,9 +6202,8 @@ void Echo(
  static int delaycheck = delay;
 
  if(delaycheck != delay){
+  writeBuffer = (4800 + readBuffer + delay)%4800;
   delaycheck = delay;
-  readBuffer = 4800 - delay;
-  writeBuffer = 0;
  }
 
  float current_value;

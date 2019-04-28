@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Sun Apr 28 11:07:03 2019
-# Process ID: 12626
+# Start of session at: Sun Apr 28 11:54:27 2019
+# Process ID: 19681
 # Current directory: /home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/impl/ip/vivado.log
@@ -21,4 +21,4 @@ INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Echo_ap_fadd_3_fu
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/austin/Desktop/Vivado/2017.2/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 11:07:15 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 11:54:39 2019...

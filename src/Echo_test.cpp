@@ -19,7 +19,7 @@ int main() {
 	}
 
 
-
+	int delay = 300;
 
 	int i = 3000;
 	while (i --> 0) {
@@ -28,7 +28,7 @@ int main() {
 			value_in,
 			value_out,
 
-			300,
+			delay,
 			0.5
 		);
 
@@ -39,6 +39,9 @@ int main() {
 		else{
 			value_in << 0.0f;
 		}
+
+		if(i == 2500)
+			delay = 200;
 
 
 

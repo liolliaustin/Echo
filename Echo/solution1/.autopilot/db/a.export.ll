@@ -98,35 +98,41 @@ codeRepl:                                         ; preds = %._crit_edge
   %delaycheck_loc = phi i32 [ %delay_read, %codeRepl ], [ %delaycheck_load, %._crit_edge ]
   %tmp_4 = icmp eq i32 %delaycheck_loc, %delay_read
   %writeBuffer_load = load i32* @writeBuffer, align 4
-  %tmp_5 = sub nsw i32 4800, %delay_read
-  %readBuffer_loc_tmp_5 = select i1 %tmp_4, i32 %readBuffer_loc, i32 %tmp_5
-  %not_tmp_4 = xor i1 %tmp_4, true
-  %delaycheck_flag_s = or i1 %delaycheck_flag, %not_tmp_4
-  %writeBuffer_load_s = select i1 %tmp_4, i32 %writeBuffer_load, i32 0
-  %tmp_2 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
-  %tmp_7 = sext i32 %readBuffer_loc_tmp_5 to i64
-  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_7
+  br i1 %tmp_4, label %._crit_edge7, label %1
+
+; <label>:1                                       ; preds = %._crit_edge6
+  %tmp1 = add i32 %readBuffer_loc, 4800
+  %tmp_6 = add i32 %tmp1, %delay_read
+  %tmp_7 = srem i32 %tmp_6, 4800
+  br label %._crit_edge7
+
+._crit_edge7:                                     ; preds = %1, %._crit_edge6
+  %delaycheck_flag_1 = phi i1 [ %delaycheck_flag, %._crit_edge6 ], [ true, %1 ]
+  %writeBuffer_loc = phi i32 [ %writeBuffer_load, %._crit_edge6 ], [ %tmp_7, %1 ]
+  %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+  %tmp_9 = sext i32 %readBuffer_loc to i64
+  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_9
   %buffer_load = load float* %buffer_addr, align 4
-  %tmp_8 = fmul float %buffer_load, %scale_read
-  %current_value = fadd float %tmp_2, %tmp_8
-  %tmp_9 = sext i32 %writeBuffer_load_s to i64
-  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_9
+  %tmp_s = fmul float %buffer_load, %scale_read
+  %current_value = fadd float %tmp_10, %tmp_s
+  %tmp_8 = sext i32 %writeBuffer_loc to i64
+  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_8
   store float %current_value, float* %buffer_addr_1, align 4
   call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
-  %tmp_s = icmp slt i32 %readBuffer_loc_tmp_5, 4800
-  %tmp_3 = add nsw i32 %readBuffer_loc_tmp_5, 1
-  %storemerge = select i1 %tmp_s, i32 %tmp_3, i32 0
-  %tmp_6 = icmp slt i32 %writeBuffer_load_s, 4800
-  %tmp_1 = add nsw i32 %writeBuffer_load_s, 1
-  %storemerge5 = select i1 %tmp_6, i32 %tmp_1, i32 0
+  %tmp_3 = icmp slt i32 %readBuffer_loc, 4800
+  %tmp_5 = add nsw i32 %readBuffer_loc, 1
+  %storemerge = select i1 %tmp_3, i32 %tmp_5, i32 0
+  %tmp_1 = icmp slt i32 %writeBuffer_loc, 4800
+  %tmp_2 = add nsw i32 %writeBuffer_loc, 1
+  %storemerge5 = select i1 %tmp_1, i32 %tmp_2, i32 0
   store i32 %storemerge5, i32* @writeBuffer, align 4
-  br i1 %delaycheck_flag_s, label %mergeST2, label %._crit_edge7.new3
+  br i1 %delaycheck_flag_1, label %mergeST2, label %._crit_edge7.new3
 
-mergeST2:                                         ; preds = %._crit_edge6
+mergeST2:                                         ; preds = %._crit_edge7
   store i32 %delay_read, i32* @delaycheck, align 4
   br label %._crit_edge7.new3
 
-._crit_edge7.new3:                                ; preds = %mergeST2, %._crit_edge6
+._crit_edge7.new3:                                ; preds = %mergeST2, %._crit_edge7
   store i32 %storemerge, i32* @readBuffer, align 4
   ret void
 }

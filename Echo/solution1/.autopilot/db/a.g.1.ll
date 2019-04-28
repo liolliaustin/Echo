@@ -45,8 +45,8 @@ declare void @_ssdm_SpecKeepArrayLoad(...)
 ; [#uses=0]
 define void @Echo(%"class.hls::stream.0"* %value_in, %"class.hls::stream.0"* %value_out, i32 %delay, float %scale) nounwind uwtable {
   call void (...)* @_ssdm_op_SpecTopModule([5 x i8]* @Echo.str) nounwind
-  %tmp.10 = alloca float, align 4                 ; [#uses=2 type=float*]
-  %tmp.6 = alloca float, align 4                  ; [#uses=2 type=float*]
+  %tmp.12 = alloca float, align 4                 ; [#uses=2 type=float*]
+  %tmp.8 = alloca float, align 4                  ; [#uses=2 type=float*]
   call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_in}, i64 0, metadata !112), !dbg !113 ; [debug line = 16:23] [debug variable = value_in]
   call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !114), !dbg !115 ; [debug line = 17:23] [debug variable = value_out]
   call void @llvm.dbg.value(metadata !{i32 %delay}, i64 0, metadata !116), !dbg !117 ; [debug line = 19:6] [debug variable = delay]
@@ -84,71 +84,73 @@ codeRepl10:                                       ; preds = %._crit_edge
   br i1 %tmp.4, label %._crit_edge7, label %1, !dbg !129 ; [debug line = 38:2]
 
 ; <label>:1                                       ; preds = %._crit_edge6
-  store i32 %delay, i32* @delaycheck, align 4, !dbg !130 ; [debug line = 39:3]
-  %tmp.5 = sub nsw i32 4800, %delay, !dbg !132    ; [#uses=1 type=i32] [debug line = 40:3]
-  store i32 %tmp.5, i32* @readBuffer, align 4, !dbg !132 ; [debug line = 40:3]
-  store i32 0, i32* @writeBuffer, align 4, !dbg !133 ; [debug line = 41:3]
-  br label %._crit_edge7, !dbg !134               ; [debug line = 42:2]
+  %readBuffer.load = load i32* @readBuffer, align 4, !dbg !130 ; [#uses=1 type=i32] [debug line = 39:3]
+  %tmp.5 = add i32 %delay, 4800, !dbg !130        ; [#uses=1 type=i32] [debug line = 39:3]
+  %tmp.6 = add i32 %tmp.5, %readBuffer.load, !dbg !130 ; [#uses=1 type=i32] [debug line = 39:3]
+  %tmp.7 = srem i32 %tmp.6, 4800, !dbg !130       ; [#uses=1 type=i32] [debug line = 39:3]
+  store i32 %tmp.7, i32* @writeBuffer, align 4, !dbg !130 ; [debug line = 39:3]
+  store i32 %delay, i32* @delaycheck, align 4, !dbg !132 ; [debug line = 40:3]
+  br label %._crit_edge7, !dbg !133               ; [debug line = 41:2]
 
 ._crit_edge7:                                     ; preds = %1, %._crit_edge6
-  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_in}, i64 0, metadata !135), !dbg !137 ; [debug line = 101:48@46:2] [debug variable = this]
-  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_in}, i64 0, metadata !139), !dbg !140 ; [debug line = 123:48@102:9@46:2] [debug variable = this]
-  call void @llvm.dbg.declare(metadata !{float* %tmp.6}, metadata !143) nounwind, !dbg !145 ; [debug line = 124:22@102:9@46:2] [debug variable = tmp]
-  %value_in.addr = getelementptr inbounds %"class.hls::stream.0"* %value_in, i64 0, i32 0, !dbg !146 ; [#uses=1 type=float*] [debug line = 125:9@102:9@46:2]
-  call void @_ssdm_op_IfRead.Stream.floatP.floatP(float* %value_in.addr, float* %tmp.6) nounwind, !dbg !146 ; [debug line = 125:9@102:9@46:2]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float* %tmp.6}, i64 0, metadata !143), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = tmp]
-  %current_value = load float* %tmp.6, align 4, !dbg !147 ; [#uses=1 type=float] [debug line = 126:9@102:9@46:2]
-  call void @llvm.dbg.value(metadata !{float %current_value}, i64 0, metadata !148), !dbg !147 ; [debug line = 126:9@102:9@46:2] [debug variable = current_value]
-  %readBuffer.load = load i32* @readBuffer, align 4, !dbg !149 ; [#uses=1 type=i32] [debug line = 48:2]
-  %tmp.7 = sext i32 %readBuffer.load to i64, !dbg !149 ; [#uses=1 type=i64] [debug line = 48:2]
-  %buffer.addr = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.7, !dbg !149 ; [#uses=1 type=float*] [debug line = 48:2]
-  %buffer.load = load float* %buffer.addr, align 4, !dbg !149 ; [#uses=2 type=float] [debug line = 48:2]
+  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_in}, i64 0, metadata !134), !dbg !136 ; [debug line = 101:48@45:2] [debug variable = this]
+  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_in}, i64 0, metadata !138), !dbg !139 ; [debug line = 123:48@102:9@45:2] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{float* %tmp.8}, metadata !142) nounwind, !dbg !144 ; [debug line = 124:22@102:9@45:2] [debug variable = tmp]
+  %value_in.addr = getelementptr inbounds %"class.hls::stream.0"* %value_in, i64 0, i32 0, !dbg !145 ; [#uses=1 type=float*] [debug line = 125:9@102:9@45:2]
+  call void @_ssdm_op_IfRead.Stream.floatP.floatP(float* %value_in.addr, float* %tmp.8) nounwind, !dbg !145 ; [debug line = 125:9@102:9@45:2]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float* %tmp.8}, i64 0, metadata !142), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = tmp]
+  %current_value = load float* %tmp.8, align 4, !dbg !146 ; [#uses=1 type=float] [debug line = 126:9@102:9@45:2]
+  call void @llvm.dbg.value(metadata !{float %current_value}, i64 0, metadata !147), !dbg !146 ; [debug line = 126:9@102:9@45:2] [debug variable = current_value]
+  %readBuffer.load.1 = load i32* @readBuffer, align 4, !dbg !148 ; [#uses=1 type=i32] [debug line = 47:2]
+  %tmp.9 = sext i32 %readBuffer.load.1 to i64, !dbg !148 ; [#uses=1 type=i64] [debug line = 47:2]
+  %buffer.addr = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.9, !dbg !148 ; [#uses=1 type=float*] [debug line = 47:2]
+  %buffer.load = load float* %buffer.addr, align 4, !dbg !148 ; [#uses=2 type=float] [debug line = 47:2]
   call void (...)* @_ssdm_SpecKeepArrayLoad(float %buffer.load) nounwind
-  %tmp.8 = fmul float %buffer.load, %scale, !dbg !149 ; [#uses=1 type=float] [debug line = 48:2]
-  %current_value.2 = fadd float %current_value, %tmp.8, !dbg !149 ; [#uses=2 type=float] [debug line = 48:2]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !148), !dbg !149 ; [debug line = 48:2] [debug variable = current_value]
-  %writeBuffer.load = load i32* @writeBuffer, align 4, !dbg !150 ; [#uses=1 type=i32] [debug line = 50:2]
-  %tmp.9 = sext i32 %writeBuffer.load to i64, !dbg !150 ; [#uses=1 type=i64] [debug line = 50:2]
-  %buffer.addr.1 = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.9, !dbg !150 ; [#uses=1 type=float*] [debug line = 50:2]
-  store float %current_value.2, float* %buffer.addr.1, align 4, !dbg !150 ; [debug line = 50:2]
-  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !151), !dbg !152 ; [debug line = 105:48@52:2] [debug variable = this]
-  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !154), !dbg !155 ; [debug line = 144:48@106:9@52:2] [debug variable = this]
-  call void @llvm.dbg.declare(metadata !{float* %tmp.10}, metadata !158) nounwind, !dbg !160 ; [debug line = 145:22@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !158), !dbg !161 ; [debug line = 145:31@106:9@52:2] [debug variable = tmp]
-  store float %current_value.2, float* %tmp.10, align 4, !dbg !161 ; [debug line = 145:31@106:9@52:2]
-  %value_out.addr = getelementptr inbounds %"class.hls::stream.0"* %value_out, i64 0, i32 0, !dbg !162 ; [#uses=1 type=float*] [debug line = 146:9@106:9@52:2]
-  call void @_ssdm_op_IfWrite.Stream.floatP.floatP(float* %value_out.addr, float* %tmp.10) nounwind, !dbg !162 ; [debug line = 146:9@106:9@52:2]
-  %readBuffer.load.1 = load i32* @readBuffer, align 4, !dbg !163 ; [#uses=2 type=i32] [debug line = 54:2]
-  %tmp.12 = icmp slt i32 %readBuffer.load.1, 4800, !dbg !163 ; [#uses=1 type=i1] [debug line = 54:2]
-  %tmp.13 = add nsw i32 %readBuffer.load.1, 1, !dbg !164 ; [#uses=1 type=i32] [debug line = 55:3]
-  %storemerge = select i1 %tmp.12, i32 %tmp.13, i32 0, !dbg !163 ; [#uses=1 type=i32] [debug line = 54:2]
-  store i32 %storemerge, i32* @readBuffer, align 4, !dbg !164 ; [debug line = 55:3]
-  %writeBuffer.load.1 = load i32* @writeBuffer, align 4, !dbg !165 ; [#uses=2 type=i32] [debug line = 59:2]
-  %tmp.14 = icmp slt i32 %writeBuffer.load.1, 4800, !dbg !165 ; [#uses=1 type=i1] [debug line = 59:2]
-  %tmp.15 = add nsw i32 %writeBuffer.load.1, 1, !dbg !166 ; [#uses=1 type=i32] [debug line = 60:3]
-  %storemerge5 = select i1 %tmp.14, i32 %tmp.15, i32 0, !dbg !165 ; [#uses=1 type=i32] [debug line = 59:2]
-  store i32 %storemerge5, i32* @writeBuffer, align 4, !dbg !166 ; [debug line = 60:3]
-  ret void, !dbg !167                             ; [debug line = 65:1]
+  %tmp.10 = fmul float %buffer.load, %scale, !dbg !148 ; [#uses=1 type=float] [debug line = 47:2]
+  %current_value.2 = fadd float %current_value, %tmp.10, !dbg !148 ; [#uses=2 type=float] [debug line = 47:2]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !147), !dbg !148 ; [debug line = 47:2] [debug variable = current_value]
+  %writeBuffer.load = load i32* @writeBuffer, align 4, !dbg !149 ; [#uses=1 type=i32] [debug line = 49:2]
+  %tmp.11 = sext i32 %writeBuffer.load to i64, !dbg !149 ; [#uses=1 type=i64] [debug line = 49:2]
+  %buffer.addr.1 = getelementptr inbounds [4800 x float]* @buffer, i64 0, i64 %tmp.11, !dbg !149 ; [#uses=1 type=float*] [debug line = 49:2]
+  store float %current_value.2, float* %buffer.addr.1, align 4, !dbg !149 ; [debug line = 49:2]
+  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !150), !dbg !151 ; [debug line = 105:48@51:2] [debug variable = this]
+  call void @llvm.dbg.value(metadata !{%"class.hls::stream.0"* %value_out}, i64 0, metadata !153), !dbg !154 ; [debug line = 144:48@106:9@51:2] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{float* %tmp.12}, metadata !157) nounwind, !dbg !159 ; [debug line = 145:22@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{float %current_value.2}, i64 0, metadata !157), !dbg !160 ; [debug line = 145:31@106:9@51:2] [debug variable = tmp]
+  store float %current_value.2, float* %tmp.12, align 4, !dbg !160 ; [debug line = 145:31@106:9@51:2]
+  %value_out.addr = getelementptr inbounds %"class.hls::stream.0"* %value_out, i64 0, i32 0, !dbg !161 ; [#uses=1 type=float*] [debug line = 146:9@106:9@51:2]
+  call void @_ssdm_op_IfWrite.Stream.floatP.floatP(float* %value_out.addr, float* %tmp.12) nounwind, !dbg !161 ; [debug line = 146:9@106:9@51:2]
+  %readBuffer.load.2 = load i32* @readBuffer, align 4, !dbg !162 ; [#uses=2 type=i32] [debug line = 53:2]
+  %tmp.14 = icmp slt i32 %readBuffer.load.2, 4800, !dbg !162 ; [#uses=1 type=i1] [debug line = 53:2]
+  %tmp.15 = add nsw i32 %readBuffer.load.2, 1, !dbg !163 ; [#uses=1 type=i32] [debug line = 54:3]
+  %storemerge = select i1 %tmp.14, i32 %tmp.15, i32 0, !dbg !162 ; [#uses=1 type=i32] [debug line = 53:2]
+  store i32 %storemerge, i32* @readBuffer, align 4, !dbg !163 ; [debug line = 54:3]
+  %writeBuffer.load.1 = load i32* @writeBuffer, align 4, !dbg !164 ; [#uses=2 type=i32] [debug line = 58:2]
+  %tmp.16 = icmp slt i32 %writeBuffer.load.1, 4800, !dbg !164 ; [#uses=1 type=i1] [debug line = 58:2]
+  %tmp.17 = add nsw i32 %writeBuffer.load.1, 1, !dbg !165 ; [#uses=1 type=i32] [debug line = 59:3]
+  %storemerge5 = select i1 %tmp.16, i32 %tmp.17, i32 0, !dbg !164 ; [#uses=1 type=i32] [debug line = 58:2]
+  store i32 %storemerge5, i32* @writeBuffer, align 4, !dbg !165 ; [debug line = 59:3]
+  ret void, !dbg !166                             ; [debug line = 64:1]
 }
 
 !llvm.dbg.cu = !{!0}
@@ -288,38 +290,37 @@ codeRepl10:                                       ; preds = %._crit_edge
 !130 = metadata !{i32 39, i32 3, metadata !131, null}
 !131 = metadata !{i32 786443, metadata !121, i32 38, i32 25, metadata !6, i32 1} ; [ DW_TAG_lexical_block ]
 !132 = metadata !{i32 40, i32 3, metadata !131, null}
-!133 = metadata !{i32 41, i32 3, metadata !131, null}
-!134 = metadata !{i32 42, i32 2, metadata !131, null}
-!135 = metadata !{i32 786689, metadata !71, metadata !"this", metadata !12, i32 16777317, metadata !136, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!136 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
-!137 = metadata !{i32 101, i32 48, metadata !71, metadata !138}
-!138 = metadata !{i32 46, i32 2, metadata !121, null}
-!139 = metadata !{i32 786689, metadata !72, metadata !"this", metadata !12, i32 16777339, metadata !136, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!140 = metadata !{i32 123, i32 48, metadata !72, metadata !141}
-!141 = metadata !{i32 102, i32 9, metadata !142, metadata !138}
-!142 = metadata !{i32 786443, metadata !71, i32 101, i32 82, metadata !12, i32 4} ; [ DW_TAG_lexical_block ]
-!143 = metadata !{i32 786688, metadata !144, metadata !"tmp", metadata !12, i32 124, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!144 = metadata !{i32 786443, metadata !72, i32 123, i32 73, metadata !12, i32 5} ; [ DW_TAG_lexical_block ]
-!145 = metadata !{i32 124, i32 22, metadata !144, metadata !141}
-!146 = metadata !{i32 125, i32 9, metadata !144, metadata !141}
-!147 = metadata !{i32 126, i32 9, metadata !144, metadata !141}
-!148 = metadata !{i32 786688, metadata !121, metadata !"current_value", metadata !6, i32 44, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!149 = metadata !{i32 48, i32 2, metadata !121, null}
-!150 = metadata !{i32 50, i32 2, metadata !121, null}
-!151 = metadata !{i32 786689, metadata !69, metadata !"this", metadata !12, i32 16777321, metadata !136, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!152 = metadata !{i32 105, i32 48, metadata !69, metadata !153}
-!153 = metadata !{i32 52, i32 2, metadata !121, null}
-!154 = metadata !{i32 786689, metadata !70, metadata !"this", metadata !12, i32 16777360, metadata !136, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!155 = metadata !{i32 144, i32 48, metadata !70, metadata !156}
-!156 = metadata !{i32 106, i32 9, metadata !157, metadata !153}
-!157 = metadata !{i32 786443, metadata !69, i32 105, i32 88, metadata !12, i32 2} ; [ DW_TAG_lexical_block ]
-!158 = metadata !{i32 786688, metadata !159, metadata !"tmp", metadata !12, i32 145, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!159 = metadata !{i32 786443, metadata !70, i32 144, i32 79, metadata !12, i32 3} ; [ DW_TAG_lexical_block ]
-!160 = metadata !{i32 145, i32 22, metadata !159, metadata !156}
-!161 = metadata !{i32 145, i32 31, metadata !159, metadata !156}
-!162 = metadata !{i32 146, i32 9, metadata !159, metadata !156}
-!163 = metadata !{i32 54, i32 2, metadata !121, null}
-!164 = metadata !{i32 55, i32 3, metadata !121, null}
-!165 = metadata !{i32 59, i32 2, metadata !121, null}
-!166 = metadata !{i32 60, i32 3, metadata !121, null}
-!167 = metadata !{i32 65, i32 1, metadata !121, null}
+!133 = metadata !{i32 41, i32 2, metadata !131, null}
+!134 = metadata !{i32 786689, metadata !71, metadata !"this", metadata !12, i32 16777317, metadata !135, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!135 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
+!136 = metadata !{i32 101, i32 48, metadata !71, metadata !137}
+!137 = metadata !{i32 45, i32 2, metadata !121, null}
+!138 = metadata !{i32 786689, metadata !72, metadata !"this", metadata !12, i32 16777339, metadata !135, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!139 = metadata !{i32 123, i32 48, metadata !72, metadata !140}
+!140 = metadata !{i32 102, i32 9, metadata !141, metadata !137}
+!141 = metadata !{i32 786443, metadata !71, i32 101, i32 82, metadata !12, i32 4} ; [ DW_TAG_lexical_block ]
+!142 = metadata !{i32 786688, metadata !143, metadata !"tmp", metadata !12, i32 124, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!143 = metadata !{i32 786443, metadata !72, i32 123, i32 73, metadata !12, i32 5} ; [ DW_TAG_lexical_block ]
+!144 = metadata !{i32 124, i32 22, metadata !143, metadata !140}
+!145 = metadata !{i32 125, i32 9, metadata !143, metadata !140}
+!146 = metadata !{i32 126, i32 9, metadata !143, metadata !140}
+!147 = metadata !{i32 786688, metadata !121, metadata !"current_value", metadata !6, i32 43, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!148 = metadata !{i32 47, i32 2, metadata !121, null}
+!149 = metadata !{i32 49, i32 2, metadata !121, null}
+!150 = metadata !{i32 786689, metadata !69, metadata !"this", metadata !12, i32 16777321, metadata !135, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!151 = metadata !{i32 105, i32 48, metadata !69, metadata !152}
+!152 = metadata !{i32 51, i32 2, metadata !121, null}
+!153 = metadata !{i32 786689, metadata !70, metadata !"this", metadata !12, i32 16777360, metadata !135, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!154 = metadata !{i32 144, i32 48, metadata !70, metadata !155}
+!155 = metadata !{i32 106, i32 9, metadata !156, metadata !152}
+!156 = metadata !{i32 786443, metadata !69, i32 105, i32 88, metadata !12, i32 2} ; [ DW_TAG_lexical_block ]
+!157 = metadata !{i32 786688, metadata !158, metadata !"tmp", metadata !12, i32 145, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!158 = metadata !{i32 786443, metadata !70, i32 144, i32 79, metadata !12, i32 3} ; [ DW_TAG_lexical_block ]
+!159 = metadata !{i32 145, i32 22, metadata !158, metadata !155}
+!160 = metadata !{i32 145, i32 31, metadata !158, metadata !155}
+!161 = metadata !{i32 146, i32 9, metadata !158, metadata !155}
+!162 = metadata !{i32 53, i32 2, metadata !121, null}
+!163 = metadata !{i32 54, i32 3, metadata !121, null}
+!164 = metadata !{i32 58, i32 2, metadata !121, null}
+!165 = metadata !{i32 59, i32 3, metadata !121, null}
+!166 = metadata !{i32 64, i32 1, metadata !121, null}
