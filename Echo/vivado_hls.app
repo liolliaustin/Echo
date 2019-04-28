@@ -2,7 +2,7 @@
     <includePaths/>
     <libraryPaths/>
     <Simulation>
-        <SimFlow name="csim" csimMode="0" lastCsimMode="0" compiler="true" compilerChoices="clang"/>
+        <SimFlow askAgain="false" name="csim" csimMode="0" lastCsimMode="0" compiler="true" compilerChoices="clang"/>
     </Simulation>
     <files xmlns="">
         <file name="../../src/Echo_test.cpp" sc="0" tb="1" cflags=" "/>

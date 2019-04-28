@@ -6203,10 +6203,17 @@ _ssdm_op_SpecInterface(scale, "s_axilite", 0, 0, "", 0, 0, "CTRL_BUS", "", "", 0
 _ssdm_op_SpecInterface(&value_in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&value_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 
+ static float buffer[4800];
  static int readBuffer = 4800 - delay;
  static int writeBuffer = 0;
 
- static float buffer[4800];
+ static int delaycheck = delay;
+
+ if(delaycheck != delay){
+  delaycheck = delay;
+  readBuffer = 4800 - delay;
+  writeBuffer = 0;
+ }
 
  float current_value;
 
@@ -6227,8 +6234,6 @@ _ssdm_op_SpecInterface(&value_out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0,
   writeBuffer++;
  else
   writeBuffer = 0;
-
-
 
 
 }

@@ -101,8 +101,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "scale", "Type" : "None", "Direction" : "I"},
 			{"Name" : "guard_variable_for_E", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "readBuffer", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "buffer_r", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "writeBuffer", "Type" : "OVld", "Direction" : "IO"}]},
+			{"Name" : "guard_variable_for_E_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "delaycheck", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "writeBuffer", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "buffer_r", "Type" : "Memory", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.buffer_r_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_CTRL_BUS_s_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Echo_fadd_32ns_32bkb_U1", "Parent" : "0"},
@@ -117,8 +119,10 @@ set ArgLastReadFirstWriteLatency {
 		scale {Type I LastRead 0 FirstWrite -1}
 		guard_variable_for_E {Type IO LastRead -1 FirstWrite -1}
 		readBuffer {Type IO LastRead -1 FirstWrite -1}
-		buffer_r {Type IO LastRead -1 FirstWrite -1}
-		writeBuffer {Type IO LastRead -1 FirstWrite -1}}}
+		guard_variable_for_E_1 {Type IO LastRead -1 FirstWrite -1}
+		delaycheck {Type IO LastRead -1 FirstWrite -1}
+		writeBuffer {Type IO LastRead -1 FirstWrite -1}
+		buffer_r {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

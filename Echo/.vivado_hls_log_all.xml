@@ -12,15 +12,17 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'writeBuffer' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-25T12:29:42.239-0400" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'readBuffer' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-25T12:29:42.236-0400" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_E' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-25T12:29:42.234-0400" type="Warning"/>
-        <logs message="WARNING: [SYN 201-107] Renaming port name 'Echo/buffer' to 'Echo/buffer_r' to avoid the conflict with HDL keywords or other object names." projectName="Echo" solutionName="solution1" date="2019-04-25T12:29:42.119-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'writeBuffer' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:53.104-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'delaycheck' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:53.103-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_E_1' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:53.101-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'readBuffer' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:53.100-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_E' is power-on initialization." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:53.098-0400" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'Echo/buffer' to 'Echo/buffer_r' to avoid the conflict with HDL keywords or other object names." projectName="Echo" solutionName="solution1" date="2019-04-28T11:06:52.969-0400" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>
       <packageLog>
-        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'Echo_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="Echo" solutionName="solution1" date="2019-04-25T12:30:03.595-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'Echo_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="Echo" solutionName="solution1" date="2019-04-28T11:07:14.855-0400" type="Warning"/>
       </packageLog>
       <csimLog/>
     </logs>

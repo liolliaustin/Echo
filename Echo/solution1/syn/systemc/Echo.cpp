@@ -55,7 +55,7 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     buffer_r_U->address0(buffer_r_address0);
     buffer_r_U->ce0(buffer_r_ce0);
     buffer_r_U->we0(buffer_r_we0);
-    buffer_r_U->d0(current_value_reg_248);
+    buffer_r_U->d0(current_value_reg_345);
     buffer_r_U->q0(buffer_r_q0);
     Echo_CTRL_BUS_s_axi_U = new Echo_CTRL_BUS_s_axi<C_S_AXI_CTRL_BUS_ADDR_WIDTH,C_S_AXI_CTRL_BUS_DATA_WIDTH>("Echo_CTRL_BUS_s_axi_U");
     Echo_CTRL_BUS_s_axi_U->AWVALID(s_axi_CTRL_BUS_AWVALID);
@@ -84,16 +84,16 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     Echo_fadd_32ns_32bkb_U1->clk(ap_clk);
     Echo_fadd_32ns_32bkb_U1->reset(ap_rst_n_inv);
     Echo_fadd_32ns_32bkb_U1->din0(value_in_V_0_data_out);
-    Echo_fadd_32ns_32bkb_U1->din1(tmp_5_reg_238);
-    Echo_fadd_32ns_32bkb_U1->ce(grp_fu_114_ce);
-    Echo_fadd_32ns_32bkb_U1->dout(grp_fu_114_p2);
+    Echo_fadd_32ns_32bkb_U1->din1(tmp_8_reg_335);
+    Echo_fadd_32ns_32bkb_U1->ce(grp_fu_143_ce);
+    Echo_fadd_32ns_32bkb_U1->dout(grp_fu_143_p2);
     Echo_fmul_32ns_32cud_U2 = new Echo_fmul_32ns_32cud<1,4,32,32,32>("Echo_fmul_32ns_32cud_U2");
     Echo_fmul_32ns_32cud_U2->clk(ap_clk);
     Echo_fmul_32ns_32cud_U2->reset(ap_rst_n_inv);
-    Echo_fmul_32ns_32cud_U2->din0(buffer_load_reg_233);
-    Echo_fmul_32ns_32cud_U2->din1(scale_read_reg_210);
+    Echo_fmul_32ns_32cud_U2->din0(buffer_load_reg_330);
+    Echo_fmul_32ns_32cud_U2->din1(scale_read_reg_289);
     Echo_fmul_32ns_32cud_U2->ce(ap_var_for_const0);
-    Echo_fmul_32ns_32cud_U2->dout(grp_fu_120_p2);
+    Echo_fmul_32ns_32cud_U2->dout(grp_fu_149_p2);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -138,8 +138,8 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_buffer_r_address0);
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( tmp_4_fu_144_p1 );
-    sensitive << ( tmp_6_fu_179_p1 );
+    sensitive << ( tmp_7_fu_202_p1 );
+    sensitive << ( tmp_9_fu_229_p1 );
 
     SC_METHOD(thread_buffer_r_ce0);
     sensitive << ( value_out_V_1_ack_in );
@@ -150,7 +150,11 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( value_out_V_1_ack_in );
     sensitive << ( ap_CS_fsm_state13 );
 
-    SC_METHOD(thread_grp_fu_114_ce);
+    SC_METHOD(thread_delaycheck_flag_s_fu_216_p2);
+    sensitive << ( delaycheck_flag_reg_130 );
+    sensitive << ( not_tmp_4_fu_211_p2 );
+
+    SC_METHOD(thread_grp_fu_143_ce);
     sensitive << ( value_in_V_0_vld_out );
     sensitive << ( value_out_V_1_ack_in );
     sensitive << ( ap_CS_fsm_state8 );
@@ -159,41 +163,65 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( ap_CS_fsm_state11 );
 
-    SC_METHOD(thread_guard_variable_for_E_load_fu_124_p1);
+    SC_METHOD(thread_grp_fu_153_p1);
+    sensitive << ( delay );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( delay_read_reg_294 );
+    sensitive << ( ap_CS_fsm_state2 );
+
+    SC_METHOD(thread_grp_fu_153_p2);
+    sensitive << ( grp_fu_153_p1 );
+
+    SC_METHOD(thread_guard_variable_for_E_1_load_fu_175_p1);
+    sensitive << ( guard_variable_for_E_1 );
+    sensitive << ( ap_CS_fsm_state1 );
+
+    SC_METHOD(thread_guard_variable_for_E_load_fu_160_p1);
     sensitive << ( guard_variable_for_E );
     sensitive << ( ap_CS_fsm_state1 );
 
-    SC_METHOD(thread_storemerge5_fu_196_p3);
-    sensitive << ( tmp_8_fu_184_p2 );
-    sensitive << ( tmp_7_fu_190_p2 );
+    SC_METHOD(thread_not_tmp_4_fu_211_p2);
+    sensitive << ( tmp_4_reg_313 );
 
-    SC_METHOD(thread_storemerge_fu_161_p3);
-    sensitive << ( tmp_9_fu_149_p2 );
-    sensitive << ( tmp_s_fu_155_p2 );
+    SC_METHOD(thread_readBuffer_loc_tmp_5_fu_194_p3);
+    sensitive << ( tmp_4_fu_189_p2 );
+    sensitive << ( grp_fu_153_p2 );
+    sensitive << ( readBuffer_loc_reg_111 );
 
-    SC_METHOD(thread_tmp_2_i_fu_132_p2);
-    sensitive << ( delay );
+    SC_METHOD(thread_storemerge5_fu_264_p3);
+    sensitive << ( tmp_6_fu_252_p2 );
+    sensitive << ( tmp_1_fu_258_p2 );
 
-    SC_METHOD(thread_tmp_4_fu_144_p1);
-    sensitive << ( readBuffer_loc_reg_105 );
+    SC_METHOD(thread_storemerge_fu_244_p3);
+    sensitive << ( tmp_s_fu_234_p2 );
+    sensitive << ( tmp_3_fu_239_p2 );
 
-    SC_METHOD(thread_tmp_6_fu_179_p1);
-    sensitive << ( writeBuffer );
+    SC_METHOD(thread_tmp_1_fu_258_p2);
+    sensitive << ( writeBuffer_load_s_fu_222_p3 );
 
-    SC_METHOD(thread_tmp_7_fu_190_p2);
-    sensitive << ( writeBuffer );
+    SC_METHOD(thread_tmp_3_fu_239_p2);
+    sensitive << ( readBuffer_loc_tmp_5_reg_319 );
 
-    SC_METHOD(thread_tmp_8_fu_184_p2);
-    sensitive << ( value_out_V_1_ack_in );
-    sensitive << ( writeBuffer );
-    sensitive << ( ap_CS_fsm_state13 );
-
-    SC_METHOD(thread_tmp_9_fu_149_p2);
+    SC_METHOD(thread_tmp_4_fu_189_p2);
+    sensitive << ( delay_read_reg_294 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( readBuffer_loc_reg_105 );
+    sensitive << ( delaycheck_loc_reg_121 );
 
-    SC_METHOD(thread_tmp_s_fu_155_p2);
-    sensitive << ( readBuffer_loc_reg_105 );
+    SC_METHOD(thread_tmp_6_fu_252_p2);
+    sensitive << ( value_out_V_1_ack_in );
+    sensitive << ( ap_CS_fsm_state13 );
+    sensitive << ( writeBuffer_load_s_fu_222_p3 );
+
+    SC_METHOD(thread_tmp_7_fu_202_p1);
+    sensitive << ( readBuffer_loc_tmp_5_fu_194_p3 );
+
+    SC_METHOD(thread_tmp_9_fu_229_p1);
+    sensitive << ( writeBuffer_load_s_fu_222_p3 );
+
+    SC_METHOD(thread_tmp_s_fu_234_p2);
+    sensitive << ( value_out_V_1_ack_in );
+    sensitive << ( ap_CS_fsm_state13 );
+    sensitive << ( readBuffer_loc_tmp_5_reg_319 );
 
     SC_METHOD(thread_value_in_V_0_ack_in);
     sensitive << ( value_in_V_0_state );
@@ -277,6 +305,10 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_value_out_V_TVALID);
     sensitive << ( value_out_V_1_state );
 
+    SC_METHOD(thread_writeBuffer_load_s_fu_222_p3);
+    sensitive << ( writeBuffer );
+    sensitive << ( tmp_4_reg_313 );
+
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( value_in_V_0_vld_out );
     sensitive << ( value_out_V_1_ack_in );
@@ -298,6 +330,8 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     value_out_V_1_state = "00";
     guard_variable_for_E = "0";
     readBuffer = "00000000000000000000000000000000";
+    guard_variable_for_E_1 = "0";
+    delaycheck = "00000000000000000000000000000000";
     writeBuffer = "00000000000000000000000000000000";
     ap_CS_fsm = "0000000000001";
     static int apTFileNum = 0;
@@ -368,40 +402,54 @@ Echo::Echo(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, scale, "scale");
     sc_trace(mVcdFile, guard_variable_for_E, "guard_variable_for_E");
     sc_trace(mVcdFile, readBuffer, "readBuffer");
+    sc_trace(mVcdFile, guard_variable_for_E_1, "guard_variable_for_E_1");
+    sc_trace(mVcdFile, delaycheck, "delaycheck");
+    sc_trace(mVcdFile, writeBuffer, "writeBuffer");
     sc_trace(mVcdFile, buffer_r_address0, "buffer_r_address0");
     sc_trace(mVcdFile, buffer_r_ce0, "buffer_r_ce0");
     sc_trace(mVcdFile, buffer_r_we0, "buffer_r_we0");
     sc_trace(mVcdFile, buffer_r_q0, "buffer_r_q0");
-    sc_trace(mVcdFile, writeBuffer, "writeBuffer");
     sc_trace(mVcdFile, value_in_V_TDATA_blk_n, "value_in_V_TDATA_blk_n");
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
     sc_trace(mVcdFile, value_out_V_TDATA_blk_n, "value_out_V_TDATA_blk_n");
     sc_trace(mVcdFile, ap_CS_fsm_state12, "ap_CS_fsm_state12");
     sc_trace(mVcdFile, ap_CS_fsm_state13, "ap_CS_fsm_state13");
-    sc_trace(mVcdFile, scale_read_reg_210, "scale_read_reg_210");
+    sc_trace(mVcdFile, scale_read_reg_289, "scale_read_reg_289");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
-    sc_trace(mVcdFile, tmp_2_i_fu_132_p2, "tmp_2_i_fu_132_p2");
-    sc_trace(mVcdFile, guard_variable_for_E_load_fu_124_p1, "guard_variable_for_E_load_fu_124_p1");
+    sc_trace(mVcdFile, delay_read_reg_294, "delay_read_reg_294");
+    sc_trace(mVcdFile, tmp_4_fu_189_p2, "tmp_4_fu_189_p2");
+    sc_trace(mVcdFile, tmp_4_reg_313, "tmp_4_reg_313");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
-    sc_trace(mVcdFile, buffer_load_reg_233, "buffer_load_reg_233");
+    sc_trace(mVcdFile, readBuffer_loc_tmp_5_fu_194_p3, "readBuffer_loc_tmp_5_fu_194_p3");
+    sc_trace(mVcdFile, readBuffer_loc_tmp_5_reg_319, "readBuffer_loc_tmp_5_reg_319");
+    sc_trace(mVcdFile, buffer_load_reg_330, "buffer_load_reg_330");
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
-    sc_trace(mVcdFile, grp_fu_120_p2, "grp_fu_120_p2");
-    sc_trace(mVcdFile, tmp_5_reg_238, "tmp_5_reg_238");
+    sc_trace(mVcdFile, grp_fu_149_p2, "grp_fu_149_p2");
+    sc_trace(mVcdFile, tmp_8_reg_335, "tmp_8_reg_335");
     sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, grp_fu_114_p2, "grp_fu_114_p2");
-    sc_trace(mVcdFile, current_value_reg_248, "current_value_reg_248");
-    sc_trace(mVcdFile, readBuffer_loc_reg_105, "readBuffer_loc_reg_105");
-    sc_trace(mVcdFile, tmp_4_fu_144_p1, "tmp_4_fu_144_p1");
-    sc_trace(mVcdFile, tmp_6_fu_179_p1, "tmp_6_fu_179_p1");
-    sc_trace(mVcdFile, storemerge_fu_161_p3, "storemerge_fu_161_p3");
-    sc_trace(mVcdFile, storemerge5_fu_196_p3, "storemerge5_fu_196_p3");
+    sc_trace(mVcdFile, grp_fu_143_p2, "grp_fu_143_p2");
+    sc_trace(mVcdFile, current_value_reg_345, "current_value_reg_345");
+    sc_trace(mVcdFile, grp_fu_153_p2, "grp_fu_153_p2");
+    sc_trace(mVcdFile, readBuffer_loc_reg_111, "readBuffer_loc_reg_111");
+    sc_trace(mVcdFile, guard_variable_for_E_load_fu_160_p1, "guard_variable_for_E_load_fu_160_p1");
+    sc_trace(mVcdFile, delaycheck_loc_reg_121, "delaycheck_loc_reg_121");
+    sc_trace(mVcdFile, guard_variable_for_E_1_load_fu_175_p1, "guard_variable_for_E_1_load_fu_175_p1");
+    sc_trace(mVcdFile, delaycheck_flag_reg_130, "delaycheck_flag_reg_130");
+    sc_trace(mVcdFile, tmp_7_fu_202_p1, "tmp_7_fu_202_p1");
+    sc_trace(mVcdFile, tmp_9_fu_229_p1, "tmp_9_fu_229_p1");
+    sc_trace(mVcdFile, storemerge_fu_244_p3, "storemerge_fu_244_p3");
+    sc_trace(mVcdFile, delaycheck_flag_s_fu_216_p2, "delaycheck_flag_s_fu_216_p2");
+    sc_trace(mVcdFile, storemerge5_fu_264_p3, "storemerge5_fu_264_p3");
     sc_trace(mVcdFile, ap_CS_fsm_state4, "ap_CS_fsm_state4");
-    sc_trace(mVcdFile, tmp_9_fu_149_p2, "tmp_9_fu_149_p2");
-    sc_trace(mVcdFile, tmp_s_fu_155_p2, "tmp_s_fu_155_p2");
-    sc_trace(mVcdFile, tmp_8_fu_184_p2, "tmp_8_fu_184_p2");
-    sc_trace(mVcdFile, tmp_7_fu_190_p2, "tmp_7_fu_190_p2");
-    sc_trace(mVcdFile, grp_fu_114_ce, "grp_fu_114_ce");
+    sc_trace(mVcdFile, grp_fu_153_p1, "grp_fu_153_p1");
+    sc_trace(mVcdFile, not_tmp_4_fu_211_p2, "not_tmp_4_fu_211_p2");
+    sc_trace(mVcdFile, writeBuffer_load_s_fu_222_p3, "writeBuffer_load_s_fu_222_p3");
+    sc_trace(mVcdFile, tmp_s_fu_234_p2, "tmp_s_fu_234_p2");
+    sc_trace(mVcdFile, tmp_3_fu_239_p2, "tmp_3_fu_239_p2");
+    sc_trace(mVcdFile, tmp_6_fu_252_p2, "tmp_6_fu_252_p2");
+    sc_trace(mVcdFile, tmp_1_fu_258_p2, "tmp_1_fu_258_p2");
+    sc_trace(mVcdFile, grp_fu_143_ce, "grp_fu_143_ce");
     sc_trace(mVcdFile, ap_CS_fsm_state9, "ap_CS_fsm_state9");
     sc_trace(mVcdFile, ap_CS_fsm_state10, "ap_CS_fsm_state10");
     sc_trace(mVcdFile, ap_CS_fsm_state11, "ap_CS_fsm_state11");
@@ -438,10 +486,24 @@ void Echo::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        if (esl_seteq<1,1,1>(ap_const_lv1_1, guard_variable_for_E_load_fu_124_p1.read())) {
-            readBuffer_loc_reg_105 = readBuffer.read();
-        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_load_fu_124_p1.read())) {
-            readBuffer_loc_reg_105 = tmp_2_i_fu_132_p2.read();
+        if (esl_seteq<1,1,1>(ap_const_lv1_1, guard_variable_for_E_1_load_fu_175_p1.read())) {
+            delaycheck_flag_reg_130 = ap_const_lv1_0;
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_1_load_fu_175_p1.read())) {
+            delaycheck_flag_reg_130 = ap_const_lv1_1;
+        }
+    }
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
+        if (esl_seteq<1,1,1>(ap_const_lv1_1, guard_variable_for_E_1_load_fu_175_p1.read())) {
+            delaycheck_loc_reg_121 = delaycheck.read();
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_1_load_fu_175_p1.read())) {
+            delaycheck_loc_reg_121 = delay.read();
+        }
+    }
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
+        if (esl_seteq<1,1,1>(ap_const_lv1_1, guard_variable_for_E_load_fu_160_p1.read())) {
+            readBuffer_loc_reg_111 = readBuffer.read();
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_load_fu_160_p1.read())) {
+            readBuffer_loc_reg_111 = grp_fu_153_p2.read();
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
@@ -531,22 +593,34 @@ void Echo::thread_ap_clk_no_reset_() {
         }
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        buffer_load_reg_233 = buffer_r_q0.read();
+        buffer_load_reg_330 = buffer_r_q0.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read()) && esl_seteq<1,1,1>(value_out_V_1_ack_in.read(), ap_const_logic_1))) {
-        current_value_reg_248 = grp_fu_114_p2.read();
-    }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_load_fu_124_p1.read()))) {
-        guard_variable_for_E = ap_const_lv1_1;
-    }
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        readBuffer = storemerge_fu_161_p3.read();
+        current_value_reg_345 = grp_fu_143_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
-        scale_read_reg_210 = scale.read();
+        delay_read_reg_294 = delay.read();
+        scale_read_reg_289 = scale.read();
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && esl_seteq<1,1,1>(value_out_V_1_ack_in.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_lv1_1, delaycheck_flag_s_fu_216_p2.read()))) {
+        delaycheck = delay_read_reg_294.read();
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_load_fu_160_p1.read()))) {
+        guard_variable_for_E = ap_const_lv1_1;
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, guard_variable_for_E_1_load_fu_175_p1.read()))) {
+        guard_variable_for_E_1 = ap_const_lv1_1;
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && esl_seteq<1,1,1>(value_out_V_1_ack_in.read(), ap_const_logic_1))) {
+        readBuffer = storemerge_fu_244_p3.read();
+        writeBuffer = storemerge5_fu_264_p3.read();
+    }
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        readBuffer_loc_tmp_5_reg_319 = readBuffer_loc_tmp_5_fu_194_p3.read();
+        tmp_4_reg_313 = tmp_4_fu_189_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        tmp_5_reg_238 = grp_fu_120_p2.read();
+        tmp_8_reg_335 = grp_fu_149_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, value_in_V_0_load_A.read())) {
         value_in_V_0_payload_A = value_in_V_TDATA.read();
@@ -555,13 +629,10 @@ void Echo::thread_ap_clk_no_reset_() {
         value_in_V_0_payload_B = value_in_V_TDATA.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, value_out_V_1_load_A.read())) {
-        value_out_V_1_payload_A = grp_fu_114_p2.read();
+        value_out_V_1_payload_A = grp_fu_143_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, value_out_V_1_load_B.read())) {
-        value_out_V_1_payload_B = grp_fu_114_p2.read();
-    }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && esl_seteq<1,1,1>(value_out_V_1_ack_in.read(), ap_const_logic_1))) {
-        writeBuffer = storemerge5_fu_196_p3.read();
+        value_out_V_1_payload_B = grp_fu_143_p2.read();
     }
 }
 
@@ -615,9 +686,9 @@ void Echo::thread_ap_rst_n_inv() {
 
 void Echo::thread_buffer_r_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
-        buffer_r_address0 =  (sc_lv<13>) (tmp_6_fu_179_p1.read());
+        buffer_r_address0 =  (sc_lv<13>) (tmp_9_fu_229_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        buffer_r_address0 =  (sc_lv<13>) (tmp_4_fu_144_p1.read());
+        buffer_r_address0 =  (sc_lv<13>) (tmp_7_fu_202_p1.read());
     } else {
         buffer_r_address0 = "XXXXXXXXXXXXX";
     }
@@ -642,7 +713,11 @@ void Echo::thread_buffer_r_we0() {
     }
 }
 
-void Echo::thread_grp_fu_114_ce() {
+void Echo::thread_delaycheck_flag_s_fu_216_p2() {
+    delaycheck_flag_s_fu_216_p2 = (delaycheck_flag_reg_130.read() | not_tmp_4_fu_211_p2.read());
+}
+
+void Echo::thread_grp_fu_143_ce() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
           esl_seteq<1,1,1>(value_in_V_0_vld_out.read(), ap_const_logic_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read()) && 
@@ -650,50 +725,76 @@ void Echo::thread_grp_fu_114_ce() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state11.read()))) {
-        grp_fu_114_ce = ap_const_logic_1;
+        grp_fu_143_ce = ap_const_logic_1;
     } else {
-        grp_fu_114_ce = ap_const_logic_0;
+        grp_fu_143_ce = ap_const_logic_0;
     }
 }
 
-void Echo::thread_guard_variable_for_E_load_fu_124_p1() {
-    guard_variable_for_E_load_fu_124_p1 = guard_variable_for_E.read();
+void Echo::thread_grp_fu_153_p1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        grp_fu_153_p1 = delay_read_reg_294.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) {
+        grp_fu_153_p1 = delay.read();
+    } else {
+        grp_fu_153_p1 =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    }
 }
 
-void Echo::thread_storemerge5_fu_196_p3() {
-    storemerge5_fu_196_p3 = (!tmp_8_fu_184_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_8_fu_184_p2.read()[0].to_bool())? tmp_7_fu_190_p2.read(): ap_const_lv32_0);
+void Echo::thread_grp_fu_153_p2() {
+    grp_fu_153_p2 = (!ap_const_lv32_12C0.is_01() || !grp_fu_153_p1.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_12C0) - sc_biguint<32>(grp_fu_153_p1.read()));
 }
 
-void Echo::thread_storemerge_fu_161_p3() {
-    storemerge_fu_161_p3 = (!tmp_9_fu_149_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_9_fu_149_p2.read()[0].to_bool())? tmp_s_fu_155_p2.read(): ap_const_lv32_0);
+void Echo::thread_guard_variable_for_E_1_load_fu_175_p1() {
+    guard_variable_for_E_1_load_fu_175_p1 = guard_variable_for_E_1.read();
 }
 
-void Echo::thread_tmp_2_i_fu_132_p2() {
-    tmp_2_i_fu_132_p2 = (!ap_const_lv32_12C0.is_01() || !delay.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_12C0) - sc_biguint<32>(delay.read()));
+void Echo::thread_guard_variable_for_E_load_fu_160_p1() {
+    guard_variable_for_E_load_fu_160_p1 = guard_variable_for_E.read();
 }
 
-void Echo::thread_tmp_4_fu_144_p1() {
-    tmp_4_fu_144_p1 = esl_sext<64,32>(readBuffer_loc_reg_105.read());
+void Echo::thread_not_tmp_4_fu_211_p2() {
+    not_tmp_4_fu_211_p2 = (tmp_4_reg_313.read() ^ ap_const_lv1_1);
 }
 
-void Echo::thread_tmp_6_fu_179_p1() {
-    tmp_6_fu_179_p1 = esl_sext<64,32>(writeBuffer.read());
+void Echo::thread_readBuffer_loc_tmp_5_fu_194_p3() {
+    readBuffer_loc_tmp_5_fu_194_p3 = (!tmp_4_fu_189_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_4_fu_189_p2.read()[0].to_bool())? readBuffer_loc_reg_111.read(): grp_fu_153_p2.read());
 }
 
-void Echo::thread_tmp_7_fu_190_p2() {
-    tmp_7_fu_190_p2 = (!writeBuffer.read().is_01() || !ap_const_lv32_1.is_01())? sc_lv<32>(): (sc_biguint<32>(writeBuffer.read()) + sc_biguint<32>(ap_const_lv32_1));
+void Echo::thread_storemerge5_fu_264_p3() {
+    storemerge5_fu_264_p3 = (!tmp_6_fu_252_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_6_fu_252_p2.read()[0].to_bool())? tmp_1_fu_258_p2.read(): ap_const_lv32_0);
 }
 
-void Echo::thread_tmp_8_fu_184_p2() {
-    tmp_8_fu_184_p2 = (!writeBuffer.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(writeBuffer.read()) < sc_bigint<32>(ap_const_lv32_12C0));
+void Echo::thread_storemerge_fu_244_p3() {
+    storemerge_fu_244_p3 = (!tmp_s_fu_234_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_s_fu_234_p2.read()[0].to_bool())? tmp_3_fu_239_p2.read(): ap_const_lv32_0);
 }
 
-void Echo::thread_tmp_9_fu_149_p2() {
-    tmp_9_fu_149_p2 = (!readBuffer_loc_reg_105.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(readBuffer_loc_reg_105.read()) < sc_bigint<32>(ap_const_lv32_12C0));
+void Echo::thread_tmp_1_fu_258_p2() {
+    tmp_1_fu_258_p2 = (!writeBuffer_load_s_fu_222_p3.read().is_01() || !ap_const_lv32_1.is_01())? sc_lv<32>(): (sc_biguint<32>(writeBuffer_load_s_fu_222_p3.read()) + sc_biguint<32>(ap_const_lv32_1));
 }
 
-void Echo::thread_tmp_s_fu_155_p2() {
-    tmp_s_fu_155_p2 = (!readBuffer_loc_reg_105.read().is_01() || !ap_const_lv32_1.is_01())? sc_lv<32>(): (sc_biguint<32>(readBuffer_loc_reg_105.read()) + sc_biguint<32>(ap_const_lv32_1));
+void Echo::thread_tmp_3_fu_239_p2() {
+    tmp_3_fu_239_p2 = (!readBuffer_loc_tmp_5_reg_319.read().is_01() || !ap_const_lv32_1.is_01())? sc_lv<32>(): (sc_biguint<32>(readBuffer_loc_tmp_5_reg_319.read()) + sc_biguint<32>(ap_const_lv32_1));
+}
+
+void Echo::thread_tmp_4_fu_189_p2() {
+    tmp_4_fu_189_p2 = (!delaycheck_loc_reg_121.read().is_01() || !delay_read_reg_294.read().is_01())? sc_lv<1>(): sc_lv<1>(delaycheck_loc_reg_121.read() == delay_read_reg_294.read());
+}
+
+void Echo::thread_tmp_6_fu_252_p2() {
+    tmp_6_fu_252_p2 = (!writeBuffer_load_s_fu_222_p3.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(writeBuffer_load_s_fu_222_p3.read()) < sc_bigint<32>(ap_const_lv32_12C0));
+}
+
+void Echo::thread_tmp_7_fu_202_p1() {
+    tmp_7_fu_202_p1 = esl_sext<64,32>(readBuffer_loc_tmp_5_fu_194_p3.read());
+}
+
+void Echo::thread_tmp_9_fu_229_p1() {
+    tmp_9_fu_229_p1 = esl_sext<64,32>(writeBuffer_load_s_fu_222_p3.read());
+}
+
+void Echo::thread_tmp_s_fu_234_p2() {
+    tmp_s_fu_234_p2 = (!readBuffer_loc_tmp_5_reg_319.read().is_01() || !ap_const_lv32_12C0.is_01())? sc_lv<1>(): (sc_bigint<32>(readBuffer_loc_tmp_5_reg_319.read()) < sc_bigint<32>(ap_const_lv32_12C0));
 }
 
 void Echo::thread_value_in_V_0_ack_in() {
@@ -813,6 +914,10 @@ void Echo::thread_value_out_V_TDATA_blk_n() {
 
 void Echo::thread_value_out_V_TVALID() {
     value_out_V_TVALID = value_out_V_1_state.read()[0];
+}
+
+void Echo::thread_writeBuffer_load_s_fu_222_p3() {
+    writeBuffer_load_s_fu_222_p3 = (!tmp_4_reg_313.read()[0].is_01())? sc_lv<32>(): ((tmp_4_reg_313.read()[0].to_bool())? writeBuffer.read(): ap_const_lv32_0);
 }
 
 void Echo::thread_ap_NS_fsm() {

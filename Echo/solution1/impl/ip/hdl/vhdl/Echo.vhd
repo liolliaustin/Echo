@@ -45,7 +45,7 @@ end;
 architecture behav of Echo is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.256000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1131,HLS_SYN_LUT=1251}";
+    "Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.588000,HLS_SYN_LAT=12,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1262,HLS_SYN_LUT=1359}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (12 downto 0) := "0000000000001";
@@ -115,11 +115,13 @@ architecture behav of Echo is
     signal scale : STD_LOGIC_VECTOR (31 downto 0);
     signal guard_variable_for_E : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal readBuffer : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
+    signal guard_variable_for_E_1 : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    signal delaycheck : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
+    signal writeBuffer : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal buffer_r_address0 : STD_LOGIC_VECTOR (12 downto 0);
     signal buffer_r_ce0 : STD_LOGIC;
     signal buffer_r_we0 : STD_LOGIC;
     signal buffer_r_q0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal writeBuffer : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal value_in_V_TDATA_blk_n : STD_LOGIC;
     signal ap_CS_fsm : STD_LOGIC_VECTOR (12 downto 0) := "0000000000001";
     attribute fsm_encoding : string;
@@ -131,34 +133,46 @@ architecture behav of Echo is
     attribute fsm_encoding of ap_CS_fsm_state12 : signal is "none";
     signal ap_CS_fsm_state13 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state13 : signal is "none";
-    signal scale_read_reg_210 : STD_LOGIC_VECTOR (31 downto 0);
+    signal scale_read_reg_289 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal tmp_2_i_fu_132_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal guard_variable_for_E_load_fu_124_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal delay_read_reg_294 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_4_fu_189_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_4_reg_313 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal buffer_load_reg_233 : STD_LOGIC_VECTOR (31 downto 0);
+    signal readBuffer_loc_tmp_5_fu_194_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal readBuffer_loc_tmp_5_reg_319 : STD_LOGIC_VECTOR (31 downto 0);
+    signal buffer_load_reg_330 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal grp_fu_120_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_5_reg_238 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_fu_149_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_8_reg_335 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state7 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal grp_fu_114_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal current_value_reg_248 : STD_LOGIC_VECTOR (31 downto 0);
-    signal readBuffer_loc_reg_105 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_4_fu_144_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal tmp_6_fu_179_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal storemerge_fu_161_p3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal storemerge5_fu_196_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_fu_143_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal current_value_reg_345 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_fu_153_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal readBuffer_loc_reg_111 : STD_LOGIC_VECTOR (31 downto 0);
+    signal guard_variable_for_E_load_fu_160_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal delaycheck_loc_reg_121 : STD_LOGIC_VECTOR (31 downto 0);
+    signal guard_variable_for_E_1_load_fu_175_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal delaycheck_flag_reg_130 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_7_fu_202_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal tmp_9_fu_229_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal storemerge_fu_244_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal delaycheck_flag_s_fu_216_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal storemerge5_fu_264_p3 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
-    signal tmp_9_fu_149_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_s_fu_155_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_8_fu_184_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_7_fu_190_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_fu_114_ce : STD_LOGIC;
+    signal grp_fu_153_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal not_tmp_4_fu_211_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal writeBuffer_load_s_fu_222_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_s_fu_234_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_3_fu_239_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_6_fu_252_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_1_fu_258_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_fu_143_ce : STD_LOGIC;
     signal ap_CS_fsm_state9 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
     signal ap_CS_fsm_state10 : STD_LOGIC;
@@ -260,7 +274,7 @@ begin
         address0 => buffer_r_address0,
         ce0 => buffer_r_ce0,
         we0 => buffer_r_we0,
-        d0 => current_value_reg_248,
+        d0 => current_value_reg_345,
         q0 => buffer_r_q0);
 
     Echo_CTRL_BUS_s_axi_U : component Echo_CTRL_BUS_s_axi
@@ -302,9 +316,9 @@ begin
         clk => ap_clk,
         reset => ap_rst_n_inv,
         din0 => value_in_V_0_data_out,
-        din1 => tmp_5_reg_238,
-        ce => grp_fu_114_ce,
-        dout => grp_fu_114_p2);
+        din1 => tmp_8_reg_335,
+        ce => grp_fu_143_ce,
+        dout => grp_fu_143_p2);
 
     Echo_fmul_32ns_32cud_U2 : component Echo_fmul_32ns_32cud
     generic map (
@@ -316,10 +330,10 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        din0 => buffer_load_reg_233,
-        din1 => scale_read_reg_210,
+        din0 => buffer_load_reg_330,
+        din1 => scale_read_reg_289,
         ce => ap_const_logic_1,
-        dout => grp_fu_120_p2);
+        dout => grp_fu_149_p2);
 
 
 
@@ -433,14 +447,40 @@ begin
     end process;
 
 
-    readBuffer_loc_reg_105_assign_proc : process (ap_clk)
+    delaycheck_flag_reg_130_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state1)) then
-                if ((ap_const_lv1_1 = guard_variable_for_E_load_fu_124_p1)) then 
-                    readBuffer_loc_reg_105 <= readBuffer;
-                elsif ((ap_const_lv1_0 = guard_variable_for_E_load_fu_124_p1)) then 
-                    readBuffer_loc_reg_105 <= tmp_2_i_fu_132_p2;
+                if ((ap_const_lv1_1 = guard_variable_for_E_1_load_fu_175_p1)) then 
+                    delaycheck_flag_reg_130 <= ap_const_lv1_0;
+                elsif ((ap_const_lv1_0 = guard_variable_for_E_1_load_fu_175_p1)) then 
+                    delaycheck_flag_reg_130 <= ap_const_lv1_1;
+                end if;
+            end if; 
+        end if;
+    end process;
+
+    delaycheck_loc_reg_121_assign_proc : process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state1)) then
+                if ((ap_const_lv1_1 = guard_variable_for_E_1_load_fu_175_p1)) then 
+                    delaycheck_loc_reg_121 <= delaycheck;
+                elsif ((ap_const_lv1_0 = guard_variable_for_E_1_load_fu_175_p1)) then 
+                    delaycheck_loc_reg_121 <= delay;
+                end if;
+            end if; 
+        end if;
+    end process;
+
+    readBuffer_loc_reg_111_assign_proc : process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state1)) then
+                if ((ap_const_lv1_1 = guard_variable_for_E_load_fu_160_p1)) then 
+                    readBuffer_loc_reg_111 <= readBuffer;
+                elsif ((ap_const_lv1_0 = guard_variable_for_E_load_fu_160_p1)) then 
+                    readBuffer_loc_reg_111 <= grp_fu_153_p2;
                 end if;
             end if; 
         end if;
@@ -449,7 +489,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state3)) then
-                buffer_load_reg_233 <= buffer_r_q0;
+                buffer_load_reg_330 <= buffer_r_q0;
             end if;
         end if;
     end process;
@@ -457,23 +497,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state12) and (value_out_V_1_ack_in = ap_const_logic_1))) then
-                current_value_reg_248 <= grp_fu_114_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_lv1_0 = guard_variable_for_E_load_fu_124_p1))) then
-                guard_variable_for_E <= ap_const_lv1_1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
-                readBuffer <= storemerge_fu_161_p3;
+                current_value_reg_345 <= grp_fu_143_p2;
             end if;
         end if;
     end process;
@@ -481,7 +505,50 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state1)) then
-                scale_read_reg_210 <= scale;
+                delay_read_reg_294 <= delay;
+                scale_read_reg_289 <= scale;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state13) and (value_out_V_1_ack_in = ap_const_logic_1) and (ap_const_lv1_1 = delaycheck_flag_s_fu_216_p2))) then
+                delaycheck <= delay_read_reg_294;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_lv1_0 = guard_variable_for_E_load_fu_160_p1))) then
+                guard_variable_for_E <= ap_const_lv1_1;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_lv1_0 = guard_variable_for_E_1_load_fu_175_p1))) then
+                guard_variable_for_E_1 <= ap_const_lv1_1;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state13) and (value_out_V_1_ack_in = ap_const_logic_1))) then
+                readBuffer <= storemerge_fu_244_p3;
+                writeBuffer <= storemerge5_fu_264_p3;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
+                readBuffer_loc_tmp_5_reg_319 <= readBuffer_loc_tmp_5_fu_194_p3;
+                tmp_4_reg_313 <= tmp_4_fu_189_p2;
             end if;
         end if;
     end process;
@@ -489,7 +556,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state7)) then
-                tmp_5_reg_238 <= grp_fu_120_p2;
+                tmp_8_reg_335 <= grp_fu_149_p2;
             end if;
         end if;
     end process;
@@ -513,7 +580,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = value_out_V_1_load_A)) then
-                value_out_V_1_payload_A <= grp_fu_114_p2;
+                value_out_V_1_payload_A <= grp_fu_143_p2;
             end if;
         end if;
     end process;
@@ -521,15 +588,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = value_out_V_1_load_B)) then
-                value_out_V_1_payload_B <= grp_fu_114_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state13) and (value_out_V_1_ack_in = ap_const_logic_1))) then
-                writeBuffer <= storemerge5_fu_196_p3;
+                value_out_V_1_payload_B <= grp_fu_143_p2;
             end if;
         end if;
     end process;
@@ -597,12 +656,12 @@ begin
     end process;
 
 
-    buffer_r_address0_assign_proc : process(ap_CS_fsm_state13, ap_CS_fsm_state2, tmp_4_fu_144_p1, tmp_6_fu_179_p1)
+    buffer_r_address0_assign_proc : process(ap_CS_fsm_state13, ap_CS_fsm_state2, tmp_7_fu_202_p1, tmp_9_fu_229_p1)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-            buffer_r_address0 <= tmp_6_fu_179_p1(13 - 1 downto 0);
+            buffer_r_address0 <= tmp_9_fu_229_p1(13 - 1 downto 0);
         elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            buffer_r_address0 <= tmp_4_fu_144_p1(13 - 1 downto 0);
+            buffer_r_address0 <= tmp_7_fu_202_p1(13 - 1 downto 0);
         else 
             buffer_r_address0 <= "XXXXXXXXXXXXX";
         end if; 
@@ -628,32 +687,51 @@ begin
         end if; 
     end process;
 
+    delaycheck_flag_s_fu_216_p2 <= (delaycheck_flag_reg_130 or not_tmp_4_fu_211_p2);
 
-    grp_fu_114_ce_assign_proc : process(value_in_V_0_vld_out, value_out_V_1_ack_in, ap_CS_fsm_state8, ap_CS_fsm_state12, ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11)
+    grp_fu_143_ce_assign_proc : process(value_in_V_0_vld_out, value_out_V_1_ack_in, ap_CS_fsm_state8, ap_CS_fsm_state12, ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11)
     begin
         if ((((ap_const_logic_1 = ap_CS_fsm_state8) and (value_in_V_0_vld_out = ap_const_logic_1)) or ((ap_const_logic_1 = ap_CS_fsm_state12) and (value_out_V_1_ack_in = ap_const_logic_1)) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state10) or (ap_const_logic_1 = ap_CS_fsm_state11))) then 
-            grp_fu_114_ce <= ap_const_logic_1;
+            grp_fu_143_ce <= ap_const_logic_1;
         else 
-            grp_fu_114_ce <= ap_const_logic_0;
+            grp_fu_143_ce <= ap_const_logic_0;
         end if; 
     end process;
 
-    guard_variable_for_E_load_fu_124_p1 <= guard_variable_for_E;
-    storemerge5_fu_196_p3 <= 
-        tmp_7_fu_190_p2 when (tmp_8_fu_184_p2(0) = '1') else 
-        ap_const_lv32_0;
-    storemerge_fu_161_p3 <= 
-        tmp_s_fu_155_p2 when (tmp_9_fu_149_p2(0) = '1') else 
-        ap_const_lv32_0;
-    tmp_2_i_fu_132_p2 <= std_logic_vector(unsigned(ap_const_lv32_12C0) - unsigned(delay));
-        tmp_4_fu_144_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(readBuffer_loc_reg_105),64));
 
-        tmp_6_fu_179_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(writeBuffer),64));
+    grp_fu_153_p1_assign_proc : process(delay, ap_CS_fsm_state1, delay_read_reg_294, ap_CS_fsm_state2)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            grp_fu_153_p1 <= delay_read_reg_294;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state1)) then 
+            grp_fu_153_p1 <= delay;
+        else 
+            grp_fu_153_p1 <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        end if; 
+    end process;
 
-    tmp_7_fu_190_p2 <= std_logic_vector(unsigned(writeBuffer) + unsigned(ap_const_lv32_1));
-    tmp_8_fu_184_p2 <= "1" when (signed(writeBuffer) < signed(ap_const_lv32_12C0)) else "0";
-    tmp_9_fu_149_p2 <= "1" when (signed(readBuffer_loc_reg_105) < signed(ap_const_lv32_12C0)) else "0";
-    tmp_s_fu_155_p2 <= std_logic_vector(unsigned(readBuffer_loc_reg_105) + unsigned(ap_const_lv32_1));
+    grp_fu_153_p2 <= std_logic_vector(unsigned(ap_const_lv32_12C0) - unsigned(grp_fu_153_p1));
+    guard_variable_for_E_1_load_fu_175_p1 <= guard_variable_for_E_1;
+    guard_variable_for_E_load_fu_160_p1 <= guard_variable_for_E;
+    not_tmp_4_fu_211_p2 <= (tmp_4_reg_313 xor ap_const_lv1_1);
+    readBuffer_loc_tmp_5_fu_194_p3 <= 
+        readBuffer_loc_reg_111 when (tmp_4_fu_189_p2(0) = '1') else 
+        grp_fu_153_p2;
+    storemerge5_fu_264_p3 <= 
+        tmp_1_fu_258_p2 when (tmp_6_fu_252_p2(0) = '1') else 
+        ap_const_lv32_0;
+    storemerge_fu_244_p3 <= 
+        tmp_3_fu_239_p2 when (tmp_s_fu_234_p2(0) = '1') else 
+        ap_const_lv32_0;
+    tmp_1_fu_258_p2 <= std_logic_vector(unsigned(writeBuffer_load_s_fu_222_p3) + unsigned(ap_const_lv32_1));
+    tmp_3_fu_239_p2 <= std_logic_vector(unsigned(readBuffer_loc_tmp_5_reg_319) + unsigned(ap_const_lv32_1));
+    tmp_4_fu_189_p2 <= "1" when (delaycheck_loc_reg_121 = delay_read_reg_294) else "0";
+    tmp_6_fu_252_p2 <= "1" when (signed(writeBuffer_load_s_fu_222_p3) < signed(ap_const_lv32_12C0)) else "0";
+        tmp_7_fu_202_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(readBuffer_loc_tmp_5_fu_194_p3),64));
+
+        tmp_9_fu_229_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(writeBuffer_load_s_fu_222_p3),64));
+
+    tmp_s_fu_234_p2 <= "1" when (signed(readBuffer_loc_tmp_5_reg_319) < signed(ap_const_lv32_12C0)) else "0";
     value_in_V_0_ack_in <= value_in_V_0_state(1);
 
     value_in_V_0_ack_out_assign_proc : process(value_in_V_0_vld_out, ap_CS_fsm_state8)
@@ -731,4 +809,7 @@ begin
     end process;
 
     value_out_V_TVALID <= value_out_V_1_state(0);
+    writeBuffer_load_s_fu_222_p3 <= 
+        writeBuffer when (tmp_4_reg_313(0) = '1') else 
+        ap_const_lv32_0;
 end behav;

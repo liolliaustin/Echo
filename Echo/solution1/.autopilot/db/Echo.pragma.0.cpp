@@ -6203,10 +6203,17 @@ void Echo(
 #pragma HLS INTERFACE axis register both port=&value_in
 #pragma HLS INTERFACE axis register both port=&value_out
 
+ static float buffer[4800];
  static int readBuffer = 4800 - delay;
  static int writeBuffer = 0;
 
- static float buffer[4800];
+ static int delaycheck = delay;
+
+ if(delaycheck != delay){
+  delaycheck = delay;
+  readBuffer = 4800 - delay;
+  writeBuffer = 0;
+ }
 
  float current_value;
 
@@ -6227,8 +6234,6 @@ void Echo(
   writeBuffer++;
  else
   writeBuffer = 0;
-
-
 
 
 }

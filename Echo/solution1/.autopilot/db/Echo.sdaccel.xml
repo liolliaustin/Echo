@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Echo'" level="0">
-<item name = "Date">Thu Apr 25 12:29:42 2019
+<item name = "Date">Sun Apr 28 11:06:53 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">Echo</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Target clock period (ns)">10.00</item>
 <item name = "Clock uncertainty (ns)">1.25</item>
-<item name = "Estimated clock period (ns)">7.26</item>
+<item name = "Estimated clock period (ns)">8.59</item>
 </section>
 </item>
 <item name = "Latency (clock cycles)">
@@ -45,12 +45,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 303, 217</column>
+<column name="Expression">-, -, 303, 301</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">0, 5, 454, 879</column>
 <column name="Memory">16, -, 0, 0</column>
-<column name="Multiplexer">-, -, -, 155</column>
-<column name="Register">-, -, 374, -</column>
+<column name="Multiplexer">-, -, -, 179</column>
+<column name="Register">-, -, 505, -</column>
 <specialColumn name="Available">1510, 2020, 554800, 277400</specialColumn>
 <specialColumn name="Utilization (%)">1, ~0, ~0, ~0</specialColumn>
 </table>
@@ -79,26 +79,33 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="tmp_7_fu_190_p2">+, 0, 101, 37, 32, 1</column>
-<column name="tmp_s_fu_155_p2">+, 0, 101, 37, 32, 1</column>
-<column name="tmp_2_i_fu_132_p2">-, 0, 101, 37, 13, 32</column>
+<column name="tmp_1_fu_258_p2">+, 0, 101, 37, 32, 1</column>
+<column name="tmp_3_fu_239_p2">+, 0, 101, 37, 32, 1</column>
+<column name="grp_fu_153_p2">-, 0, 101, 37, 13, 32</column>
 <column name="value_in_V_0_load_A">and, 0, 0, 2, 1, 1</column>
 <column name="value_in_V_0_load_B">and, 0, 0, 2, 1, 1</column>
 <column name="value_out_V_1_load_A">and, 0, 0, 2, 1, 1</column>
 <column name="value_out_V_1_load_B">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_8_fu_184_p2">icmp, 0, 0, 16, 32, 13</column>
-<column name="tmp_9_fu_149_p2">icmp, 0, 0, 16, 32, 13</column>
+<column name="tmp_4_fu_189_p2">icmp, 0, 0, 16, 32, 32</column>
+<column name="tmp_6_fu_252_p2">icmp, 0, 0, 16, 32, 13</column>
+<column name="tmp_s_fu_234_p2">icmp, 0, 0, 16, 32, 13</column>
 <column name="value_in_V_0_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
 <column name="value_out_V_1_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
-<column name="storemerge5_fu_196_p3">select, 0, 0, 32, 1, 32</column>
-<column name="storemerge_fu_161_p3">select, 0, 0, 32, 1, 32</column>
+<column name="delaycheck_flag_s_fu_216_p2">or, 0, 0, 2, 1, 1</column>
+<column name="readBuffer_loc_tmp_5_fu_194_p3">select, 0, 0, 32, 1, 32</column>
+<column name="storemerge5_fu_264_p3">select, 0, 0, 32, 1, 32</column>
+<column name="storemerge_fu_244_p3">select, 0, 0, 32, 1, 32</column>
+<column name="writeBuffer_load_s_fu_222_p3">select, 0, 0, 32, 1, 32</column>
+<column name="not_tmp_4_fu_211_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">65, 14, 1, 14</column>
 <column name="buffer_r_address0">15, 3, 13, 39</column>
-<column name="readBuffer_loc_reg_105">9, 2, 32, 64</column>
+<column name="delaycheck_loc_reg_121">9, 2, 32, 64</column>
+<column name="grp_fu_153_p1">15, 3, 32, 96</column>
+<column name="readBuffer_loc_reg_111">9, 2, 32, 64</column>
 <column name="value_in_V_0_data_out">9, 2, 32, 64</column>
 <column name="value_in_V_0_state">15, 3, 2, 6</column>
 <column name="value_in_V_TDATA_blk_n">9, 2, 1, 2</column>
@@ -110,13 +117,20 @@
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">13, 0, 13, 0</column>
-<column name="buffer_load_reg_233">32, 0, 32, 0</column>
-<column name="current_value_reg_248">32, 0, 32, 0</column>
+<column name="buffer_load_reg_330">32, 0, 32, 0</column>
+<column name="current_value_reg_345">32, 0, 32, 0</column>
+<column name="delay_read_reg_294">32, 0, 32, 0</column>
+<column name="delaycheck">32, 0, 32, 0</column>
+<column name="delaycheck_flag_reg_130">1, 0, 1, 0</column>
+<column name="delaycheck_loc_reg_121">32, 0, 32, 0</column>
 <column name="guard_variable_for_E">1, 0, 1, 0</column>
+<column name="guard_variable_for_E_1">1, 0, 1, 0</column>
 <column name="readBuffer">32, 0, 32, 0</column>
-<column name="readBuffer_loc_reg_105">32, 0, 32, 0</column>
-<column name="scale_read_reg_210">32, 0, 32, 0</column>
-<column name="tmp_5_reg_238">32, 0, 32, 0</column>
+<column name="readBuffer_loc_reg_111">32, 0, 32, 0</column>
+<column name="readBuffer_loc_tmp_5_reg_319">32, 0, 32, 0</column>
+<column name="scale_read_reg_289">32, 0, 32, 0</column>
+<column name="tmp_4_reg_313">1, 0, 1, 0</column>
+<column name="tmp_8_reg_335">32, 0, 32, 0</column>
 <column name="value_in_V_0_payload_A">32, 0, 32, 0</column>
 <column name="value_in_V_0_payload_B">32, 0, 32, 0</column>
 <column name="value_in_V_0_sel_rd">1, 0, 1, 0</column>
@@ -167,11 +181,15 @@
 </section>
 
 <section name = "Critical Path" level="0">
-<item name = "Max Delay">7.26</item>
+<item name = "Max Delay">8.59</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'tmp', src/Echo.cpp:39">read, 0.00, 0.00, -, -, -, axis, read, &apos;value_in_V&apos;, -, -, -, -, -</column>
-<column name="'current_value', src/Echo.cpp:41">fadd, 7.26, 7.26, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'delaycheck_loc', src/Echo.cpp:38">phi, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, &apos;delay&apos;, &apos;delaycheck_load&apos;, src/Echo.cpp:38</column>
+<column name="'tmp_4', src/Echo.cpp:38">icmp, 3.26, 3.26, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'readBuffer_loc_tmp_5', src/Echo.cpp:38">select, 2.07, 5.33, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'tmp_7', src/Echo.cpp:48">sext, 0.00, 5.33, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'buffer_addr', src/Echo.cpp:48">getelementptr, 0.00, 5.33, -, -, -, -, -, -, -, -, -, -, -</column>
+<column name="'buffer_load', src/Echo.cpp:48">load, 3.25, 8.59, -, -, -, -, -, -, &apos;buffer_r&apos;, -, -, -, -</column>
 </table>
 </item>
 </section>

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'Echo'
 ================================================================
-* Date:           Thu Apr 25 12:29:42 2019
+* Date:           Sun Apr 28 11:06:53 2019
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        Echo
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      7.26|        1.25|
+    |ap_clk  |  10.00|      8.59|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -98,179 +98,227 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
  <State 1>: 5.49ns
-ST_1: StgValue_14 (9)  [1/1] 0.00ns
+ST_1: StgValue_14 (11)  [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_in_V), !map !20
 
-ST_1: StgValue_15 (10)  [1/1] 0.00ns
+ST_1: StgValue_15 (12)  [1/1] 0.00ns
 :1  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_out_V), !map !26
 
-ST_1: StgValue_16 (11)  [1/1] 0.00ns
+ST_1: StgValue_16 (13)  [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %delay), !map !30
 
-ST_1: StgValue_17 (12)  [1/1] 0.00ns
+ST_1: StgValue_17 (14)  [1/1] 0.00ns
 :3  call void (...)* @_ssdm_op_SpecBitsMap(float %scale), !map !36
 
-ST_1: StgValue_18 (13)  [1/1] 0.00ns
+ST_1: StgValue_18 (15)  [1/1] 0.00ns
 :4  call void (...)* @_ssdm_op_SpecTopModule([5 x i8]* @Echo_str) nounwind
 
-ST_1: scale_read (14)  [1/1] 1.00ns
+ST_1: scale_read (16)  [1/1] 1.00ns
 :5  %scale_read = call float @_ssdm_op_Read.s_axilite.float(float %scale)
 
-ST_1: delay_read (15)  [1/1] 1.00ns
+ST_1: delay_read (17)  [1/1] 1.00ns
 :6  %delay_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %delay)
 
-ST_1: StgValue_21 (16)  [1/1] 0.00ns  loc: src/Echo.cpp:23
+ST_1: StgValue_21 (18)  [1/1] 0.00ns  loc: src/Echo.cpp:23
 :7  call void (...)* @_ssdm_op_SpecLatency(i32 12, i32 65535, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_22 (17)  [1/1] 0.00ns  loc: src/Echo.cpp:25
+ST_1: StgValue_22 (19)  [1/1] 0.00ns  loc: src/Echo.cpp:25
 :8  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_23 (18)  [1/1] 0.00ns  loc: src/Echo.cpp:26
+ST_1: StgValue_23 (20)  [1/1] 0.00ns  loc: src/Echo.cpp:26
 :9  call void (...)* @_ssdm_op_SpecInterface(i32 %delay, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_24 (19)  [1/1] 0.00ns  loc: src/Echo.cpp:27
+ST_1: StgValue_24 (21)  [1/1] 0.00ns  loc: src/Echo.cpp:27
 :10  call void (...)* @_ssdm_op_SpecInterface(float %scale, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_25 (20)  [1/1] 0.00ns  loc: src/Echo.cpp:29
+ST_1: StgValue_25 (22)  [1/1] 0.00ns  loc: src/Echo.cpp:29
 :11  call void (...)* @_ssdm_op_SpecInterface(float* %value_in_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_26 (21)  [1/1] 0.00ns  loc: src/Echo.cpp:30
+ST_1: StgValue_26 (23)  [1/1] 0.00ns  loc: src/Echo.cpp:30
 :12  call void (...)* @_ssdm_op_SpecInterface(float* %value_out_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: guard_variable_for_E (22)  [1/1] 0.00ns
+ST_1: guard_variable_for_E (24)  [1/1] 0.00ns
 :13  %guard_variable_for_E = load i1* @guard_variable_for_E, align 1
 
-ST_1: readBuffer_load (23)  [1/1] 0.00ns  loc: src/Echo.cpp:41
+ST_1: readBuffer_load (25)  [1/1] 0.00ns  loc: src/Echo.cpp:48
 :14  %readBuffer_load = load i32* @readBuffer, align 4
 
-ST_1: StgValue_29 (24)  [1/1] 1.59ns  loc: src/Echo.cpp:32
+ST_1: StgValue_29 (26)  [1/1] 1.59ns  loc: src/Echo.cpp:33
 :15  br i1 %guard_variable_for_E, label %._crit_edge, label %codeRepl1
 
-ST_1: tmp_2_i (26)  [1/1] 2.90ns  loc: src/Echo.cpp:32
+ST_1: tmp_2_i (28)  [1/1] 2.90ns  loc: src/Echo.cpp:33
 codeRepl1:0  %tmp_2_i = sub nsw i32 4800, %delay_read
 
-ST_1: StgValue_31 (27)  [1/1] 0.00ns  loc: src/Echo.cpp:32
+ST_1: StgValue_31 (29)  [1/1] 0.00ns  loc: src/Echo.cpp:33
 codeRepl1:1  store i1 true, i1* @guard_variable_for_E, align 1
 
-ST_1: StgValue_32 (28)  [1/1] 1.59ns
+ST_1: StgValue_32 (30)  [1/1] 1.59ns
 codeRepl1:2  br label %._crit_edge
 
-
- <State 2>: 5.33ns
-ST_2: readBuffer_loc (30)  [1/1] 0.00ns  loc: src/Echo.cpp:32
+ST_1: readBuffer_loc (32)  [1/1] 0.00ns  loc: src/Echo.cpp:33
 ._crit_edge:0  %readBuffer_loc = phi i32 [ %tmp_2_i, %codeRepl1 ], [ %readBuffer_load, %0 ]
 
-ST_2: tmp_4 (32)  [1/1] 0.00ns  loc: src/Echo.cpp:41
-._crit_edge:2  %tmp_4 = sext i32 %readBuffer_loc to i64
+ST_1: guard_variable_for_E_1 (33)  [1/1] 0.00ns
+._crit_edge:1  %guard_variable_for_E_1 = load i1* @guard_variable_for_E_1, align 1
 
-ST_2: buffer_addr (33)  [1/1] 0.00ns  loc: src/Echo.cpp:41
-._crit_edge:3  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_4
+ST_1: delaycheck_load (34)  [1/1] 0.00ns  loc: src/Echo.cpp:38
+._crit_edge:2  %delaycheck_load = load i32* @delaycheck, align 4
 
-ST_2: buffer_load (34)  [2/2] 3.25ns  loc: src/Echo.cpp:41
-._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
+ST_1: StgValue_36 (35)  [1/1] 1.59ns  loc: src/Echo.cpp:36
+._crit_edge:3  br i1 %guard_variable_for_E_1, label %._crit_edge6, label %codeRepl
 
-ST_2: tmp_9 (42)  [1/1] 3.26ns  loc: src/Echo.cpp:47
-._crit_edge:12  %tmp_9 = icmp slt i32 %readBuffer_loc, 4800
+ST_1: StgValue_37 (37)  [1/1] 0.00ns  loc: src/Echo.cpp:36
+codeRepl:0  store i1 true, i1* @guard_variable_for_E_1, align 1
 
-ST_2: tmp_s (43)  [1/1] 2.90ns  loc: src/Echo.cpp:48
-._crit_edge:13  %tmp_s = add nsw i32 %readBuffer_loc, 1
+ST_1: StgValue_38 (38)  [1/1] 1.59ns
+codeRepl:1  br label %._crit_edge6
 
-ST_2: storemerge (44)  [1/1] 2.07ns  loc: src/Echo.cpp:47
-._crit_edge:14  %storemerge = select i1 %tmp_9, i32 %tmp_s, i32 0
 
-ST_2: StgValue_40 (49)  [1/1] 0.00ns  loc: src/Echo.cpp:32
-._crit_edge:19  store i32 %storemerge, i32* @readBuffer, align 4
+ <State 2>: 8.59ns
+ST_2: delaycheck_loc (41)  [1/1] 0.00ns  loc: src/Echo.cpp:38 (grouped into LUT with out node tmp_4)
+._crit_edge6:1  %delaycheck_loc = phi i32 [ %delay_read, %codeRepl ], [ %delaycheck_load, %._crit_edge ]
+
+ST_2: tmp_4 (42)  [1/1] 3.26ns  loc: src/Echo.cpp:38 (out node of the LUT)
+._crit_edge6:2  %tmp_4 = icmp eq i32 %delaycheck_loc, %delay_read
+
+ST_2: tmp_5 (44)  [1/1] 2.90ns  loc: src/Echo.cpp:40
+._crit_edge6:4  %tmp_5 = sub nsw i32 4800, %delay_read
+
+ST_2: readBuffer_loc_tmp_5 (45)  [1/1] 2.07ns  loc: src/Echo.cpp:38
+._crit_edge6:5  %readBuffer_loc_tmp_5 = select i1 %tmp_4, i32 %readBuffer_loc, i32 %tmp_5
+
+ST_2: tmp_7 (50)  [1/1] 0.00ns  loc: src/Echo.cpp:48
+._crit_edge6:10  %tmp_7 = sext i32 %readBuffer_loc_tmp_5 to i64
+
+ST_2: buffer_addr (51)  [1/1] 0.00ns  loc: src/Echo.cpp:48
+._crit_edge6:11  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_7
+
+ST_2: buffer_load (52)  [2/2] 3.25ns  loc: src/Echo.cpp:48
+._crit_edge6:12  %buffer_load = load float* %buffer_addr, align 4
 
 
  <State 3>: 3.25ns
-ST_3: buffer_load (34)  [1/2] 3.25ns  loc: src/Echo.cpp:41
-._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
+ST_3: buffer_load (52)  [1/2] 3.25ns  loc: src/Echo.cpp:48
+._crit_edge6:12  %buffer_load = load float* %buffer_addr, align 4
 
 
  <State 4>: 5.70ns
-ST_4: tmp_5 (35)  [4/4] 5.70ns  loc: src/Echo.cpp:41
-._crit_edge:5  %tmp_5 = fmul float %buffer_load, %scale_read
+ST_4: tmp_8 (53)  [4/4] 5.70ns  loc: src/Echo.cpp:48
+._crit_edge6:13  %tmp_8 = fmul float %buffer_load, %scale_read
 
 
  <State 5>: 5.70ns
-ST_5: tmp_5 (35)  [3/4] 5.70ns  loc: src/Echo.cpp:41
-._crit_edge:5  %tmp_5 = fmul float %buffer_load, %scale_read
+ST_5: tmp_8 (53)  [3/4] 5.70ns  loc: src/Echo.cpp:48
+._crit_edge6:13  %tmp_8 = fmul float %buffer_load, %scale_read
 
 
  <State 6>: 5.70ns
-ST_6: tmp_5 (35)  [2/4] 5.70ns  loc: src/Echo.cpp:41
-._crit_edge:5  %tmp_5 = fmul float %buffer_load, %scale_read
+ST_6: tmp_8 (53)  [2/4] 5.70ns  loc: src/Echo.cpp:48
+._crit_edge6:13  %tmp_8 = fmul float %buffer_load, %scale_read
 
 
  <State 7>: 5.70ns
-ST_7: tmp_1 (31)  [2/2] 0.00ns  loc: src/Echo.cpp:39
-._crit_edge:1  %tmp_1 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+ST_7: tmp_2 (49)  [2/2] 0.00ns  loc: src/Echo.cpp:46
+._crit_edge6:9  %tmp_2 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
 
-ST_7: tmp_5 (35)  [1/4] 5.70ns  loc: src/Echo.cpp:41
-._crit_edge:5  %tmp_5 = fmul float %buffer_load, %scale_read
+ST_7: tmp_8 (53)  [1/4] 5.70ns  loc: src/Echo.cpp:48
+._crit_edge6:13  %tmp_8 = fmul float %buffer_load, %scale_read
 
 
  <State 8>: 7.26ns
-ST_8: tmp_1 (31)  [1/2] 0.00ns  loc: src/Echo.cpp:39
-._crit_edge:1  %tmp_1 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+ST_8: tmp_2 (49)  [1/2] 0.00ns  loc: src/Echo.cpp:46
+._crit_edge6:9  %tmp_2 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
 
-ST_8: current_value (36)  [5/5] 7.26ns  loc: src/Echo.cpp:41
-._crit_edge:6  %current_value = fadd float %tmp_1, %tmp_5
+ST_8: current_value (54)  [5/5] 7.26ns  loc: src/Echo.cpp:48
+._crit_edge6:14  %current_value = fadd float %tmp_2, %tmp_8
 
 
  <State 9>: 7.26ns
-ST_9: current_value (36)  [4/5] 7.26ns  loc: src/Echo.cpp:41
-._crit_edge:6  %current_value = fadd float %tmp_1, %tmp_5
+ST_9: current_value (54)  [4/5] 7.26ns  loc: src/Echo.cpp:48
+._crit_edge6:14  %current_value = fadd float %tmp_2, %tmp_8
 
 
  <State 10>: 7.26ns
-ST_10: current_value (36)  [3/5] 7.26ns  loc: src/Echo.cpp:41
-._crit_edge:6  %current_value = fadd float %tmp_1, %tmp_5
+ST_10: current_value (54)  [3/5] 7.26ns  loc: src/Echo.cpp:48
+._crit_edge6:14  %current_value = fadd float %tmp_2, %tmp_8
 
 
  <State 11>: 7.26ns
-ST_11: current_value (36)  [2/5] 7.26ns  loc: src/Echo.cpp:41
-._crit_edge:6  %current_value = fadd float %tmp_1, %tmp_5
+ST_11: current_value (54)  [2/5] 7.26ns  loc: src/Echo.cpp:48
+._crit_edge6:14  %current_value = fadd float %tmp_2, %tmp_8
 
 
  <State 12>: 7.26ns
-ST_12: current_value (36)  [1/5] 7.26ns  loc: src/Echo.cpp:41
-._crit_edge:6  %current_value = fadd float %tmp_1, %tmp_5
+ST_12: current_value (54)  [1/5] 7.26ns  loc: src/Echo.cpp:48
+._crit_edge6:14  %current_value = fadd float %tmp_2, %tmp_8
 
-ST_12: StgValue_53 (41)  [2/2] 0.00ns  loc: src/Echo.cpp:45
-._crit_edge:11  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
+ST_12: StgValue_58 (58)  [2/2] 0.00ns  loc: src/Echo.cpp:52
+._crit_edge6:18  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
 
 
- <State 13>: 5.33ns
-ST_13: writeBuffer_load (37)  [1/1] 0.00ns  loc: src/Echo.cpp:43
-._crit_edge:7  %writeBuffer_load = load i32* @writeBuffer, align 4
+ <State 13>: 7.40ns
+ST_13: delaycheck_flag (40)  [1/1] 0.00ns (grouped into LUT with out node delaycheck_flag_s)
+._crit_edge6:0  %delaycheck_flag = phi i1 [ true, %codeRepl ], [ false, %._crit_edge ]
 
-ST_13: tmp_6 (38)  [1/1] 0.00ns  loc: src/Echo.cpp:43
-._crit_edge:8  %tmp_6 = sext i32 %writeBuffer_load to i64
+ST_13: writeBuffer_load (43)  [1/1] 0.00ns  loc: src/Echo.cpp:50
+._crit_edge6:3  %writeBuffer_load = load i32* @writeBuffer, align 4
 
-ST_13: buffer_addr_1 (39)  [1/1] 0.00ns  loc: src/Echo.cpp:43
-._crit_edge:9  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_6
+ST_13: not_tmp_4 (46)  [1/1] 0.00ns  loc: src/Echo.cpp:38 (grouped into LUT with out node delaycheck_flag_s)
+._crit_edge6:6  %not_tmp_4 = xor i1 %tmp_4, true
 
-ST_13: StgValue_57 (40)  [1/1] 3.25ns  loc: src/Echo.cpp:43
-._crit_edge:10  store float %current_value, float* %buffer_addr_1, align 4
+ST_13: delaycheck_flag_s (47)  [1/1] 2.07ns  loc: src/Echo.cpp:38 (out node of the LUT)
+._crit_edge6:7  %delaycheck_flag_s = or i1 %delaycheck_flag, %not_tmp_4
 
-ST_13: StgValue_58 (41)  [1/2] 0.00ns  loc: src/Echo.cpp:45
-._crit_edge:11  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
+ST_13: writeBuffer_load_s (48)  [1/1] 2.07ns  loc: src/Echo.cpp:38
+._crit_edge6:8  %writeBuffer_load_s = select i1 %tmp_4, i32 %writeBuffer_load, i32 0
 
-ST_13: tmp_8 (45)  [1/1] 3.26ns  loc: src/Echo.cpp:52
-._crit_edge:15  %tmp_8 = icmp slt i32 %writeBuffer_load, 4800
+ST_13: tmp_9 (55)  [1/1] 0.00ns  loc: src/Echo.cpp:50
+._crit_edge6:15  %tmp_9 = sext i32 %writeBuffer_load_s to i64
 
-ST_13: tmp_7 (46)  [1/1] 2.90ns  loc: src/Echo.cpp:53
-._crit_edge:16  %tmp_7 = add nsw i32 %writeBuffer_load, 1
+ST_13: buffer_addr_1 (56)  [1/1] 0.00ns  loc: src/Echo.cpp:50
+._crit_edge6:16  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_9
 
-ST_13: storemerge5 (47)  [1/1] 2.07ns  loc: src/Echo.cpp:52
-._crit_edge:17  %storemerge5 = select i1 %tmp_8, i32 %tmp_7, i32 0
+ST_13: StgValue_66 (57)  [1/1] 3.25ns  loc: src/Echo.cpp:50
+._crit_edge6:17  store float %current_value, float* %buffer_addr_1, align 4
 
-ST_13: StgValue_62 (48)  [1/1] 0.00ns  loc: src/Echo.cpp:53
-._crit_edge:18  store i32 %storemerge5, i32* @writeBuffer, align 4
+ST_13: StgValue_67 (58)  [1/2] 0.00ns  loc: src/Echo.cpp:52
+._crit_edge6:18  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
 
-ST_13: StgValue_63 (50)  [1/1] 0.00ns  loc: src/Echo.cpp:60
-._crit_edge:20  ret void
+ST_13: tmp_s (59)  [1/1] 3.26ns  loc: src/Echo.cpp:54
+._crit_edge6:19  %tmp_s = icmp slt i32 %readBuffer_loc_tmp_5, 4800
+
+ST_13: tmp_3 (60)  [1/1] 2.90ns  loc: src/Echo.cpp:55
+._crit_edge6:20  %tmp_3 = add nsw i32 %readBuffer_loc_tmp_5, 1
+
+ST_13: storemerge (61)  [1/1] 2.07ns  loc: src/Echo.cpp:54
+._crit_edge6:21  %storemerge = select i1 %tmp_s, i32 %tmp_3, i32 0
+
+ST_13: tmp_6 (62)  [1/1] 3.26ns  loc: src/Echo.cpp:59
+._crit_edge6:22  %tmp_6 = icmp slt i32 %writeBuffer_load_s, 4800
+
+ST_13: tmp_1 (63)  [1/1] 2.90ns  loc: src/Echo.cpp:60
+._crit_edge6:23  %tmp_1 = add nsw i32 %writeBuffer_load_s, 1
+
+ST_13: storemerge5 (64)  [1/1] 2.07ns  loc: src/Echo.cpp:59
+._crit_edge6:24  %storemerge5 = select i1 %tmp_6, i32 %tmp_1, i32 0
+
+ST_13: StgValue_74 (65)  [1/1] 0.00ns  loc: src/Echo.cpp:41
+._crit_edge6:25  store i32 %storemerge5, i32* @writeBuffer, align 4
+
+ST_13: StgValue_75 (66)  [1/1] 0.00ns  loc: src/Echo.cpp:38
+._crit_edge6:26  br i1 %delaycheck_flag_s, label %mergeST2, label %._crit_edge7.new3
+
+ST_13: StgValue_76 (68)  [1/1] 0.00ns  loc: src/Echo.cpp:36
+mergeST2:0  store i32 %delay_read, i32* @delaycheck, align 4
+
+ST_13: StgValue_77 (69)  [1/1] 0.00ns
+mergeST2:1  br label %._crit_edge7.new3
+
+ST_13: StgValue_78 (71)  [1/1] 0.00ns  loc: src/Echo.cpp:33
+._crit_edge7.new3:0  store i32 %storemerge, i32* @readBuffer, align 4
+
+ST_13: StgValue_79 (72)  [1/1] 0.00ns  loc: src/Echo.cpp:65
+._crit_edge7.new3:1  ret void
 
 
 
@@ -281,62 +329,65 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 5.49ns
 The critical path consists of the following:
-	s_axi read on port 'delay' [15]  (1 ns)
-	'sub' operation ('tmp_2_i', src/Echo.cpp:32) [26]  (2.9 ns)
-	multiplexor before 'phi' operation ('readBuffer_loc', src/Echo.cpp:32) with incoming values : ('readBuffer_load', src/Echo.cpp:41) ('tmp_2_i', src/Echo.cpp:32) [30]  (1.59 ns)
+	s_axi read on port 'delay' [17]  (1 ns)
+	'sub' operation ('tmp_2_i', src/Echo.cpp:33) [28]  (2.9 ns)
+	multiplexor before 'phi' operation ('readBuffer_loc', src/Echo.cpp:33) with incoming values : ('readBuffer_load', src/Echo.cpp:48) ('tmp_2_i', src/Echo.cpp:33) [32]  (1.59 ns)
 
- <State 2>: 5.33ns
+ <State 2>: 8.59ns
 The critical path consists of the following:
-	'phi' operation ('readBuffer_loc', src/Echo.cpp:32) with incoming values : ('readBuffer_load', src/Echo.cpp:41) ('tmp_2_i', src/Echo.cpp:32) [30]  (0 ns)
-	'icmp' operation ('tmp_9', src/Echo.cpp:47) [42]  (3.26 ns)
-	'select' operation ('storemerge', src/Echo.cpp:47) [44]  (2.07 ns)
+	'phi' operation ('delaycheck_loc', src/Echo.cpp:38) with incoming values : ('delay') ('delaycheck_load', src/Echo.cpp:38) [41]  (0 ns)
+	'icmp' operation ('tmp_4', src/Echo.cpp:38) [42]  (3.26 ns)
+	'select' operation ('readBuffer_loc_tmp_5', src/Echo.cpp:38) [45]  (2.07 ns)
+	'getelementptr' operation ('buffer_addr', src/Echo.cpp:48) [51]  (0 ns)
+	'load' operation ('buffer_load', src/Echo.cpp:48) on array 'buffer_r' [52]  (3.25 ns)
 
  <State 3>: 3.25ns
 The critical path consists of the following:
-	'load' operation ('buffer_load', src/Echo.cpp:41) on array 'buffer_r' [34]  (3.25 ns)
+	'load' operation ('buffer_load', src/Echo.cpp:48) on array 'buffer_r' [52]  (3.25 ns)
 
  <State 4>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_5', src/Echo.cpp:41) [35]  (5.7 ns)
+	'fmul' operation ('tmp_8', src/Echo.cpp:48) [53]  (5.7 ns)
 
  <State 5>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_5', src/Echo.cpp:41) [35]  (5.7 ns)
+	'fmul' operation ('tmp_8', src/Echo.cpp:48) [53]  (5.7 ns)
 
  <State 6>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_5', src/Echo.cpp:41) [35]  (5.7 ns)
+	'fmul' operation ('tmp_8', src/Echo.cpp:48) [53]  (5.7 ns)
 
  <State 7>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_5', src/Echo.cpp:41) [35]  (5.7 ns)
+	'fmul' operation ('tmp_8', src/Echo.cpp:48) [53]  (5.7 ns)
 
  <State 8>: 7.26ns
 The critical path consists of the following:
-	axis read on port 'value_in_V' (src/Echo.cpp:39) [31]  (0 ns)
-	'fadd' operation ('current_value', src/Echo.cpp:41) [36]  (7.26 ns)
+	axis read on port 'value_in_V' (src/Echo.cpp:46) [49]  (0 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:48) [54]  (7.26 ns)
 
  <State 9>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:41) [36]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:48) [54]  (7.26 ns)
 
  <State 10>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:41) [36]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:48) [54]  (7.26 ns)
 
  <State 11>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:41) [36]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:48) [54]  (7.26 ns)
 
  <State 12>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:41) [36]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:48) [54]  (7.26 ns)
 
- <State 13>: 5.33ns
+ <State 13>: 7.4ns
 The critical path consists of the following:
-	'load' operation ('writeBuffer_load', src/Echo.cpp:43) on static variable 'writeBuffer' [37]  (0 ns)
-	'icmp' operation ('tmp_8', src/Echo.cpp:52) [45]  (3.26 ns)
-	'select' operation ('storemerge5', src/Echo.cpp:52) [47]  (2.07 ns)
+	'load' operation ('writeBuffer_load', src/Echo.cpp:50) on static variable 'writeBuffer' [43]  (0 ns)
+	'select' operation ('writeBuffer_load_s', src/Echo.cpp:38) [48]  (2.07 ns)
+	'icmp' operation ('tmp_6', src/Echo.cpp:59) [62]  (3.26 ns)
+	'select' operation ('storemerge5', src/Echo.cpp:59) [64]  (2.07 ns)
 
 
 ============================================================
