@@ -9,7 +9,7 @@
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" 1
 /* autopilot_ssdm_op.h*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -62,10 +62,10 @@
  *
  * $Id$
  */
-#145 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#145 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define AP_SPEC_ATTR __attribute__ ((pure))*/
 //adu: patched
-#156 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#156 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 extern "C" {
 
     /****** SSDM Intrinsics: OPERATIONS ***/
@@ -195,10 +195,10 @@ extern "C" {
 
 
 }
-#413 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#413 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 /*#define _ssdm_op_WaitUntil(X) while (!(X)) _ssdm_op_Wait(1);
 #define _ssdm_op_Delayed(X) X */
-#427 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
+#427 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_ssdm_op.h"
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #7 "<command line>" 2
 #1 "<built-in>" 2
@@ -748,7 +748,7 @@ extern "C" {
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -784,7 +784,7 @@ typedef __typeof__(((int*)0)-((int*)0)) ptrdiff_t;
 
 
 typedef __typeof__(sizeof(int)) size_t;
-#56 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#56 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #34 "/usr/include/stdio.h" 2 3 4
@@ -1058,7 +1058,7 @@ typedef struct _IO_FILE __FILE;
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -1083,7 +1083,7 @@ typedef struct _IO_FILE __FILE;
  *
  *===-----------------------------------------------------------------------===
  */
-#56 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#56 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #16 "/usr/include/_G_config.h" 2 3 4
@@ -1164,7 +1164,7 @@ typedef struct
 /* This define avoids name pollution if we're using GNU stdarg.h */
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdarg.h" 1 3 4
 /*===---- stdarg.h - Variable argument handling ----------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2210,7 +2210,7 @@ extern void funlockfile (FILE *__stream) throw ();
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2235,7 +2235,7 @@ extern void funlockfile (FILE *__stream) throw ();
  *
  *===-----------------------------------------------------------------------===
  */
-#56 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#56 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #33 "/usr/include/stdlib.h" 2 3 4
@@ -2890,7 +2890,7 @@ typedef __suseconds_t suseconds_t;
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -2915,7 +2915,7 @@ typedef __suseconds_t suseconds_t;
  *
  *===-----------------------------------------------------------------------===
  */
-#56 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#56 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #147 "/usr/include/x86_64-linux-gnu/sys/types.h" 2 3 4
@@ -3687,7 +3687,7 @@ extern void cfree (void *__ptr) throw ();
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4
 /*===---- stddef.h - Basic type definitions --------------------------------===
  *
  * Copyright (c) 2008 Eli Friedman
@@ -3712,7 +3712,7 @@ extern void cfree (void *__ptr) throw ();
  *
  *===-----------------------------------------------------------------------===
  */
-#56 "/home/austin/Desktop/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
+#56 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4
 /* Some C libraries expect to see a wint_t here. Others (notably MinGW) will use
 __WINT_TYPE__ directly; accommodate both by requiring __need_wint_t */
 #25 "/usr/include/alloca.h" 2 3 4
@@ -5851,7 +5851,7 @@ extern int matherr (struct __exception *__exc) throw ();
 }
 #4 "src/Echo.cpp"
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 1
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
@@ -5918,7 +5918,7 @@ extern int matherr (struct __exception *__exc) throw ();
 
 
 
-#1 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_enum.h" 1
+#1 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/etc/autopilot_enum.h" 1
 /*
 #-  (c) Copyright 2011-2017 Xilinx, Inc. All rights reserved.
 #-
@@ -6053,7 +6053,7 @@ enum SsdmRegionTypes {
 
 
 // 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-#67 "/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 2
+#67 "/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h" 2
 
 
 namespace hls {
@@ -6204,10 +6204,10 @@ void Echo(
 #pragma HLS INTERFACE axis register both port=&value_out
 
  static float buffer[4800];
- static int readBuffer = 4800 - delay;
- static int writeBuffer = 0;
+ static int readBuffer = 0;
+ static int writeBuffer = 10;
 
- static int delaycheck = delay;
+ static int delaycheck = 0;
 
  if(delaycheck != delay){
   writeBuffer = (4800 + readBuffer + delay)%4800;
@@ -6224,12 +6224,12 @@ void Echo(
 
  value_out << current_value;
 
- if(readBuffer < 4800)
+ if(readBuffer < 4800 - 1)
   readBuffer++;
  else
   readBuffer = 0;
 
- if(writeBuffer < 4800)
+ if(writeBuffer < 4800 - 1)
   writeBuffer++;
  else
   writeBuffer = 0;

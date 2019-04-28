@@ -1,4 +1,4 @@
 #!/bin/sh
 lli=${LLVMINTERP-lli}
 exec $lli \
-    /home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.g.0.bc ${1+"$@"}
+    /home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.g.0.bc ${1+"$@"}

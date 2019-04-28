@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.506000,HLS_SYN_LAT=30,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1659,HLS_SYN_LUT=1765}" *)
+(* CORE_GENERATION_INFO="Echo,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.506000,HLS_SYN_LAT=30,HLS_SYN_TPT=none,HLS_SYN_MEM=16,HLS_SYN_DSP=5,HLS_SYN_FF=1555,HLS_SYN_LUT=1680}" *)
 
 module Echo (
         ap_clk,
@@ -149,10 +149,8 @@ reg   [1:0] value_out_V_1_state;
 wire    value_out_V_1_state_cmp_full;
 wire   [31:0] delay;
 wire   [31:0] scale;
-reg   [0:0] guard_variable_for_E;
-reg   [31:0] readBuffer;
-reg   [0:0] guard_variable_for_E_1;
 reg   [31:0] delaycheck;
+reg   [31:0] readBuffer;
 reg   [31:0] writeBuffer;
 reg   [12:0] buffer_r_address0;
 reg    buffer_r_ce0;
@@ -164,48 +162,41 @@ wire    ap_CS_fsm_state43;
 reg    value_out_V_TDATA_blk_n;
 wire    ap_CS_fsm_state47;
 wire    ap_CS_fsm_state48;
-reg   [31:0] scale_read_reg_302;
+reg   [31:0] scale_read_reg_223;
 wire    ap_CS_fsm_state1;
-reg   [31:0] delay_read_reg_307;
-wire   [31:0] tmp_2_i_fu_182_p2;
-wire   [0:0] guard_variable_for_E_load_fu_174_p1;
-wire   [0:0] tmp_4_fu_209_p2;
-reg   [0:0] tmp_4_reg_331;
+reg   [31:0] delay_read_reg_228;
+wire   [0:0] tmp_1_fu_129_p2;
+reg   [0:0] tmp_1_reg_234;
+reg   [31:0] readBuffer_load_reg_238;
 wire    ap_CS_fsm_state2;
-wire   [31:0] grp_fu_229_p2;
+wire   [31:0] grp_fu_153_p2;
 wire    ap_CS_fsm_state37;
-reg   [31:0] buffer_load_reg_355;
+reg   [31:0] buffer_load_reg_266;
 wire    ap_CS_fsm_state38;
-wire   [31:0] grp_fu_170_p2;
-reg   [31:0] tmp_s_reg_360;
+wire   [31:0] grp_fu_121_p2;
+reg   [31:0] tmp_7_reg_271;
 wire    ap_CS_fsm_state42;
-wire   [31:0] grp_fu_164_p2;
-reg   [31:0] current_value_reg_370;
-reg   [31:0] readBuffer_loc_reg_111;
-reg   [0:0] delaycheck_flag_phi_fu_124_p4;
-wire   [0:0] guard_variable_for_E_1_load_fu_194_p1;
-reg   [31:0] delaycheck_loc_phi_fu_136_p4;
-reg   [31:0] writeBuffer_loc_reg_142;
-wire   [0:0] delaycheck_flag_1_phi_fu_156_p4;
-reg   [0:0] delaycheck_flag_1_reg_152;
-wire  signed [63:0] tmp_9_fu_235_p1;
-wire  signed [63:0] tmp_8_fu_240_p1;
-wire   [31:0] storemerge_fu_257_p3;
-wire   [31:0] storemerge5_fu_277_p3;
+wire   [31:0] grp_fu_115_p2;
+reg   [31:0] current_value_reg_281;
+reg   [31:0] writeBuffer_loc_reg_105;
+wire  signed [63:0] tmp_6_fu_164_p1;
+wire  signed [63:0] tmp_8_fu_192_p1;
+wire   [31:0] storemerge_fu_178_p3;
+wire   [31:0] storemerge5_fu_209_p3;
 wire    ap_CS_fsm_state39;
-wire   [31:0] tmp1_fu_218_p2;
-wire   [31:0] grp_fu_229_p0;
-wire   [13:0] grp_fu_229_p1;
-wire   [0:0] tmp_3_fu_245_p2;
-wire   [31:0] tmp_5_fu_251_p2;
-wire   [0:0] tmp_1_fu_265_p2;
-wire   [31:0] tmp_2_fu_271_p2;
-reg    grp_fu_164_ce;
+wire   [31:0] tmp1_fu_143_p2;
+wire   [31:0] grp_fu_153_p0;
+wire   [13:0] grp_fu_153_p1;
+wire   [0:0] tmp_s_fu_168_p2;
+wire   [31:0] tmp_9_fu_173_p2;
+wire   [0:0] tmp_2_fu_197_p2;
+wire   [31:0] tmp_5_fu_203_p2;
+reg    grp_fu_115_ce;
 wire    ap_CS_fsm_state44;
 wire    ap_CS_fsm_state45;
 wire    ap_CS_fsm_state46;
-reg    grp_fu_229_ap_start;
-wire    grp_fu_229_ap_done;
+reg    grp_fu_153_ap_start;
+wire    grp_fu_153_ap_done;
 reg   [47:0] ap_NS_fsm;
 
 // power-on initialization
@@ -216,11 +207,9 @@ initial begin
 #0 value_out_V_1_sel_rd = 1'b0;
 #0 value_out_V_1_sel_wr = 1'b0;
 #0 value_out_V_1_state = 2'd0;
-#0 guard_variable_for_E = 1'd0;
-#0 readBuffer = 32'd0;
-#0 guard_variable_for_E_1 = 1'd0;
 #0 delaycheck = 32'd0;
-#0 writeBuffer = 32'd0;
+#0 readBuffer = 32'd0;
+#0 writeBuffer = 32'd10;
 #0 ap_CS_fsm = 48'd1;
 end
 
@@ -234,7 +223,7 @@ buffer_r_U(
     .address0(buffer_r_address0),
     .ce0(buffer_r_ce0),
     .we0(buffer_r_we0),
-    .d0(current_value_reg_370),
+    .d0(current_value_reg_281),
     .q0(buffer_r_q0)
 );
 
@@ -276,9 +265,9 @@ Echo_fadd_32ns_32bkb_U1(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .din0(value_in_V_0_data_out),
-    .din1(tmp_s_reg_360),
-    .ce(grp_fu_164_ce),
-    .dout(grp_fu_164_p2)
+    .din1(tmp_7_reg_271),
+    .ce(grp_fu_115_ce),
+    .dout(grp_fu_115_p2)
 );
 
 Echo_fmul_32ns_32cud #(
@@ -290,10 +279,10 @@ Echo_fmul_32ns_32cud #(
 Echo_fmul_32ns_32cud_U2(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .din0(buffer_load_reg_355),
-    .din1(scale_read_reg_302),
+    .din0(buffer_load_reg_266),
+    .din1(scale_read_reg_223),
     .ce(1'b1),
-    .dout(grp_fu_170_p2)
+    .dout(grp_fu_121_p2)
 );
 
 Echo_srem_32ns_14dEe #(
@@ -305,12 +294,12 @@ Echo_srem_32ns_14dEe #(
 Echo_srem_32ns_14dEe_U3(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .start(grp_fu_229_ap_start),
-    .done(grp_fu_229_ap_done),
-    .din0(grp_fu_229_p0),
-    .din1(grp_fu_229_p1),
+    .start(grp_fu_153_ap_start),
+    .done(grp_fu_153_ap_done),
+    .din0(grp_fu_153_p0),
+    .din1(grp_fu_153_p1),
     .ce(1'b1),
-    .dout(grp_fu_229_p2)
+    .dout(grp_fu_153_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -394,84 +383,49 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state37) & (1'd0 == tmp_4_reg_331))) begin
-        delaycheck_flag_1_reg_152 <= 1'd1;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == tmp_4_fu_209_p2))) begin
-        delaycheck_flag_1_reg_152 <= delaycheck_flag_phi_fu_124_p4;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state1)) begin
-        if ((1'd1 == guard_variable_for_E_load_fu_174_p1)) begin
-            readBuffer_loc_reg_111 <= readBuffer;
-        end else if ((1'd0 == guard_variable_for_E_load_fu_174_p1)) begin
-            readBuffer_loc_reg_111 <= tmp_2_i_fu_182_p2;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state37) & (1'd0 == tmp_4_reg_331))) begin
-        writeBuffer_loc_reg_142 <= grp_fu_229_p2;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == tmp_4_fu_209_p2))) begin
-        writeBuffer_loc_reg_142 <= writeBuffer;
+    if (((1'b1 == ap_CS_fsm_state37) & (1'd0 == tmp_1_reg_234))) begin
+        writeBuffer_loc_reg_105 <= grp_fu_153_p2;
+    end else if (((1'b1 == ap_CS_fsm_state1) & (1'd1 == tmp_1_fu_129_p2))) begin
+        writeBuffer_loc_reg_105 <= writeBuffer;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state38)) begin
-        buffer_load_reg_355 <= buffer_r_q0;
+        buffer_load_reg_266 <= buffer_r_q0;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state47) & (value_out_V_1_ack_in == 1'b1))) begin
-        current_value_reg_370 <= grp_fu_164_p2;
+        current_value_reg_281 <= grp_fu_115_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
-        delay_read_reg_307 <= delay;
-        scale_read_reg_302 <= scale;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state48) & (value_out_V_1_ack_in == 1'b1) & (1'd1 == delaycheck_flag_1_phi_fu_156_p4))) begin
-        delaycheck <= delay_read_reg_307;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (1'd0 == guard_variable_for_E_load_fu_174_p1))) begin
-        guard_variable_for_E <= 1'd1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'd0 == guard_variable_for_E_1_load_fu_194_p1))) begin
-        guard_variable_for_E_1 <= 1'd1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state48) & (value_out_V_1_ack_in == 1'b1))) begin
-        readBuffer <= storemerge_fu_257_p3;
-        writeBuffer <= storemerge5_fu_277_p3;
+        delay_read_reg_228 <= delay;
+        readBuffer_load_reg_238 <= readBuffer;
+        scale_read_reg_223 <= scale;
+        tmp_1_reg_234 <= tmp_1_fu_129_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        tmp_4_reg_331 <= tmp_4_fu_209_p2;
+        delaycheck <= delay_read_reg_228;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state37)) begin
+        readBuffer <= storemerge_fu_178_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state42)) begin
-        tmp_s_reg_360 <= grp_fu_170_p2;
+        tmp_7_reg_271 <= grp_fu_121_p2;
     end
 end
 
@@ -489,21 +443,27 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == value_out_V_1_load_A)) begin
-        value_out_V_1_payload_A <= grp_fu_164_p2;
+        value_out_V_1_payload_A <= grp_fu_115_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == value_out_V_1_load_B)) begin
-        value_out_V_1_payload_B <= grp_fu_164_p2;
+        value_out_V_1_payload_B <= grp_fu_115_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state48) & (value_out_V_1_ack_in == 1'b1))) begin
+        writeBuffer <= storemerge5_fu_209_p3;
     end
 end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state48)) begin
-        buffer_r_address0 = tmp_8_fu_240_p1;
+        buffer_r_address0 = tmp_8_fu_192_p1;
     end else if ((1'b1 == ap_CS_fsm_state37)) begin
-        buffer_r_address0 = tmp_9_fu_235_p1;
+        buffer_r_address0 = tmp_6_fu_164_p1;
     end else begin
         buffer_r_address0 = 'bx;
     end
@@ -526,46 +486,18 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        if ((1'd1 == guard_variable_for_E_1_load_fu_194_p1)) begin
-            delaycheck_flag_phi_fu_124_p4 = 1'd0;
-        end else if ((1'd0 == guard_variable_for_E_1_load_fu_194_p1)) begin
-            delaycheck_flag_phi_fu_124_p4 = 1'd1;
-        end else begin
-            delaycheck_flag_phi_fu_124_p4 = 'bx;
-        end
-    end else begin
-        delaycheck_flag_phi_fu_124_p4 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        if ((1'd1 == guard_variable_for_E_1_load_fu_194_p1)) begin
-            delaycheck_loc_phi_fu_136_p4 = delaycheck;
-        end else if ((1'd0 == guard_variable_for_E_1_load_fu_194_p1)) begin
-            delaycheck_loc_phi_fu_136_p4 = delay_read_reg_307;
-        end else begin
-            delaycheck_loc_phi_fu_136_p4 = 'bx;
-        end
-    end else begin
-        delaycheck_loc_phi_fu_136_p4 = 'bx;
-    end
-end
-
-always @ (*) begin
     if ((((1'b1 == ap_CS_fsm_state43) & (value_in_V_0_vld_out == 1'b1)) | ((1'b1 == ap_CS_fsm_state47) & (value_out_V_1_ack_in == 1'b1)) | (1'b1 == ap_CS_fsm_state44) | (1'b1 == ap_CS_fsm_state45) | (1'b1 == ap_CS_fsm_state46))) begin
-        grp_fu_164_ce = 1'b1;
+        grp_fu_115_ce = 1'b1;
     end else begin
-        grp_fu_164_ce = 1'b0;
+        grp_fu_115_ce = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'd0 == tmp_4_fu_209_p2))) begin
-        grp_fu_229_ap_start = 1'b1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        grp_fu_153_ap_start = 1'b1;
     end else begin
-        grp_fu_229_ap_start = 1'b0;
+        grp_fu_153_ap_start = 1'b0;
     end
 end
 
@@ -620,14 +552,14 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            ap_NS_fsm = ap_ST_fsm_state2;
-        end
-        ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == tmp_4_fu_209_p2))) begin
+            if (((1'b1 == ap_CS_fsm_state1) & (1'd1 == tmp_1_fu_129_p2))) begin
                 ap_NS_fsm = ap_ST_fsm_state37;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state3;
+                ap_NS_fsm = ap_ST_fsm_state2;
             end
+        end
+        ap_ST_fsm_state2 : begin
+            ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state4;
@@ -813,37 +745,29 @@ always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign delaycheck_flag_1_phi_fu_156_p4 = delaycheck_flag_1_reg_152;
+assign grp_fu_153_p0 = (tmp1_fu_143_p2 + readBuffer_load_reg_238);
 
-assign grp_fu_229_p0 = (tmp1_fu_218_p2 + delay_read_reg_307);
+assign grp_fu_153_p1 = 32'd4800;
 
-assign grp_fu_229_p1 = 32'd4800;
+assign storemerge5_fu_209_p3 = ((tmp_2_fu_197_p2[0:0] === 1'b1) ? tmp_5_fu_203_p2 : 32'd0);
 
-assign guard_variable_for_E_1_load_fu_194_p1 = guard_variable_for_E_1;
+assign storemerge_fu_178_p3 = ((tmp_s_fu_168_p2[0:0] === 1'b1) ? tmp_9_fu_173_p2 : 32'd0);
 
-assign guard_variable_for_E_load_fu_174_p1 = guard_variable_for_E;
+assign tmp1_fu_143_p2 = (delay_read_reg_228 + 32'd4800);
 
-assign storemerge5_fu_277_p3 = ((tmp_1_fu_265_p2[0:0] === 1'b1) ? tmp_2_fu_271_p2 : 32'd0);
+assign tmp_1_fu_129_p2 = ((delaycheck == delay) ? 1'b1 : 1'b0);
 
-assign storemerge_fu_257_p3 = ((tmp_3_fu_245_p2[0:0] === 1'b1) ? tmp_5_fu_251_p2 : 32'd0);
+assign tmp_2_fu_197_p2 = (($signed(writeBuffer_loc_reg_105) < $signed(32'd4799)) ? 1'b1 : 1'b0);
 
-assign tmp1_fu_218_p2 = (readBuffer_loc_reg_111 + 32'd4800);
+assign tmp_5_fu_203_p2 = (writeBuffer_loc_reg_105 + 32'd1);
 
-assign tmp_1_fu_265_p2 = (($signed(writeBuffer_loc_reg_142) < $signed(32'd4800)) ? 1'b1 : 1'b0);
+assign tmp_6_fu_164_p1 = $signed(readBuffer_load_reg_238);
 
-assign tmp_2_fu_271_p2 = (writeBuffer_loc_reg_142 + 32'd1);
+assign tmp_8_fu_192_p1 = $signed(writeBuffer_loc_reg_105);
 
-assign tmp_2_i_fu_182_p2 = (32'd4800 - delay);
+assign tmp_9_fu_173_p2 = (readBuffer_load_reg_238 + 32'd1);
 
-assign tmp_3_fu_245_p2 = (($signed(readBuffer_loc_reg_111) < $signed(32'd4800)) ? 1'b1 : 1'b0);
-
-assign tmp_4_fu_209_p2 = ((delaycheck_loc_phi_fu_136_p4 == delay_read_reg_307) ? 1'b1 : 1'b0);
-
-assign tmp_5_fu_251_p2 = (readBuffer_loc_reg_111 + 32'd1);
-
-assign tmp_8_fu_240_p1 = $signed(writeBuffer_loc_reg_142);
-
-assign tmp_9_fu_235_p1 = $signed(readBuffer_loc_reg_111);
+assign tmp_s_fu_168_p2 = (($signed(readBuffer_load_reg_238) < $signed(32'd4799)) ? 1'b1 : 1'b0);
 
 assign value_in_V_0_ack_in = value_in_V_0_state[1'd1];
 

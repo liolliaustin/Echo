@@ -4,6 +4,6 @@
   <xd:arg xd:name="value_out" xd:originalName="value_out" xd:direction="out" xd:interfaceRef="value_out_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
   <xd:arg xd:name="delay" xd:originalName="delay" xd:direction="in" xd:interfaceRef="s_axi_CTRL_BUS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
   <xd:arg xd:name="scale" xd:originalName="scale" xd:direction="in" xd:interfaceRef="s_axi_CTRL_BUS" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
-  <xd:latencyEstimates xd:best-case="13" xd:worst-case="47" xd:average-case="30"/>
-  <xd:resourceEstimates xd:LUT="1765" xd:FF="1659" xd:BRAM="16" xd:DSP="5"/>
+  <xd:latencyEstimates xd:best-case="12" xd:worst-case="47" xd:average-case="30"/>
+  <xd:resourceEstimates xd:LUT="1680" xd:FF="1555" xd:BRAM="16" xd:DSP="5"/>
 </xd:acceleratorMap>

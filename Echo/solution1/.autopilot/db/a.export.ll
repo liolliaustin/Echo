@@ -1,11 +1,9 @@
-; ModuleID = '/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.o.2.bc'
+; ModuleID = '/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.o.2.bc'
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@writeBuffer = internal unnamed_addr global i32 0, align 4
+@writeBuffer = internal unnamed_addr global i32 10, align 4
 @readBuffer = internal unnamed_addr global i32 0, align 4
-@guard_variable_for_E_1 = internal unnamed_addr global i1 false
-@guard_variable_for_E = internal unnamed_addr global i1 false
 @delaycheck = internal unnamed_addr global i32 0, align 4
 @buffer_r = internal unnamed_addr global [4800 x float] zeroinitializer, align 16
 @Echo_str = internal unnamed_addr constant [5 x i8] c"Echo\00"
@@ -74,66 +72,39 @@ define void @Echo(float* %value_in_V, float* %value_out_V, i32 %delay, float %sc
   call void (...)* @_ssdm_op_SpecInterface(float %scale, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
   call void (...)* @_ssdm_op_SpecInterface(float* %value_in_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
   call void (...)* @_ssdm_op_SpecInterface(float* %value_out_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
-  %guard_variable_for_E = load i1* @guard_variable_for_E, align 1
+  %delaycheck_load = load i32* @delaycheck, align 4
+  %tmp_1 = icmp eq i32 %delaycheck_load, %delay_read
   %readBuffer_load = load i32* @readBuffer, align 4
-  br i1 %guard_variable_for_E, label %._crit_edge, label %codeRepl1
+  %writeBuffer_load = load i32* @writeBuffer, align 4
+  br i1 %tmp_1, label %._crit_edge, label %1
 
-codeRepl1:                                        ; preds = %0
-  %tmp_2_i = sub nsw i32 4800, %delay_read
-  store i1 true, i1* @guard_variable_for_E, align 1
+; <label>:1                                       ; preds = %0
+  %tmp1 = add i32 %delay_read, 4800
+  %tmp_3 = add i32 %tmp1, %readBuffer_load
+  %tmp_4 = srem i32 %tmp_3, 4800
+  store i32 %delay_read, i32* @delaycheck, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %codeRepl1, %0
-  %readBuffer_loc = phi i32 [ %tmp_2_i, %codeRepl1 ], [ %readBuffer_load, %0 ]
-  %guard_variable_for_E_1 = load i1* @guard_variable_for_E_1, align 1
-  %delaycheck_load = load i32* @delaycheck, align 4
-  br i1 %guard_variable_for_E_1, label %._crit_edge6, label %codeRepl
-
-codeRepl:                                         ; preds = %._crit_edge
-  store i1 true, i1* @guard_variable_for_E_1, align 1
-  br label %._crit_edge6
-
-._crit_edge6:                                     ; preds = %codeRepl, %._crit_edge
-  %delaycheck_flag = phi i1 [ true, %codeRepl ], [ false, %._crit_edge ]
-  %delaycheck_loc = phi i32 [ %delay_read, %codeRepl ], [ %delaycheck_load, %._crit_edge ]
-  %tmp_4 = icmp eq i32 %delaycheck_loc, %delay_read
-  %writeBuffer_load = load i32* @writeBuffer, align 4
-  br i1 %tmp_4, label %._crit_edge7, label %1
-
-; <label>:1                                       ; preds = %._crit_edge6
-  %tmp1 = add i32 %readBuffer_loc, 4800
-  %tmp_6 = add i32 %tmp1, %delay_read
-  %tmp_7 = srem i32 %tmp_6, 4800
-  br label %._crit_edge7
-
-._crit_edge7:                                     ; preds = %1, %._crit_edge6
-  %delaycheck_flag_1 = phi i1 [ %delaycheck_flag, %._crit_edge6 ], [ true, %1 ]
-  %writeBuffer_loc = phi i32 [ %writeBuffer_load, %._crit_edge6 ], [ %tmp_7, %1 ]
+._crit_edge:                                      ; preds = %1, %0
+  %writeBuffer_loc = phi i32 [ %writeBuffer_load, %0 ], [ %tmp_4, %1 ]
   %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
-  %tmp_9 = sext i32 %readBuffer_loc to i64
-  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_9
+  %tmp_6 = sext i32 %readBuffer_load to i64
+  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_6
   %buffer_load = load float* %buffer_addr, align 4
-  %tmp_s = fmul float %buffer_load, %scale_read
-  %current_value = fadd float %tmp_10, %tmp_s
+  %tmp_7 = fmul float %buffer_load, %scale_read
+  %current_value = fadd float %tmp_10, %tmp_7
   %tmp_8 = sext i32 %writeBuffer_loc to i64
   %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_8
   store float %current_value, float* %buffer_addr_1, align 4
   call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
-  %tmp_3 = icmp slt i32 %readBuffer_loc, 4800
-  %tmp_5 = add nsw i32 %readBuffer_loc, 1
-  %storemerge = select i1 %tmp_3, i32 %tmp_5, i32 0
-  %tmp_1 = icmp slt i32 %writeBuffer_loc, 4800
-  %tmp_2 = add nsw i32 %writeBuffer_loc, 1
-  %storemerge5 = select i1 %tmp_1, i32 %tmp_2, i32 0
-  store i32 %storemerge5, i32* @writeBuffer, align 4
-  br i1 %delaycheck_flag_1, label %mergeST2, label %._crit_edge7.new3
-
-mergeST2:                                         ; preds = %._crit_edge7
-  store i32 %delay_read, i32* @delaycheck, align 4
-  br label %._crit_edge7.new3
-
-._crit_edge7.new3:                                ; preds = %mergeST2, %._crit_edge7
+  %tmp_s = icmp slt i32 %readBuffer_load, 4799
+  %tmp_9 = add nsw i32 %readBuffer_load, 1
+  %storemerge = select i1 %tmp_s, i32 %tmp_9, i32 0
   store i32 %storemerge, i32* @readBuffer, align 4
+  %tmp_2 = icmp slt i32 %writeBuffer_loc, 4799
+  %tmp_5 = add nsw i32 %writeBuffer_loc, 1
+  %storemerge5 = select i1 %tmp_2, i32 %tmp_5, i32 0
+  store i32 %storemerge5, i32* @writeBuffer, align 4
   ret void
 }
 

@@ -29,47 +29,47 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/.apc/.src</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/.apc/.tb</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.tcls</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/Echo.cpp</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo.cpp</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/src/Echo.cpp</location>
 		</link>
 		<link>
 			<name>source/Echo.h</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo.h</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/src/Echo.h</location>
 		</link>
 		<link>
 			<name>testbench/Echo_test.cpp</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/src/Echo_test.cpp</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/src/Echo_test.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/solution1.directive</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/directives.tcl</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/script.tcl</location>
+			<location>/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

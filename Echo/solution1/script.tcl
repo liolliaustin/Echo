@@ -5,8 +5,8 @@
 ############################################################
 open_project Echo
 set_top Echo
-add_files src/Echo.cpp
 add_files src/Echo.h
+add_files src/Echo.cpp
 add_files -tb src/Echo_test.cpp
 open_solution "solution1"
 set_part {xc7z100ffg900-1} -tool vivado

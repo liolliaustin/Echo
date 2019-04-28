@@ -1,9 +1,9 @@
-INFO: [HLS 200-10] Running '/home/austin/Desktop/Vivado_HLS/2017.2/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'austin' on host 'austin-Precision-T3600' (Linux_x86_64 version 4.15.0-46-generic) on Sun Apr 28 11:54:26 EDT 2019
+INFO: [HLS 200-10] Running '/opt/Xilinx_2017_2/Vivado_HLS/2017.2/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'hildeb47' on host '500235e510a4' (Linux_x86_64 version 4.9.125-linuxkit) on Sun Apr 28 21:31:57 UTC 2019
 INFO: [HLS 200-10] On os Ubuntu 16.04.6 LTS
-INFO: [HLS 200-10] In directory '/home/austin/ECE1373_GhostSynth/modules/Echo'
-INFO: [HLS 200-10] Opening project '/home/austin/ECE1373_GhostSynth/modules/Echo/Echo'.
-INFO: [HLS 200-10] Opening solution '/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1'.
+INFO: [HLS 200-10] In directory '/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo'
+INFO: [HLS 200-10] Opening project '/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo'.
+INFO: [HLS 200-10] Opening solution '/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z100ffg900-1'
 INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
@@ -16,7 +16,7 @@ INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
 source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/austin/Desktop/Vivado/2017.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2017_2/Vivado/2017.2/data/ip'.
 INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Echo_ap_fmul_2_max_dsp_32'...
 INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Echo_ap_fmul_2_max_dsp_32'...
 WARNING: [IP_Flow 19-4832] The IP name 'Echo_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
@@ -24,5 +24,5 @@ INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Echo_ap_fadd_3_ful
 INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Echo_ap_fadd_3_full_dsp_32'...
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/austin/Desktop/Vivado/2017.2/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 11:54:39 2019...
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2017_2/Vivado/2017.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 21:32:23 2019...

@@ -30,10 +30,10 @@ void Echo(
 #pragma HLS INTERFACE axis register both port=value_out
 
 	static float buffer[MAX_BUFFER_SIZE];
-	static int readBuffer = MAX_BUFFER_SIZE - delay;
-	static int writeBuffer = 0;
+	static int readBuffer = 0;
+	static int writeBuffer = 10;
 
-	static int delaycheck = delay;
+	static int delaycheck = 0;
 
 	if(delaycheck != delay){
 		writeBuffer = (MAX_BUFFER_SIZE + readBuffer + delay)%MAX_BUFFER_SIZE;
@@ -50,12 +50,12 @@ void Echo(
 
 	value_out << current_value;
 
-	if(readBuffer < MAX_BUFFER_SIZE)
+	if(readBuffer < MAX_BUFFER_SIZE - 1)
 		readBuffer++;
 	else
 		readBuffer = 0;
 
-	if(writeBuffer < MAX_BUFFER_SIZE)
+	if(writeBuffer < MAX_BUFFER_SIZE - 1)
 		writeBuffer++;
 	else
 		writeBuffer = 0;

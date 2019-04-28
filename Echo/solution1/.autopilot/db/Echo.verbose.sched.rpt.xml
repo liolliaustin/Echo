@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Echo'" level="0">
-<item name = "Date">Sun Apr 28 11:54:17 2019
+<item name = "Date">Sun Apr 28 21:31:51 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">Echo</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">13, 47, 14, 48, none</column>
+<column name="">12, 47, 13, 48, none</column>
 </table>
 </item>
 <item name = "Detail">

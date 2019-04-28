@@ -99,10 +99,8 @@ set RtlHierarchyInfo {[
 					{"Name" : "value_out_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "delay", "Type" : "None", "Direction" : "I"},
 			{"Name" : "scale", "Type" : "None", "Direction" : "I"},
-			{"Name" : "guard_variable_for_E", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "readBuffer", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "guard_variable_for_E_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "delaycheck", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "readBuffer", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "writeBuffer", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "buffer_r", "Type" : "Memory", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.buffer_r_U", "Parent" : "0"},
@@ -118,18 +116,16 @@ set ArgLastReadFirstWriteLatency {
 		value_out_V {Type O LastRead -1 FirstWrite 46}
 		delay {Type I LastRead 0 FirstWrite -1}
 		scale {Type I LastRead 0 FirstWrite -1}
-		guard_variable_for_E {Type IO LastRead -1 FirstWrite -1}
-		readBuffer {Type IO LastRead -1 FirstWrite -1}
-		guard_variable_for_E_1 {Type IO LastRead -1 FirstWrite -1}
 		delaycheck {Type IO LastRead -1 FirstWrite -1}
+		readBuffer {Type IO LastRead -1 FirstWrite -1}
 		writeBuffer {Type IO LastRead -1 FirstWrite -1}
 		buffer_r {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "13", "Max" : "47"}
-	, {"Name" : "Interval", "Min" : "14", "Max" : "48"}
+	{"Name" : "Latency", "Min" : "12", "Max" : "47"}
+	, {"Name" : "Interval", "Min" : "13", "Max" : "48"}
 ]}
 
 set PipelineEnableSignalInfo {[

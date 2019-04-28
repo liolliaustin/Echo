@@ -1,4 +1,4 @@
-; ModuleID = '/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.o.bc'
+; ModuleID = '/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/a.o.bc'
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -11,11 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str4 = private unnamed_addr constant [5 x i8] c"axis\00", align 1 ; [#uses=1 type=[5 x i8]*]
 @.str5 = private unnamed_addr constant [5 x i8] c"both\00", align 1 ; [#uses=1 type=[5 x i8]*]
 @_ZZ4EchoRN3hls6streamIfEES2_ifE6buffer = internal global [4800 x float] zeroinitializer, align 16 ; [#uses=2 type=[4800 x float]*]
-@_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer = internal global i32 0, align 4 ; [#uses=7 type=i32*]
-@_ZGVZ4EchoRN3hls6streamIfEES2_ifE10readBuffer = internal global i8 0 ; [#uses=2 type=i8*]
-@_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer = internal global i32 0, align 4 ; [#uses=6 type=i32*]
-@_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck = internal global i32 0, align 4 ; [#uses=3 type=i32*]
-@_ZGVZ4EchoRN3hls6streamIfEES2_ifE10delaycheck = internal global i8 0 ; [#uses=2 type=i8*]
+@_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer = internal global i32 0, align 4 ; [#uses=6 type=i32*]
+@_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer = internal global i32 10, align 4 ; [#uses=6 type=i32*]
+@_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck = internal global i32 0, align 4 ; [#uses=2 type=i32*]
 @_IO_2_1_stdin_ = external global %"class.hls::stream" ; [#uses=0 type=%"class.hls::stream"*]
 @_IO_2_1_stdout_ = external global %"class.hls::stream" ; [#uses=0 type=%"class.hls::stream"*]
 @_IO_2_1_stderr_ = external global %"class.hls::stream" ; [#uses=0 type=%"class.hls::stream"*]
@@ -27,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_Z4EchoRN3hls6streamIfEES2_if(%"class.hls::stream"* %value_in, %"class.hls::stream"* %value_out, i32 %delay, float %scale) nounwind uwtable {
   %1 = alloca %"class.hls::stream"*, align 8      ; [#uses=3 type=%"class.hls::stream"**]
   %2 = alloca %"class.hls::stream"*, align 8      ; [#uses=3 type=%"class.hls::stream"**]
-  %3 = alloca i32, align 4                        ; [#uses=7 type=i32*]
+  %3 = alloca i32, align 4                        ; [#uses=5 type=i32*]
   %4 = alloca float, align 4                      ; [#uses=3 type=float*]
   %current_value = alloca float, align 4          ; [#uses=5 type=float*]
   store %"class.hls::stream"* %value_in, %"class.hls::stream"** %1, align 8
@@ -49,96 +47,73 @@ define void @_Z4EchoRN3hls6streamIfEES2_if(%"class.hls::stream"* %value_in, %"cl
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream"* %8, i8* getelementptr inbounds ([5 x i8]* @.str4, i32 0, i32 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str5, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0)) nounwind, !dbg !125 ; [debug line = 29:1]
   %9 = load %"class.hls::stream"** %2, align 8, !dbg !126 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 30:1]
   call void (...)* @_ssdm_op_SpecInterface(%"class.hls::stream"* %9, i8* getelementptr inbounds ([5 x i8]* @.str4, i32 0, i32 0), i32 1, i32 1, i8* getelementptr inbounds ([5 x i8]* @.str5, i32 0, i32 0), i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i32 0, i32 0, i32 0, i32 0, i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0), i8* getelementptr inbounds ([1 x i8]* @.str, i32 0, i32 0)) nounwind, !dbg !126 ; [debug line = 30:1]
-  %10 = load i8* @_ZGVZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 1, !dbg !127 ; [#uses=1 type=i8] [debug line = 33:38]
-  %11 = icmp eq i8 %10, 0, !dbg !127              ; [#uses=1 type=i1] [debug line = 33:38]
-  br i1 %11, label %12, label %15, !dbg !127      ; [debug line = 33:38]
+  %10 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 4, !dbg !127 ; [#uses=1 type=i32] [debug line = 38:2]
+  %11 = load i32* %3, align 4, !dbg !127          ; [#uses=1 type=i32] [debug line = 38:2]
+  %12 = icmp ne i32 %10, %11, !dbg !127           ; [#uses=1 type=i1] [debug line = 38:2]
+  br i1 %12, label %13, label %20, !dbg !127      ; [debug line = 38:2]
 
-; <label>:12                                      ; preds = %0
-  %13 = load i32* %3, align 4, !dbg !127          ; [#uses=1 type=i32] [debug line = 33:38]
-  %14 = sub nsw i32 4800, %13, !dbg !127          ; [#uses=1 type=i32] [debug line = 33:38]
-  store i32 %14, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !127 ; [debug line = 33:38]
-  store i8 1, i8* @_ZGVZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, !dbg !127 ; [debug line = 33:38]
-  br label %15, !dbg !127                         ; [debug line = 33:38]
+; <label>:13                                      ; preds = %0
+  %14 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !128 ; [#uses=1 type=i32] [debug line = 39:3]
+  %15 = add nsw i32 4800, %14, !dbg !128          ; [#uses=1 type=i32] [debug line = 39:3]
+  %16 = load i32* %3, align 4, !dbg !128          ; [#uses=1 type=i32] [debug line = 39:3]
+  %17 = add nsw i32 %15, %16, !dbg !128           ; [#uses=1 type=i32] [debug line = 39:3]
+  %18 = srem i32 %17, 4800, !dbg !128             ; [#uses=1 type=i32] [debug line = 39:3]
+  store i32 %18, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !128 ; [debug line = 39:3]
+  %19 = load i32* %3, align 4, !dbg !130          ; [#uses=1 type=i32] [debug line = 40:3]
+  store i32 %19, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 4, !dbg !130 ; [debug line = 40:3]
+  br label %20, !dbg !131                         ; [debug line = 41:2]
 
-; <label>:15                                      ; preds = %12, %0
-  %16 = load i8* @_ZGVZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 1, !dbg !128 ; [#uses=1 type=i8] [debug line = 36:31]
-  %17 = icmp eq i8 %16, 0, !dbg !128              ; [#uses=1 type=i1] [debug line = 36:31]
-  br i1 %17, label %18, label %20, !dbg !128      ; [debug line = 36:31]
+; <label>:20                                      ; preds = %13, %0
+  call void @llvm.dbg.declare(metadata !{float* %current_value}, metadata !132), !dbg !133 ; [debug line = 43:8] [debug variable = current_value]
+  %21 = load %"class.hls::stream"** %1, align 8, !dbg !134 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 45:2]
+  call void @_ZN3hls6streamIfErsERf(%"class.hls::stream"* %21, float* %current_value), !dbg !134 ; [debug line = 45:2]
+  %22 = load float* %4, align 4, !dbg !135        ; [#uses=1 type=float] [debug line = 47:2]
+  %23 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !135 ; [#uses=1 type=i32] [debug line = 47:2]
+  %24 = sext i32 %23 to i64, !dbg !135            ; [#uses=1 type=i64] [debug line = 47:2]
+  %25 = getelementptr inbounds [4800 x float]* @_ZZ4EchoRN3hls6streamIfEES2_ifE6buffer, i32 0, i64 %24, !dbg !135 ; [#uses=1 type=float*] [debug line = 47:2]
+  %26 = load float* %25, align 4, !dbg !135       ; [#uses=1 type=float] [debug line = 47:2]
+  %27 = fmul float %22, %26, !dbg !135            ; [#uses=1 type=float] [debug line = 47:2]
+  %28 = load float* %current_value, align 4, !dbg !135 ; [#uses=1 type=float] [debug line = 47:2]
+  %29 = fadd float %28, %27, !dbg !135            ; [#uses=1 type=float] [debug line = 47:2]
+  store float %29, float* %current_value, align 4, !dbg !135 ; [debug line = 47:2]
+  %30 = load float* %current_value, align 4, !dbg !136 ; [#uses=1 type=float] [debug line = 49:2]
+  %31 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !136 ; [#uses=1 type=i32] [debug line = 49:2]
+  %32 = sext i32 %31 to i64, !dbg !136            ; [#uses=1 type=i64] [debug line = 49:2]
+  %33 = getelementptr inbounds [4800 x float]* @_ZZ4EchoRN3hls6streamIfEES2_ifE6buffer, i32 0, i64 %32, !dbg !136 ; [#uses=1 type=float*] [debug line = 49:2]
+  store float %30, float* %33, align 4, !dbg !136 ; [debug line = 49:2]
+  %34 = load %"class.hls::stream"** %2, align 8, !dbg !137 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 51:2]
+  call void @_ZN3hls6streamIfElsERKf(%"class.hls::stream"* %34, float* %current_value), !dbg !137 ; [debug line = 51:2]
+  %35 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !138 ; [#uses=1 type=i32] [debug line = 53:2]
+  %36 = icmp slt i32 %35, 4799, !dbg !138         ; [#uses=1 type=i1] [debug line = 53:2]
+  br i1 %36, label %37, label %40, !dbg !138      ; [debug line = 53:2]
 
-; <label>:18                                      ; preds = %15
-  %19 = load i32* %3, align 4, !dbg !128          ; [#uses=1 type=i32] [debug line = 36:31]
-  store i32 %19, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 4, !dbg !128 ; [debug line = 36:31]
-  store i8 1, i8* @_ZGVZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, !dbg !128 ; [debug line = 36:31]
-  br label %20, !dbg !128                         ; [debug line = 36:31]
+; <label>:37                                      ; preds = %20
+  %38 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !139 ; [#uses=1 type=i32] [debug line = 54:3]
+  %39 = add nsw i32 %38, 1, !dbg !139             ; [#uses=1 type=i32] [debug line = 54:3]
+  store i32 %39, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !139 ; [debug line = 54:3]
+  br label %41, !dbg !139                         ; [debug line = 54:3]
 
-; <label>:20                                      ; preds = %18, %15
-  %21 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 4, !dbg !129 ; [#uses=1 type=i32] [debug line = 38:2]
-  %22 = load i32* %3, align 4, !dbg !129          ; [#uses=1 type=i32] [debug line = 38:2]
-  %23 = icmp ne i32 %21, %22, !dbg !129           ; [#uses=1 type=i1] [debug line = 38:2]
-  br i1 %23, label %24, label %31, !dbg !129      ; [debug line = 38:2]
+; <label>:40                                      ; preds = %20
+  store i32 0, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !140 ; [debug line = 56:3]
+  br label %41
 
-; <label>:24                                      ; preds = %20
-  %25 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !130 ; [#uses=1 type=i32] [debug line = 39:3]
-  %26 = add nsw i32 4800, %25, !dbg !130          ; [#uses=1 type=i32] [debug line = 39:3]
-  %27 = load i32* %3, align 4, !dbg !130          ; [#uses=1 type=i32] [debug line = 39:3]
-  %28 = add nsw i32 %26, %27, !dbg !130           ; [#uses=1 type=i32] [debug line = 39:3]
-  %29 = srem i32 %28, 4800, !dbg !130             ; [#uses=1 type=i32] [debug line = 39:3]
-  store i32 %29, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !130 ; [debug line = 39:3]
-  %30 = load i32* %3, align 4, !dbg !132          ; [#uses=1 type=i32] [debug line = 40:3]
-  store i32 %30, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck, align 4, !dbg !132 ; [debug line = 40:3]
-  br label %31, !dbg !133                         ; [debug line = 41:2]
+; <label>:41                                      ; preds = %40, %37
+  %42 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !141 ; [#uses=1 type=i32] [debug line = 58:2]
+  %43 = icmp slt i32 %42, 4799, !dbg !141         ; [#uses=1 type=i1] [debug line = 58:2]
+  br i1 %43, label %44, label %47, !dbg !141      ; [debug line = 58:2]
 
-; <label>:31                                      ; preds = %24, %20
-  call void @llvm.dbg.declare(metadata !{float* %current_value}, metadata !134), !dbg !135 ; [debug line = 43:8] [debug variable = current_value]
-  %32 = load %"class.hls::stream"** %1, align 8, !dbg !136 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 45:2]
-  call void @_ZN3hls6streamIfErsERf(%"class.hls::stream"* %32, float* %current_value), !dbg !136 ; [debug line = 45:2]
-  %33 = load float* %4, align 4, !dbg !137        ; [#uses=1 type=float] [debug line = 47:2]
-  %34 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !137 ; [#uses=1 type=i32] [debug line = 47:2]
-  %35 = sext i32 %34 to i64, !dbg !137            ; [#uses=1 type=i64] [debug line = 47:2]
-  %36 = getelementptr inbounds [4800 x float]* @_ZZ4EchoRN3hls6streamIfEES2_ifE6buffer, i32 0, i64 %35, !dbg !137 ; [#uses=1 type=float*] [debug line = 47:2]
-  %37 = load float* %36, align 4, !dbg !137       ; [#uses=1 type=float] [debug line = 47:2]
-  %38 = fmul float %33, %37, !dbg !137            ; [#uses=1 type=float] [debug line = 47:2]
-  %39 = load float* %current_value, align 4, !dbg !137 ; [#uses=1 type=float] [debug line = 47:2]
-  %40 = fadd float %39, %38, !dbg !137            ; [#uses=1 type=float] [debug line = 47:2]
-  store float %40, float* %current_value, align 4, !dbg !137 ; [debug line = 47:2]
-  %41 = load float* %current_value, align 4, !dbg !138 ; [#uses=1 type=float] [debug line = 49:2]
-  %42 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !138 ; [#uses=1 type=i32] [debug line = 49:2]
-  %43 = sext i32 %42 to i64, !dbg !138            ; [#uses=1 type=i64] [debug line = 49:2]
-  %44 = getelementptr inbounds [4800 x float]* @_ZZ4EchoRN3hls6streamIfEES2_ifE6buffer, i32 0, i64 %43, !dbg !138 ; [#uses=1 type=float*] [debug line = 49:2]
-  store float %41, float* %44, align 4, !dbg !138 ; [debug line = 49:2]
-  %45 = load %"class.hls::stream"** %2, align 8, !dbg !139 ; [#uses=1 type=%"class.hls::stream"*] [debug line = 51:2]
-  call void @_ZN3hls6streamIfElsERKf(%"class.hls::stream"* %45, float* %current_value), !dbg !139 ; [debug line = 51:2]
-  %46 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !140 ; [#uses=1 type=i32] [debug line = 53:2]
-  %47 = icmp slt i32 %46, 4800, !dbg !140         ; [#uses=1 type=i1] [debug line = 53:2]
-  br i1 %47, label %48, label %51, !dbg !140      ; [debug line = 53:2]
+; <label>:44                                      ; preds = %41
+  %45 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !142 ; [#uses=1 type=i32] [debug line = 59:3]
+  %46 = add nsw i32 %45, 1, !dbg !142             ; [#uses=1 type=i32] [debug line = 59:3]
+  store i32 %46, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !142 ; [debug line = 59:3]
+  br label %48, !dbg !142                         ; [debug line = 59:3]
 
-; <label>:48                                      ; preds = %31
-  %49 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !141 ; [#uses=1 type=i32] [debug line = 54:3]
-  %50 = add nsw i32 %49, 1, !dbg !141             ; [#uses=1 type=i32] [debug line = 54:3]
-  store i32 %50, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !141 ; [debug line = 54:3]
-  br label %52, !dbg !141                         ; [debug line = 54:3]
+; <label>:47                                      ; preds = %41
+  store i32 0, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !143 ; [debug line = 61:3]
+  br label %48
 
-; <label>:51                                      ; preds = %31
-  store i32 0, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10readBuffer, align 4, !dbg !142 ; [debug line = 56:3]
-  br label %52
-
-; <label>:52                                      ; preds = %51, %48
-  %53 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !143 ; [#uses=1 type=i32] [debug line = 58:2]
-  %54 = icmp slt i32 %53, 4800, !dbg !143         ; [#uses=1 type=i1] [debug line = 58:2]
-  br i1 %54, label %55, label %58, !dbg !143      ; [debug line = 58:2]
-
-; <label>:55                                      ; preds = %52
-  %56 = load i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !144 ; [#uses=1 type=i32] [debug line = 59:3]
-  %57 = add nsw i32 %56, 1, !dbg !144             ; [#uses=1 type=i32] [debug line = 59:3]
-  store i32 %57, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !144 ; [debug line = 59:3]
-  br label %59, !dbg !144                         ; [debug line = 59:3]
-
-; <label>:58                                      ; preds = %52
-  store i32 0, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer, align 4, !dbg !145 ; [debug line = 61:3]
-  br label %59
-
-; <label>:59                                      ; preds = %58, %55
-  ret void, !dbg !146                             ; [debug line = 64:1]
+; <label>:48                                      ; preds = %47, %44
+  ret void, !dbg !144                             ; [debug line = 64:1]
 }
 
 ; [#uses=15]
@@ -155,13 +130,13 @@ define linkonce_odr void @_ZN3hls6streamIfErsERf(%"class.hls::stream"* %this, fl
   %1 = alloca %"class.hls::stream"*, align 8      ; [#uses=2 type=%"class.hls::stream"**]
   %2 = alloca float*, align 8                     ; [#uses=2 type=float**]
   store %"class.hls::stream"* %this, %"class.hls::stream"** %1, align 8
-  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !147), !dbg !149 ; [debug line = 101:48] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !145), !dbg !147 ; [debug line = 101:48] [debug variable = this]
   store float* %rdata, float** %2, align 8
-  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !150), !dbg !151 ; [debug line = 101:75] [debug variable = rdata]
+  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !148), !dbg !149 ; [debug line = 101:75] [debug variable = rdata]
   %3 = load %"class.hls::stream"** %1             ; [#uses=1 type=%"class.hls::stream"*]
-  %4 = load float** %2, align 8, !dbg !152        ; [#uses=1 type=float*] [debug line = 102:9]
-  call void @_ZN3hls6streamIfE4readERf(%"class.hls::stream"* %3, float* %4), !dbg !152 ; [debug line = 102:9]
-  ret void, !dbg !154                             ; [debug line = 103:5]
+  %4 = load float** %2, align 8, !dbg !150        ; [#uses=1 type=float*] [debug line = 102:9]
+  call void @_ZN3hls6streamIfE4readERf(%"class.hls::stream"* %3, float* %4), !dbg !150 ; [debug line = 102:9]
+  ret void, !dbg !152                             ; [debug line = 103:5]
 }
 
 ; [#uses=1]
@@ -169,13 +144,13 @@ define linkonce_odr void @_ZN3hls6streamIfElsERKf(%"class.hls::stream"* %this, f
   %1 = alloca %"class.hls::stream"*, align 8      ; [#uses=2 type=%"class.hls::stream"**]
   %2 = alloca float*, align 8                     ; [#uses=2 type=float**]
   store %"class.hls::stream"* %this, %"class.hls::stream"** %1, align 8
-  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !155), !dbg !156 ; [debug line = 105:48] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !153), !dbg !154 ; [debug line = 105:48] [debug variable = this]
   store float* %wdata, float** %2, align 8
-  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !157), !dbg !158 ; [debug line = 105:81] [debug variable = wdata]
+  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !155), !dbg !156 ; [debug line = 105:81] [debug variable = wdata]
   %3 = load %"class.hls::stream"** %1             ; [#uses=1 type=%"class.hls::stream"*]
-  %4 = load float** %2, align 8, !dbg !159        ; [#uses=1 type=float*] [debug line = 106:9]
-  call void @_ZN3hls6streamIfE5writeERKf(%"class.hls::stream"* %3, float* %4), !dbg !159 ; [debug line = 106:9]
-  ret void, !dbg !161                             ; [debug line = 107:5]
+  %4 = load float** %2, align 8, !dbg !157        ; [#uses=1 type=float*] [debug line = 106:9]
+  call void @_ZN3hls6streamIfE5writeERKf(%"class.hls::stream"* %3, float* %4), !dbg !157 ; [debug line = 106:9]
+  ret void, !dbg !159                             ; [debug line = 107:5]
 }
 
 ; [#uses=1]
@@ -184,17 +159,17 @@ define linkonce_odr void @_ZN3hls6streamIfE5writeERKf(%"class.hls::stream"* %thi
   %2 = alloca float*, align 8                     ; [#uses=2 type=float**]
   %tmp = alloca float, align 4                    ; [#uses=2 type=float*]
   store %"class.hls::stream"* %this, %"class.hls::stream"** %1, align 8
-  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !162), !dbg !163 ; [debug line = 144:48] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !160), !dbg !161 ; [debug line = 144:48] [debug variable = this]
   store float* %din, float** %2, align 8
-  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !164), !dbg !165 ; [debug line = 144:74] [debug variable = din]
+  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !162), !dbg !163 ; [debug line = 144:74] [debug variable = din]
   %3 = load %"class.hls::stream"** %1             ; [#uses=1 type=%"class.hls::stream"*]
-  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !166), !dbg !168 ; [debug line = 145:22] [debug variable = tmp]
-  %4 = load float** %2, align 8, !dbg !169        ; [#uses=1 type=float*] [debug line = 145:31]
-  %5 = load float* %4, align 4, !dbg !169         ; [#uses=1 type=float] [debug line = 145:31]
-  store float %5, float* %tmp, align 4, !dbg !169 ; [debug line = 145:31]
-  %6 = getelementptr inbounds %"class.hls::stream"* %3, i32 0, i32 0, !dbg !170 ; [#uses=1 type=float*] [debug line = 146:9]
-  call void (...)* @_ssdm_StreamWrite(float* %6, float* %tmp) nounwind, !dbg !170 ; [debug line = 146:9]
-  ret void, !dbg !171                             ; [debug line = 147:5]
+  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !164), !dbg !166 ; [debug line = 145:22] [debug variable = tmp]
+  %4 = load float** %2, align 8, !dbg !167        ; [#uses=1 type=float*] [debug line = 145:31]
+  %5 = load float* %4, align 4, !dbg !167         ; [#uses=1 type=float] [debug line = 145:31]
+  store float %5, float* %tmp, align 4, !dbg !167 ; [debug line = 145:31]
+  %6 = getelementptr inbounds %"class.hls::stream"* %3, i32 0, i32 0, !dbg !168 ; [#uses=1 type=float*] [debug line = 146:9]
+  call void (...)* @_ssdm_StreamWrite(float* %6, float* %tmp) nounwind, !dbg !168 ; [debug line = 146:9]
+  ret void, !dbg !169                             ; [debug line = 147:5]
 }
 
 ; [#uses=1]
@@ -206,17 +181,17 @@ define linkonce_odr void @_ZN3hls6streamIfE4readERf(%"class.hls::stream"* %this,
   %2 = alloca float*, align 8                     ; [#uses=2 type=float**]
   %tmp = alloca float, align 4                    ; [#uses=2 type=float*]
   store %"class.hls::stream"* %this, %"class.hls::stream"** %1, align 8
-  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !172), !dbg !173 ; [debug line = 123:48] [debug variable = this]
+  call void @llvm.dbg.declare(metadata !{%"class.hls::stream"** %1}, metadata !170), !dbg !171 ; [debug line = 123:48] [debug variable = this]
   store float* %dout, float** %2, align 8
-  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !174), !dbg !175 ; [debug line = 123:67] [debug variable = dout]
+  call void @llvm.dbg.declare(metadata !{float** %2}, metadata !172), !dbg !173 ; [debug line = 123:67] [debug variable = dout]
   %3 = load %"class.hls::stream"** %1             ; [#uses=1 type=%"class.hls::stream"*]
-  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !176), !dbg !178 ; [debug line = 124:22] [debug variable = tmp]
-  %4 = getelementptr inbounds %"class.hls::stream"* %3, i32 0, i32 0, !dbg !179 ; [#uses=1 type=float*] [debug line = 125:9]
-  call void (...)* @_ssdm_StreamRead(float* %4, float* %tmp) nounwind, !dbg !179 ; [debug line = 125:9]
-  %5 = load float* %tmp, align 4, !dbg !180       ; [#uses=1 type=float] [debug line = 126:9]
-  %6 = load float** %2, align 8, !dbg !180        ; [#uses=1 type=float*] [debug line = 126:9]
-  store float %5, float* %6, align 4, !dbg !180   ; [debug line = 126:9]
-  ret void, !dbg !181                             ; [debug line = 127:5]
+  call void @llvm.dbg.declare(metadata !{float* %tmp}, metadata !174), !dbg !176 ; [debug line = 124:22] [debug variable = tmp]
+  %4 = getelementptr inbounds %"class.hls::stream"* %3, i32 0, i32 0, !dbg !177 ; [#uses=1 type=float*] [debug line = 125:9]
+  call void (...)* @_ssdm_StreamRead(float* %4, float* %tmp) nounwind, !dbg !177 ; [debug line = 125:9]
+  %5 = load float* %tmp, align 4, !dbg !178       ; [#uses=1 type=float] [debug line = 126:9]
+  %6 = load float** %2, align 8, !dbg !178        ; [#uses=1 type=float*] [debug line = 126:9]
+  store float %5, float* %6, align 4, !dbg !178   ; [debug line = 126:9]
+  ret void, !dbg !179                             ; [debug line = 127:5]
 }
 
 ; [#uses=1]
@@ -226,19 +201,19 @@ declare void @_ssdm_StreamRead(...) nounwind
 !opencl.kernels = !{!92, !99, !105, !107, !110}
 !hls.encrypted.func = !{}
 
-!0 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/Echo.pragma.2.cpp", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !3, metadata !73} ; [ DW_TAG_compile_unit ]
+!0 = metadata !{i32 786449, i32 0, i32 4, metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo/Echo/solution1/.autopilot/db/Echo.pragma.2.cpp", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", metadata !"clang version 3.1 ", i1 true, i1 false, metadata !"", i32 0, metadata !1, metadata !1, metadata !3, metadata !73} ; [ DW_TAG_compile_unit ]
 !1 = metadata !{metadata !2}
 !2 = metadata !{i32 0}
 !3 = metadata !{metadata !4}
 !4 = metadata !{metadata !5, metadata !69, metadata !70, metadata !71, metadata !72}
 !5 = metadata !{i32 786478, i32 0, metadata !6, metadata !"Echo", metadata !"Echo", metadata !"_Z4EchoRN3hls6streamIfEES2_if", metadata !6, i32 14, metadata !7, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, void (%"class.hls::stream"*, %"class.hls::stream"*, i32, float)* @_Z4EchoRN3hls6streamIfEES2_if, null, null, metadata !20, i32 22} ; [ DW_TAG_subprogram ]
-!6 = metadata !{i32 786473, metadata !"src/Echo.cpp", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
+!6 = metadata !{i32 786473, metadata !"src/Echo.cpp", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !7 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !8, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
 !8 = metadata !{null, metadata !9, metadata !9, metadata !68, metadata !15}
 !9 = metadata !{i32 786448, null, null, null, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !10} ; [ DW_TAG_reference_type ]
 !10 = metadata !{i32 786434, metadata !11, metadata !"stream<float>", metadata !12, i32 79, i64 32, i64 32, i32 0, i32 0, null, metadata !13, i32 0, null, metadata !66} ; [ DW_TAG_class_type ]
 !11 = metadata !{i32 786489, null, metadata !"hls", metadata !12, i32 69} ; [ DW_TAG_namespace ]
-!12 = metadata !{i32 786473, metadata !"/home/austin/Desktop/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
+!12 = metadata !{i32 786473, metadata !"/opt/Xilinx_2017_2/Vivado_HLS/2017.2/common/technology/autopilot/hls_stream.h", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !13 = metadata !{metadata !14, metadata !16, metadata !22, metadata !28, metadata !33, metadata !36, metadata !40, metadata !45, metadata !50, metadata !51, metadata !52, metadata !55, metadata !58, metadata !59, metadata !62}
 !14 = metadata !{i32 786445, metadata !10, metadata !"V", metadata !12, i32 163, i64 32, i64 32, i64 0, i32 0, metadata !15} ; [ DW_TAG_member ]
 !15 = metadata !{i32 786468, null, metadata !"float", null, i32 0, i64 32, i64 32, i64 0, i32 0, i32 4} ; [ DW_TAG_base_type ]
@@ -309,15 +284,15 @@ declare void @_ssdm_StreamRead(...) nounwind
 !80 = metadata !{i32 786484, i32 0, metadata !5, metadata !"writeBuffer", metadata !"writeBuffer", metadata !"", metadata !6, i32 34, metadata !68, i32 1, i32 1, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE11writeBuffer} ; [ DW_TAG_variable ]
 !81 = metadata !{i32 786484, i32 0, metadata !5, metadata !"delaycheck", metadata !"delaycheck", metadata !"", metadata !6, i32 36, metadata !68, i32 1, i32 1, i32* @_ZZ4EchoRN3hls6streamIfEES2_ifE10delaycheck} ; [ DW_TAG_variable ]
 !82 = metadata !{i32 786484, i32 0, null, metadata !"_IO_2_1_stdin_", metadata !"_IO_2_1_stdin_", metadata !"", metadata !83, i32 315, metadata !84, i32 0, i32 1, %"class.hls::stream"* @_IO_2_1_stdin_} ; [ DW_TAG_variable ]
-!83 = metadata !{i32 786473, metadata !"/usr/include/libio.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
+!83 = metadata !{i32 786473, metadata !"/usr/include/libio.h", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !84 = metadata !{i32 786434, null, metadata !"_IO_FILE_plus", metadata !83, i32 313, i32 0, i32 0, i32 0, i32 4, null, null, i32 0} ; [ DW_TAG_class_type ]
 !85 = metadata !{i32 786484, i32 0, null, metadata !"_IO_2_1_stdout_", metadata !"_IO_2_1_stdout_", metadata !"", metadata !83, i32 316, metadata !84, i32 0, i32 1, %"class.hls::stream"* @_IO_2_1_stdout_} ; [ DW_TAG_variable ]
 !86 = metadata !{i32 786484, i32 0, null, metadata !"_IO_2_1_stderr_", metadata !"_IO_2_1_stderr_", metadata !"", metadata !83, i32 317, metadata !84, i32 0, i32 1, %"class.hls::stream"* @_IO_2_1_stderr_} ; [ DW_TAG_variable ]
 !87 = metadata !{i32 786484, i32 0, null, metadata !"sys_nerr", metadata !"sys_nerr", metadata !"", metadata !88, i32 26, metadata !68, i32 0, i32 1, i32* @sys_nerr} ; [ DW_TAG_variable ]
-!88 = metadata !{i32 786473, metadata !"/usr/include/x86_64-linux-gnu/bits/sys_errlist.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
+!88 = metadata !{i32 786473, metadata !"/usr/include/x86_64-linux-gnu/bits/sys_errlist.h", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !89 = metadata !{i32 786484, i32 0, null, metadata !"_sys_nerr", metadata !"_sys_nerr", metadata !"", metadata !88, i32 30, metadata !68, i32 0, i32 1, i32* @_sys_nerr} ; [ DW_TAG_variable ]
 !90 = metadata !{i32 786484, i32 0, null, metadata !"signgam", metadata !"signgam", metadata !"", metadata !91, i32 168, metadata !68, i32 0, i32 1, i32* @signgam} ; [ DW_TAG_variable ]
-!91 = metadata !{i32 786473, metadata !"/usr/include/math.h", metadata !"/home/austin/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
+!91 = metadata !{i32 786473, metadata !"/usr/include/math.h", metadata !"/home/hildeb47/proj/ECE1373_GhostSynth/modules/Echo", null} ; [ DW_TAG_file_type ]
 !92 = metadata !{void (%"class.hls::stream"*, %"class.hls::stream"*, i32, float)* @_Z4EchoRN3hls6streamIfEES2_if, metadata !93, metadata !94, metadata !95, metadata !96, metadata !97, metadata !98}
 !93 = metadata !{metadata !"kernel_arg_addr_space", i32 0, i32 0, i32 0, i32 0}
 !94 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none", metadata !"none", metadata !"none", metadata !"none"}
@@ -353,58 +328,56 @@ declare void @_ssdm_StreamRead(...) nounwind
 !124 = metadata !{i32 27, i32 1, metadata !121, null}
 !125 = metadata !{i32 29, i32 1, metadata !121, null}
 !126 = metadata !{i32 30, i32 1, metadata !121, null}
-!127 = metadata !{i32 33, i32 38, metadata !121, null}
-!128 = metadata !{i32 36, i32 31, metadata !121, null}
-!129 = metadata !{i32 38, i32 2, metadata !121, null}
-!130 = metadata !{i32 39, i32 3, metadata !131, null}
-!131 = metadata !{i32 786443, metadata !121, i32 38, i32 25, metadata !6, i32 1} ; [ DW_TAG_lexical_block ]
-!132 = metadata !{i32 40, i32 3, metadata !131, null}
-!133 = metadata !{i32 41, i32 2, metadata !131, null}
-!134 = metadata !{i32 786688, metadata !121, metadata !"current_value", metadata !6, i32 43, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!135 = metadata !{i32 43, i32 8, metadata !121, null}
-!136 = metadata !{i32 45, i32 2, metadata !121, null}
-!137 = metadata !{i32 47, i32 2, metadata !121, null}
-!138 = metadata !{i32 49, i32 2, metadata !121, null}
-!139 = metadata !{i32 51, i32 2, metadata !121, null}
-!140 = metadata !{i32 53, i32 2, metadata !121, null}
-!141 = metadata !{i32 54, i32 3, metadata !121, null}
-!142 = metadata !{i32 56, i32 3, metadata !121, null}
-!143 = metadata !{i32 58, i32 2, metadata !121, null}
-!144 = metadata !{i32 59, i32 3, metadata !121, null}
-!145 = metadata !{i32 61, i32 3, metadata !121, null}
-!146 = metadata !{i32 64, i32 1, metadata !121, null}
-!147 = metadata !{i32 786689, metadata !71, metadata !"this", metadata !12, i32 16777317, metadata !148, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!148 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
-!149 = metadata !{i32 101, i32 48, metadata !71, null}
-!150 = metadata !{i32 786689, metadata !71, metadata !"rdata", metadata !12, i32 33554533, metadata !39, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!151 = metadata !{i32 101, i32 75, metadata !71, null}
-!152 = metadata !{i32 102, i32 9, metadata !153, null}
-!153 = metadata !{i32 786443, metadata !71, i32 101, i32 82, metadata !12, i32 4} ; [ DW_TAG_lexical_block ]
-!154 = metadata !{i32 103, i32 5, metadata !153, null}
-!155 = metadata !{i32 786689, metadata !69, metadata !"this", metadata !12, i32 16777321, metadata !148, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!156 = metadata !{i32 105, i32 48, metadata !69, null}
-!157 = metadata !{i32 786689, metadata !69, metadata !"wdata", metadata !12, i32 33554537, metadata !43, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!158 = metadata !{i32 105, i32 81, metadata !69, null}
-!159 = metadata !{i32 106, i32 9, metadata !160, null}
-!160 = metadata !{i32 786443, metadata !69, i32 105, i32 88, metadata !12, i32 2} ; [ DW_TAG_lexical_block ]
-!161 = metadata !{i32 107, i32 5, metadata !160, null}
-!162 = metadata !{i32 786689, metadata !70, metadata !"this", metadata !12, i32 16777360, metadata !148, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!163 = metadata !{i32 144, i32 48, metadata !70, null}
-!164 = metadata !{i32 786689, metadata !70, metadata !"din", metadata !12, i32 33554576, metadata !43, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!165 = metadata !{i32 144, i32 74, metadata !70, null}
-!166 = metadata !{i32 786688, metadata !167, metadata !"tmp", metadata !12, i32 145, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!167 = metadata !{i32 786443, metadata !70, i32 144, i32 79, metadata !12, i32 3} ; [ DW_TAG_lexical_block ]
-!168 = metadata !{i32 145, i32 22, metadata !167, null}
-!169 = metadata !{i32 145, i32 31, metadata !167, null}
-!170 = metadata !{i32 146, i32 9, metadata !167, null}
-!171 = metadata !{i32 147, i32 5, metadata !167, null}
-!172 = metadata !{i32 786689, metadata !72, metadata !"this", metadata !12, i32 16777339, metadata !148, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
-!173 = metadata !{i32 123, i32 48, metadata !72, null}
-!174 = metadata !{i32 786689, metadata !72, metadata !"dout", metadata !12, i32 33554555, metadata !39, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
-!175 = metadata !{i32 123, i32 67, metadata !72, null}
-!176 = metadata !{i32 786688, metadata !177, metadata !"tmp", metadata !12, i32 124, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
-!177 = metadata !{i32 786443, metadata !72, i32 123, i32 73, metadata !12, i32 5} ; [ DW_TAG_lexical_block ]
-!178 = metadata !{i32 124, i32 22, metadata !177, null}
-!179 = metadata !{i32 125, i32 9, metadata !177, null}
-!180 = metadata !{i32 126, i32 9, metadata !177, null}
-!181 = metadata !{i32 127, i32 5, metadata !177, null}
+!127 = metadata !{i32 38, i32 2, metadata !121, null}
+!128 = metadata !{i32 39, i32 3, metadata !129, null}
+!129 = metadata !{i32 786443, metadata !121, i32 38, i32 25, metadata !6, i32 1} ; [ DW_TAG_lexical_block ]
+!130 = metadata !{i32 40, i32 3, metadata !129, null}
+!131 = metadata !{i32 41, i32 2, metadata !129, null}
+!132 = metadata !{i32 786688, metadata !121, metadata !"current_value", metadata !6, i32 43, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!133 = metadata !{i32 43, i32 8, metadata !121, null}
+!134 = metadata !{i32 45, i32 2, metadata !121, null}
+!135 = metadata !{i32 47, i32 2, metadata !121, null}
+!136 = metadata !{i32 49, i32 2, metadata !121, null}
+!137 = metadata !{i32 51, i32 2, metadata !121, null}
+!138 = metadata !{i32 53, i32 2, metadata !121, null}
+!139 = metadata !{i32 54, i32 3, metadata !121, null}
+!140 = metadata !{i32 56, i32 3, metadata !121, null}
+!141 = metadata !{i32 58, i32 2, metadata !121, null}
+!142 = metadata !{i32 59, i32 3, metadata !121, null}
+!143 = metadata !{i32 61, i32 3, metadata !121, null}
+!144 = metadata !{i32 64, i32 1, metadata !121, null}
+!145 = metadata !{i32 786689, metadata !71, metadata !"this", metadata !12, i32 16777317, metadata !146, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!146 = metadata !{i32 786447, null, metadata !"", null, i32 0, i64 64, i64 64, i64 0, i32 0, metadata !10} ; [ DW_TAG_pointer_type ]
+!147 = metadata !{i32 101, i32 48, metadata !71, null}
+!148 = metadata !{i32 786689, metadata !71, metadata !"rdata", metadata !12, i32 33554533, metadata !39, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!149 = metadata !{i32 101, i32 75, metadata !71, null}
+!150 = metadata !{i32 102, i32 9, metadata !151, null}
+!151 = metadata !{i32 786443, metadata !71, i32 101, i32 82, metadata !12, i32 4} ; [ DW_TAG_lexical_block ]
+!152 = metadata !{i32 103, i32 5, metadata !151, null}
+!153 = metadata !{i32 786689, metadata !69, metadata !"this", metadata !12, i32 16777321, metadata !146, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!154 = metadata !{i32 105, i32 48, metadata !69, null}
+!155 = metadata !{i32 786689, metadata !69, metadata !"wdata", metadata !12, i32 33554537, metadata !43, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!156 = metadata !{i32 105, i32 81, metadata !69, null}
+!157 = metadata !{i32 106, i32 9, metadata !158, null}
+!158 = metadata !{i32 786443, metadata !69, i32 105, i32 88, metadata !12, i32 2} ; [ DW_TAG_lexical_block ]
+!159 = metadata !{i32 107, i32 5, metadata !158, null}
+!160 = metadata !{i32 786689, metadata !70, metadata !"this", metadata !12, i32 16777360, metadata !146, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!161 = metadata !{i32 144, i32 48, metadata !70, null}
+!162 = metadata !{i32 786689, metadata !70, metadata !"din", metadata !12, i32 33554576, metadata !43, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!163 = metadata !{i32 144, i32 74, metadata !70, null}
+!164 = metadata !{i32 786688, metadata !165, metadata !"tmp", metadata !12, i32 145, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!165 = metadata !{i32 786443, metadata !70, i32 144, i32 79, metadata !12, i32 3} ; [ DW_TAG_lexical_block ]
+!166 = metadata !{i32 145, i32 22, metadata !165, null}
+!167 = metadata !{i32 145, i32 31, metadata !165, null}
+!168 = metadata !{i32 146, i32 9, metadata !165, null}
+!169 = metadata !{i32 147, i32 5, metadata !165, null}
+!170 = metadata !{i32 786689, metadata !72, metadata !"this", metadata !12, i32 16777339, metadata !146, i32 64, i32 0} ; [ DW_TAG_arg_variable ]
+!171 = metadata !{i32 123, i32 48, metadata !72, null}
+!172 = metadata !{i32 786689, metadata !72, metadata !"dout", metadata !12, i32 33554555, metadata !39, i32 0, i32 0} ; [ DW_TAG_arg_variable ]
+!173 = metadata !{i32 123, i32 67, metadata !72, null}
+!174 = metadata !{i32 786688, metadata !175, metadata !"tmp", metadata !12, i32 124, metadata !15, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
+!175 = metadata !{i32 786443, metadata !72, i32 123, i32 73, metadata !12, i32 5} ; [ DW_TAG_lexical_block ]
+!176 = metadata !{i32 124, i32 22, metadata !175, null}
+!177 = metadata !{i32 125, i32 9, metadata !175, null}
+!178 = metadata !{i32 126, i32 9, metadata !175, null}
+!179 = metadata !{i32 127, i32 5, metadata !175, null}

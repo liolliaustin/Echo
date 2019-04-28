@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'Echo'
 ================================================================
-* Date:           Sun Apr 28 11:54:17 2019
+* Date:           Sun Apr 28 21:31:51 2019
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        Echo
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   13|   47|   14|   48|   none  |
+    |   12|   47|   13|   48|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -71,10 +71,10 @@ IsGatedGlobalClock: 0
 
 * FSM state transitions: 
 1 --> 
-	2  / true
+	2  / (!tmp_1)
+	37  / (tmp_1)
 2 --> 
-	3  / (!tmp_4)
-	37  / (tmp_4)
+	3  / true
 3 --> 
 	4  / true
 4 --> 
@@ -168,409 +168,364 @@ IsGatedGlobalClock: 0
 48 --> 
 * FSM state operations: 
 
- <State 1>: 5.49ns
-ST_1: StgValue_49 (11)  [1/1] 0.00ns
+ <State 1>: 5.85ns
+ST_1: StgValue_49 (9)  [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_in_V), !map !20
 
-ST_1: StgValue_50 (12)  [1/1] 0.00ns
+ST_1: StgValue_50 (10)  [1/1] 0.00ns
 :1  call void (...)* @_ssdm_op_SpecBitsMap(float* %value_out_V), !map !26
 
-ST_1: StgValue_51 (13)  [1/1] 0.00ns
+ST_1: StgValue_51 (11)  [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %delay), !map !30
 
-ST_1: StgValue_52 (14)  [1/1] 0.00ns
+ST_1: StgValue_52 (12)  [1/1] 0.00ns
 :3  call void (...)* @_ssdm_op_SpecBitsMap(float %scale), !map !36
 
-ST_1: StgValue_53 (15)  [1/1] 0.00ns
+ST_1: StgValue_53 (13)  [1/1] 0.00ns
 :4  call void (...)* @_ssdm_op_SpecTopModule([5 x i8]* @Echo_str) nounwind
 
-ST_1: scale_read (16)  [1/1] 1.00ns
+ST_1: scale_read (14)  [1/1] 1.00ns
 :5  %scale_read = call float @_ssdm_op_Read.s_axilite.float(float %scale)
 
-ST_1: delay_read (17)  [1/1] 1.00ns
+ST_1: delay_read (15)  [1/1] 1.00ns
 :6  %delay_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %delay)
 
-ST_1: StgValue_56 (18)  [1/1] 0.00ns  loc: src/Echo.cpp:23
+ST_1: StgValue_56 (16)  [1/1] 0.00ns  loc: src/Echo.cpp:23
 :7  call void (...)* @_ssdm_op_SpecLatency(i32 12, i32 65535, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_57 (19)  [1/1] 0.00ns  loc: src/Echo.cpp:25
+ST_1: StgValue_57 (17)  [1/1] 0.00ns  loc: src/Echo.cpp:25
 :8  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_58 (20)  [1/1] 0.00ns  loc: src/Echo.cpp:26
+ST_1: StgValue_58 (18)  [1/1] 0.00ns  loc: src/Echo.cpp:26
 :9  call void (...)* @_ssdm_op_SpecInterface(i32 %delay, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_59 (21)  [1/1] 0.00ns  loc: src/Echo.cpp:27
+ST_1: StgValue_59 (19)  [1/1] 0.00ns  loc: src/Echo.cpp:27
 :10  call void (...)* @_ssdm_op_SpecInterface(float %scale, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_60 (22)  [1/1] 0.00ns  loc: src/Echo.cpp:29
+ST_1: StgValue_60 (20)  [1/1] 0.00ns  loc: src/Echo.cpp:29
 :11  call void (...)* @_ssdm_op_SpecInterface(float* %value_in_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: StgValue_61 (23)  [1/1] 0.00ns  loc: src/Echo.cpp:30
+ST_1: StgValue_61 (21)  [1/1] 0.00ns  loc: src/Echo.cpp:30
 :12  call void (...)* @_ssdm_op_SpecInterface(float* %value_out_V, [5 x i8]* @p_str4, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
-ST_1: guard_variable_for_E (24)  [1/1] 0.00ns
-:13  %guard_variable_for_E = load i1* @guard_variable_for_E, align 1
+ST_1: delaycheck_load (22)  [1/1] 0.00ns  loc: src/Echo.cpp:38
+:13  %delaycheck_load = load i32* @delaycheck, align 4
 
-ST_1: readBuffer_load (25)  [1/1] 0.00ns  loc: src/Echo.cpp:39
-:14  %readBuffer_load = load i32* @readBuffer, align 4
+ST_1: tmp_1 (23)  [1/1] 3.26ns  loc: src/Echo.cpp:38
+:14  %tmp_1 = icmp eq i32 %delaycheck_load, %delay_read
 
-ST_1: StgValue_64 (26)  [1/1] 1.59ns  loc: src/Echo.cpp:33
-:15  br i1 %guard_variable_for_E, label %._crit_edge, label %codeRepl1
+ST_1: readBuffer_load (24)  [1/1] 0.00ns  loc: src/Echo.cpp:39
+:15  %readBuffer_load = load i32* @readBuffer, align 4
 
-ST_1: tmp_2_i (28)  [1/1] 2.90ns  loc: src/Echo.cpp:33
-codeRepl1:0  %tmp_2_i = sub nsw i32 4800, %delay_read
+ST_1: writeBuffer_load (25)  [1/1] 0.00ns  loc: src/Echo.cpp:49
+:16  %writeBuffer_load = load i32* @writeBuffer, align 4
 
-ST_1: StgValue_66 (29)  [1/1] 0.00ns  loc: src/Echo.cpp:33
-codeRepl1:1  store i1 true, i1* @guard_variable_for_E, align 1
-
-ST_1: StgValue_67 (30)  [1/1] 1.59ns
-codeRepl1:2  br label %._crit_edge
+ST_1: StgValue_66 (26)  [1/1] 1.59ns  loc: src/Echo.cpp:38
+:17  br i1 %tmp_1, label %._crit_edge, label %1
 
 
  <State 2>: 8.51ns
-ST_2: readBuffer_loc (32)  [1/1] 0.00ns  loc: src/Echo.cpp:33
-._crit_edge:0  %readBuffer_loc = phi i32 [ %tmp_2_i, %codeRepl1 ], [ %readBuffer_load, %0 ]
+ST_2: tmp1 (28)  [1/1] 2.19ns  loc: src/Echo.cpp:39
+:0  %tmp1 = add i32 %delay_read, 4800
 
-ST_2: guard_variable_for_E_1 (33)  [1/1] 0.00ns
-._crit_edge:1  %guard_variable_for_E_1 = load i1* @guard_variable_for_E_1, align 1
+ST_2: tmp_3 (29)  [1/1] 2.19ns  loc: src/Echo.cpp:39
+:1  %tmp_3 = add i32 %tmp1, %readBuffer_load
 
-ST_2: delaycheck_load (34)  [1/1] 0.00ns  loc: src/Echo.cpp:38
-._crit_edge:2  %delaycheck_load = load i32* @delaycheck, align 4
+ST_2: tmp_4 (30)  [36/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
-ST_2: StgValue_71 (35)  [1/1] 1.59ns  loc: src/Echo.cpp:36
-._crit_edge:3  br i1 %guard_variable_for_E_1, label %._crit_edge6, label %codeRepl
-
-ST_2: StgValue_72 (37)  [1/1] 0.00ns  loc: src/Echo.cpp:36
-codeRepl:0  store i1 true, i1* @guard_variable_for_E_1, align 1
-
-ST_2: StgValue_73 (38)  [1/1] 1.59ns
-codeRepl:1  br label %._crit_edge6
-
-ST_2: delaycheck_flag (40)  [1/1] 0.00ns
-._crit_edge6:0  %delaycheck_flag = phi i1 [ true, %codeRepl ], [ false, %._crit_edge ]
-
-ST_2: delaycheck_loc (41)  [1/1] 0.00ns  loc: src/Echo.cpp:38 (grouped into LUT with out node tmp_4)
-._crit_edge6:1  %delaycheck_loc = phi i32 [ %delay_read, %codeRepl ], [ %delaycheck_load, %._crit_edge ]
-
-ST_2: tmp_4 (42)  [1/1] 3.26ns  loc: src/Echo.cpp:38 (out node of the LUT)
-._crit_edge6:2  %tmp_4 = icmp eq i32 %delaycheck_loc, %delay_read
-
-ST_2: writeBuffer_load (43)  [1/1] 0.00ns  loc: src/Echo.cpp:49
-._crit_edge6:3  %writeBuffer_load = load i32* @writeBuffer, align 4
-
-ST_2: StgValue_78 (44)  [1/1] 1.59ns  loc: src/Echo.cpp:38
-._crit_edge6:4  br i1 %tmp_4, label %._crit_edge7, label %1
-
-ST_2: tmp1 (46)  [1/1] 2.19ns  loc: src/Echo.cpp:39
-:0  %tmp1 = add i32 %readBuffer_loc, 4800
-
-ST_2: tmp_6 (47)  [1/1] 2.19ns  loc: src/Echo.cpp:39
-:1  %tmp_6 = add i32 %tmp1, %delay_read
-
-ST_2: tmp_7 (48)  [36/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_2: StgValue_70 (31)  [1/1] 0.00ns  loc: src/Echo.cpp:40
+:3  store i32 %delay_read, i32* @delaycheck, align 4
 
 
  <State 3>: 4.13ns
-ST_3: tmp_7 (48)  [35/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_3: tmp_4 (30)  [35/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 4>: 4.13ns
-ST_4: tmp_7 (48)  [34/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_4: tmp_4 (30)  [34/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 5>: 4.13ns
-ST_5: tmp_7 (48)  [33/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_5: tmp_4 (30)  [33/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 6>: 4.13ns
-ST_6: tmp_7 (48)  [32/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_6: tmp_4 (30)  [32/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 7>: 4.13ns
-ST_7: tmp_7 (48)  [31/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_7: tmp_4 (30)  [31/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 8>: 4.13ns
-ST_8: tmp_7 (48)  [30/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_8: tmp_4 (30)  [30/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 9>: 4.13ns
-ST_9: tmp_7 (48)  [29/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_9: tmp_4 (30)  [29/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 10>: 4.13ns
-ST_10: tmp_7 (48)  [28/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_10: tmp_4 (30)  [28/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 11>: 4.13ns
-ST_11: tmp_7 (48)  [27/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_11: tmp_4 (30)  [27/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 12>: 4.13ns
-ST_12: tmp_7 (48)  [26/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_12: tmp_4 (30)  [26/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 13>: 4.13ns
-ST_13: tmp_7 (48)  [25/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_13: tmp_4 (30)  [25/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 14>: 4.13ns
-ST_14: tmp_7 (48)  [24/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_14: tmp_4 (30)  [24/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 15>: 4.13ns
-ST_15: tmp_7 (48)  [23/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_15: tmp_4 (30)  [23/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 16>: 4.13ns
-ST_16: tmp_7 (48)  [22/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_16: tmp_4 (30)  [22/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 17>: 4.13ns
-ST_17: tmp_7 (48)  [21/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_17: tmp_4 (30)  [21/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 18>: 4.13ns
-ST_18: tmp_7 (48)  [20/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_18: tmp_4 (30)  [20/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 19>: 4.13ns
-ST_19: tmp_7 (48)  [19/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_19: tmp_4 (30)  [19/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 20>: 4.13ns
-ST_20: tmp_7 (48)  [18/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_20: tmp_4 (30)  [18/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 21>: 4.13ns
-ST_21: tmp_7 (48)  [17/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_21: tmp_4 (30)  [17/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 22>: 4.13ns
-ST_22: tmp_7 (48)  [16/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_22: tmp_4 (30)  [16/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 23>: 4.13ns
-ST_23: tmp_7 (48)  [15/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_23: tmp_4 (30)  [15/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 24>: 4.13ns
-ST_24: tmp_7 (48)  [14/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_24: tmp_4 (30)  [14/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 25>: 4.13ns
-ST_25: tmp_7 (48)  [13/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_25: tmp_4 (30)  [13/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 26>: 4.13ns
-ST_26: tmp_7 (48)  [12/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_26: tmp_4 (30)  [12/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 27>: 4.13ns
-ST_27: tmp_7 (48)  [11/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_27: tmp_4 (30)  [11/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 28>: 4.13ns
-ST_28: tmp_7 (48)  [10/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_28: tmp_4 (30)  [10/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 29>: 4.13ns
-ST_29: tmp_7 (48)  [9/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_29: tmp_4 (30)  [9/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 30>: 4.13ns
-ST_30: tmp_7 (48)  [8/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_30: tmp_4 (30)  [8/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 31>: 4.13ns
-ST_31: tmp_7 (48)  [7/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_31: tmp_4 (30)  [7/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 32>: 4.13ns
-ST_32: tmp_7 (48)  [6/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_32: tmp_4 (30)  [6/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 33>: 4.13ns
-ST_33: tmp_7 (48)  [5/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_33: tmp_4 (30)  [5/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 34>: 4.13ns
-ST_34: tmp_7 (48)  [4/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_34: tmp_4 (30)  [4/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 35>: 4.13ns
-ST_35: tmp_7 (48)  [3/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_35: tmp_4 (30)  [3/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 36>: 4.13ns
-ST_36: tmp_7 (48)  [2/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_36: tmp_4 (30)  [2/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
 
  <State 37>: 5.72ns
-ST_37: tmp_7 (48)  [1/36] 4.13ns  loc: src/Echo.cpp:39
-:2  %tmp_7 = srem i32 %tmp_6, 4800
+ST_37: tmp_4 (30)  [1/36] 4.13ns  loc: src/Echo.cpp:39
+:2  %tmp_4 = srem i32 %tmp_3, 4800
 
-ST_37: StgValue_117 (49)  [1/1] 1.59ns  loc: src/Echo.cpp:41
-:3  br label %._crit_edge7
+ST_37: StgValue_106 (32)  [1/1] 1.59ns  loc: src/Echo.cpp:41
+:4  br label %._crit_edge
 
-ST_37: tmp_9 (54)  [1/1] 0.00ns  loc: src/Echo.cpp:47
-._crit_edge7:3  %tmp_9 = sext i32 %readBuffer_loc to i64
+ST_37: tmp_6 (36)  [1/1] 0.00ns  loc: src/Echo.cpp:47
+._crit_edge:2  %tmp_6 = sext i32 %readBuffer_load to i64
 
-ST_37: buffer_addr (55)  [1/1] 0.00ns  loc: src/Echo.cpp:47
-._crit_edge7:4  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_9
+ST_37: buffer_addr (37)  [1/1] 0.00ns  loc: src/Echo.cpp:47
+._crit_edge:3  %buffer_addr = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_6
 
-ST_37: buffer_load (56)  [2/2] 3.25ns  loc: src/Echo.cpp:47
-._crit_edge7:5  %buffer_load = load float* %buffer_addr, align 4
+ST_37: buffer_load (38)  [2/2] 3.25ns  loc: src/Echo.cpp:47
+._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
+
+ST_37: tmp_s (45)  [1/1] 3.26ns  loc: src/Echo.cpp:53
+._crit_edge:11  %tmp_s = icmp slt i32 %readBuffer_load, 4799
+
+ST_37: tmp_9 (46)  [1/1] 2.90ns  loc: src/Echo.cpp:54
+._crit_edge:12  %tmp_9 = add nsw i32 %readBuffer_load, 1
+
+ST_37: storemerge (47)  [1/1] 2.07ns  loc: src/Echo.cpp:53
+._crit_edge:13  %storemerge = select i1 %tmp_s, i32 %tmp_9, i32 0
+
+ST_37: StgValue_113 (48)  [1/1] 0.00ns  loc: src/Echo.cpp:54
+._crit_edge:14  store i32 %storemerge, i32* @readBuffer, align 4
 
 
  <State 38>: 3.25ns
-ST_38: writeBuffer_loc (52)  [1/1] 0.00ns  loc: src/Echo.cpp:49
-._crit_edge7:1  %writeBuffer_loc = phi i32 [ %writeBuffer_load, %._crit_edge6 ], [ %tmp_7, %1 ]
+ST_38: writeBuffer_loc (34)  [1/1] 0.00ns  loc: src/Echo.cpp:49
+._crit_edge:0  %writeBuffer_loc = phi i32 [ %writeBuffer_load, %0 ], [ %tmp_4, %1 ]
 
-ST_38: buffer_load (56)  [1/2] 3.25ns  loc: src/Echo.cpp:47
-._crit_edge7:5  %buffer_load = load float* %buffer_addr, align 4
+ST_38: buffer_load (38)  [1/2] 3.25ns  loc: src/Echo.cpp:47
+._crit_edge:4  %buffer_load = load float* %buffer_addr, align 4
 
 
  <State 39>: 5.70ns
-ST_39: tmp_s (57)  [4/4] 5.70ns  loc: src/Echo.cpp:47
-._crit_edge7:6  %tmp_s = fmul float %buffer_load, %scale_read
+ST_39: tmp_7 (39)  [4/4] 5.70ns  loc: src/Echo.cpp:47
+._crit_edge:5  %tmp_7 = fmul float %buffer_load, %scale_read
 
 
  <State 40>: 5.70ns
-ST_40: tmp_s (57)  [3/4] 5.70ns  loc: src/Echo.cpp:47
-._crit_edge7:6  %tmp_s = fmul float %buffer_load, %scale_read
+ST_40: tmp_7 (39)  [3/4] 5.70ns  loc: src/Echo.cpp:47
+._crit_edge:5  %tmp_7 = fmul float %buffer_load, %scale_read
 
 
  <State 41>: 5.70ns
-ST_41: tmp_s (57)  [2/4] 5.70ns  loc: src/Echo.cpp:47
-._crit_edge7:6  %tmp_s = fmul float %buffer_load, %scale_read
+ST_41: tmp_7 (39)  [2/4] 5.70ns  loc: src/Echo.cpp:47
+._crit_edge:5  %tmp_7 = fmul float %buffer_load, %scale_read
 
 
  <State 42>: 5.70ns
-ST_42: tmp_10 (53)  [2/2] 0.00ns  loc: src/Echo.cpp:45
-._crit_edge7:2  %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+ST_42: tmp_10 (35)  [2/2] 0.00ns  loc: src/Echo.cpp:45
+._crit_edge:1  %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
 
-ST_42: tmp_s (57)  [1/4] 5.70ns  loc: src/Echo.cpp:47
-._crit_edge7:6  %tmp_s = fmul float %buffer_load, %scale_read
+ST_42: tmp_7 (39)  [1/4] 5.70ns  loc: src/Echo.cpp:47
+._crit_edge:5  %tmp_7 = fmul float %buffer_load, %scale_read
 
 
  <State 43>: 7.26ns
-ST_43: tmp_10 (53)  [1/2] 0.00ns  loc: src/Echo.cpp:45
-._crit_edge7:2  %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
+ST_43: tmp_10 (35)  [1/2] 0.00ns  loc: src/Echo.cpp:45
+._crit_edge:1  %tmp_10 = call float @_ssdm_op_Read.axis.volatile.floatP(float* %value_in_V)
 
-ST_43: current_value (58)  [5/5] 7.26ns  loc: src/Echo.cpp:47
-._crit_edge7:7  %current_value = fadd float %tmp_10, %tmp_s
+ST_43: current_value (40)  [5/5] 7.26ns  loc: src/Echo.cpp:47
+._crit_edge:6  %current_value = fadd float %tmp_10, %tmp_7
 
 
  <State 44>: 7.26ns
-ST_44: current_value (58)  [4/5] 7.26ns  loc: src/Echo.cpp:47
-._crit_edge7:7  %current_value = fadd float %tmp_10, %tmp_s
+ST_44: current_value (40)  [4/5] 7.26ns  loc: src/Echo.cpp:47
+._crit_edge:6  %current_value = fadd float %tmp_10, %tmp_7
 
 
  <State 45>: 7.26ns
-ST_45: current_value (58)  [3/5] 7.26ns  loc: src/Echo.cpp:47
-._crit_edge7:7  %current_value = fadd float %tmp_10, %tmp_s
+ST_45: current_value (40)  [3/5] 7.26ns  loc: src/Echo.cpp:47
+._crit_edge:6  %current_value = fadd float %tmp_10, %tmp_7
 
 
  <State 46>: 7.26ns
-ST_46: current_value (58)  [2/5] 7.26ns  loc: src/Echo.cpp:47
-._crit_edge7:7  %current_value = fadd float %tmp_10, %tmp_s
+ST_46: current_value (40)  [2/5] 7.26ns  loc: src/Echo.cpp:47
+._crit_edge:6  %current_value = fadd float %tmp_10, %tmp_7
 
 
  <State 47>: 7.26ns
-ST_47: current_value (58)  [1/5] 7.26ns  loc: src/Echo.cpp:47
-._crit_edge7:7  %current_value = fadd float %tmp_10, %tmp_s
+ST_47: current_value (40)  [1/5] 7.26ns  loc: src/Echo.cpp:47
+._crit_edge:6  %current_value = fadd float %tmp_10, %tmp_7
 
-ST_47: StgValue_134 (62)  [2/2] 0.00ns  loc: src/Echo.cpp:51
-._crit_edge7:11  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
+ST_47: StgValue_127 (44)  [2/2] 0.00ns  loc: src/Echo.cpp:51
+._crit_edge:10  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
 
 
  <State 48>: 5.33ns
-ST_48: delaycheck_flag_1 (51)  [1/1] 0.00ns
-._crit_edge7:0  %delaycheck_flag_1 = phi i1 [ %delaycheck_flag, %._crit_edge6 ], [ true, %1 ]
+ST_48: tmp_8 (41)  [1/1] 0.00ns  loc: src/Echo.cpp:49
+._crit_edge:7  %tmp_8 = sext i32 %writeBuffer_loc to i64
 
-ST_48: tmp_8 (59)  [1/1] 0.00ns  loc: src/Echo.cpp:49
-._crit_edge7:8  %tmp_8 = sext i32 %writeBuffer_loc to i64
+ST_48: buffer_addr_1 (42)  [1/1] 0.00ns  loc: src/Echo.cpp:49
+._crit_edge:8  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_8
 
-ST_48: buffer_addr_1 (60)  [1/1] 0.00ns  loc: src/Echo.cpp:49
-._crit_edge7:9  %buffer_addr_1 = getelementptr inbounds [4800 x float]* @buffer_r, i64 0, i64 %tmp_8
+ST_48: StgValue_130 (43)  [1/1] 3.25ns  loc: src/Echo.cpp:49
+._crit_edge:9  store float %current_value, float* %buffer_addr_1, align 4
 
-ST_48: StgValue_138 (61)  [1/1] 3.25ns  loc: src/Echo.cpp:49
-._crit_edge7:10  store float %current_value, float* %buffer_addr_1, align 4
+ST_48: StgValue_131 (44)  [1/2] 0.00ns  loc: src/Echo.cpp:51
+._crit_edge:10  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
 
-ST_48: StgValue_139 (62)  [1/2] 0.00ns  loc: src/Echo.cpp:51
-._crit_edge7:11  call void @_ssdm_op_Write.axis.volatile.floatP(float* %value_out_V, float %current_value)
+ST_48: tmp_2 (49)  [1/1] 3.26ns  loc: src/Echo.cpp:58
+._crit_edge:15  %tmp_2 = icmp slt i32 %writeBuffer_loc, 4799
 
-ST_48: tmp_3 (63)  [1/1] 3.26ns  loc: src/Echo.cpp:53
-._crit_edge7:12  %tmp_3 = icmp slt i32 %readBuffer_loc, 4800
+ST_48: tmp_5 (50)  [1/1] 2.90ns  loc: src/Echo.cpp:59
+._crit_edge:16  %tmp_5 = add nsw i32 %writeBuffer_loc, 1
 
-ST_48: tmp_5 (64)  [1/1] 2.90ns  loc: src/Echo.cpp:54
-._crit_edge7:13  %tmp_5 = add nsw i32 %readBuffer_loc, 1
+ST_48: storemerge5 (51)  [1/1] 2.07ns  loc: src/Echo.cpp:58
+._crit_edge:17  %storemerge5 = select i1 %tmp_2, i32 %tmp_5, i32 0
 
-ST_48: storemerge (65)  [1/1] 2.07ns  loc: src/Echo.cpp:53
-._crit_edge7:14  %storemerge = select i1 %tmp_3, i32 %tmp_5, i32 0
+ST_48: StgValue_135 (52)  [1/1] 0.00ns  loc: src/Echo.cpp:39
+._crit_edge:18  store i32 %storemerge5, i32* @writeBuffer, align 4
 
-ST_48: tmp_1 (66)  [1/1] 3.26ns  loc: src/Echo.cpp:58
-._crit_edge7:15  %tmp_1 = icmp slt i32 %writeBuffer_loc, 4800
-
-ST_48: tmp_2 (67)  [1/1] 2.90ns  loc: src/Echo.cpp:59
-._crit_edge7:16  %tmp_2 = add nsw i32 %writeBuffer_loc, 1
-
-ST_48: storemerge5 (68)  [1/1] 2.07ns  loc: src/Echo.cpp:58
-._crit_edge7:17  %storemerge5 = select i1 %tmp_1, i32 %tmp_2, i32 0
-
-ST_48: StgValue_146 (69)  [1/1] 0.00ns  loc: src/Echo.cpp:39
-._crit_edge7:18  store i32 %storemerge5, i32* @writeBuffer, align 4
-
-ST_48: StgValue_147 (70)  [1/1] 0.00ns
-._crit_edge7:19  br i1 %delaycheck_flag_1, label %mergeST2, label %._crit_edge7.new3
-
-ST_48: StgValue_148 (72)  [1/1] 0.00ns  loc: src/Echo.cpp:36
-mergeST2:0  store i32 %delay_read, i32* @delaycheck, align 4
-
-ST_48: StgValue_149 (73)  [1/1] 0.00ns
-mergeST2:1  br label %._crit_edge7.new3
-
-ST_48: StgValue_150 (75)  [1/1] 0.00ns  loc: src/Echo.cpp:33
-._crit_edge7.new3:0  store i32 %storemerge, i32* @readBuffer, align 4
-
-ST_48: StgValue_151 (76)  [1/1] 0.00ns  loc: src/Echo.cpp:64
-._crit_edge7.new3:1  ret void
+ST_48: StgValue_136 (53)  [1/1] 0.00ns  loc: src/Echo.cpp:64
+._crit_edge:19  ret void
 
 
 
@@ -579,205 +534,204 @@ ST_48: StgValue_151 (76)  [1/1] 0.00ns  loc: src/Echo.cpp:64
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 5.49ns
+ <State 1>: 5.85ns
 The critical path consists of the following:
-	s_axi read on port 'delay' [17]  (1 ns)
-	'sub' operation ('tmp_2_i', src/Echo.cpp:33) [28]  (2.9 ns)
-	multiplexor before 'phi' operation ('readBuffer_loc', src/Echo.cpp:33) with incoming values : ('readBuffer_load', src/Echo.cpp:39) ('tmp_2_i', src/Echo.cpp:33) [32]  (1.59 ns)
+	s_axi read on port 'delay' [15]  (1 ns)
+	'icmp' operation ('tmp_1', src/Echo.cpp:38) [23]  (3.26 ns)
+	multiplexor before 'phi' operation ('writeBuffer_loc', src/Echo.cpp:49) with incoming values : ('writeBuffer_load', src/Echo.cpp:49) ('tmp_4', src/Echo.cpp:39) [34]  (1.59 ns)
 
  <State 2>: 8.51ns
 The critical path consists of the following:
-	'phi' operation ('readBuffer_loc', src/Echo.cpp:33) with incoming values : ('readBuffer_load', src/Echo.cpp:39) ('tmp_2_i', src/Echo.cpp:33) [32]  (0 ns)
-	'add' operation ('tmp1', src/Echo.cpp:39) [46]  (2.19 ns)
-	'add' operation ('tmp_6', src/Echo.cpp:39) [47]  (2.19 ns)
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'add' operation ('tmp1', src/Echo.cpp:39) [28]  (2.19 ns)
+	'add' operation ('tmp_3', src/Echo.cpp:39) [29]  (2.19 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 3>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 4>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 5>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 6>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 7>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 8>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 9>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 10>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 11>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 12>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 13>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 14>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 15>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 16>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 17>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 18>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 19>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 20>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 21>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 22>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 23>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 24>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 25>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 26>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 27>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 28>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 29>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 30>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 31>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 32>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 33>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 34>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 35>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 36>: 4.13ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
 
  <State 37>: 5.72ns
 The critical path consists of the following:
-	'srem' operation ('tmp_7', src/Echo.cpp:39) [48]  (4.13 ns)
-	multiplexor before 'phi' operation ('delaycheck_flag_1') [51]  (1.59 ns)
+	'srem' operation ('tmp_4', src/Echo.cpp:39) [30]  (4.13 ns)
+	multiplexor before 'phi' operation ('writeBuffer_loc', src/Echo.cpp:49) with incoming values : ('writeBuffer_load', src/Echo.cpp:49) ('tmp_4', src/Echo.cpp:39) [34]  (1.59 ns)
 
  <State 38>: 3.25ns
 The critical path consists of the following:
-	'load' operation ('buffer_load', src/Echo.cpp:47) on array 'buffer_r' [56]  (3.25 ns)
+	'load' operation ('buffer_load', src/Echo.cpp:47) on array 'buffer_r' [38]  (3.25 ns)
 
  <State 39>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_s', src/Echo.cpp:47) [57]  (5.7 ns)
+	'fmul' operation ('tmp_7', src/Echo.cpp:47) [39]  (5.7 ns)
 
  <State 40>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_s', src/Echo.cpp:47) [57]  (5.7 ns)
+	'fmul' operation ('tmp_7', src/Echo.cpp:47) [39]  (5.7 ns)
 
  <State 41>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_s', src/Echo.cpp:47) [57]  (5.7 ns)
+	'fmul' operation ('tmp_7', src/Echo.cpp:47) [39]  (5.7 ns)
 
  <State 42>: 5.7ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_s', src/Echo.cpp:47) [57]  (5.7 ns)
+	'fmul' operation ('tmp_7', src/Echo.cpp:47) [39]  (5.7 ns)
 
  <State 43>: 7.26ns
 The critical path consists of the following:
-	axis read on port 'value_in_V' (src/Echo.cpp:45) [53]  (0 ns)
-	'fadd' operation ('current_value', src/Echo.cpp:47) [58]  (7.26 ns)
+	axis read on port 'value_in_V' (src/Echo.cpp:45) [35]  (0 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:47) [40]  (7.26 ns)
 
  <State 44>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:47) [58]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:47) [40]  (7.26 ns)
 
  <State 45>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:47) [58]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:47) [40]  (7.26 ns)
 
  <State 46>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:47) [58]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:47) [40]  (7.26 ns)
 
  <State 47>: 7.26ns
 The critical path consists of the following:
-	'fadd' operation ('current_value', src/Echo.cpp:47) [58]  (7.26 ns)
+	'fadd' operation ('current_value', src/Echo.cpp:47) [40]  (7.26 ns)
 
  <State 48>: 5.33ns
 The critical path consists of the following:
-	'icmp' operation ('tmp_3', src/Echo.cpp:53) [63]  (3.26 ns)
-	'select' operation ('storemerge', src/Echo.cpp:53) [65]  (2.07 ns)
+	'icmp' operation ('tmp_2', src/Echo.cpp:58) [49]  (3.26 ns)
+	'select' operation ('storemerge5', src/Echo.cpp:58) [51]  (2.07 ns)
 
 
 ============================================================
